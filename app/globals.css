@@ -376,3 +376,68 @@ h2 {
   opacity: 1;
   transform: translateY(0);
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.team-btn {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px;
+  position: relative;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.team-btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-right: 0.1px solid white;
+  border-bottom: 0.1px solid white;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.team-btn:hover::after {
+  width: 100%;
+  height: 100%;
+}
+
+.team-btn:hover {
+  color: #4af6c3;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content { /* Changed selector to target parent hover */
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.team-btn:hover{
+  color: #ddd; /* Change to your desired hover color */
+}

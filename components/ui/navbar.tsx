@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import TeamsDropdown from "@/app/teamsDropdown";
 
 export default function Navbar() {
   return (
@@ -13,14 +14,14 @@ export default function Navbar() {
         </svg>
         <Link href="/" className="logoText">Quant Society</Link>
       </div>
-      <nav className="nav">
+      <nav className="nav flex space-x-6 text-white">
         <Link href="/" className="nav-link">ABOUT</Link>
-        <Link href="/team" className="nav-link">TEAM</Link>
+        <TeamsDropdown />
         <Link href="/articles" className="nav-link">PROJECTS</Link>
         <Link href="/events" className="nav-link">EVENTS</Link>
         <Link href="/join-us" className="nav-link join-us">JOIN US</Link>
       </nav>
     </header>
-  );
+  );
 }
 
