@@ -512,6 +512,34 @@ h2.about {
   margin-top: 2.5rem;
 }
 
+.website-pod-page {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.website-pod-title {
+  font-size: 2.25rem; 
+  font-weight: 700;   
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.portfolio-page {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.portfolio-title {
+  font-size: 2.25rem; 
+  font-weight: 700;   
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 body {
   font-family: 'Oswald', sans-serif;
 }
