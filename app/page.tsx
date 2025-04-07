@@ -130,7 +130,7 @@ export default function About() {
       <section className="video-section">
         <h2>STILL CONTEMPLATING WHETHER OR NOT TO JOIN?</h2>
         <p>Let this video explain exactly why you should join...</p>
-        <img src="money-video-thumbnail.jpg" alt="Money Video" />
+        
       </section>
     </div>
   );
