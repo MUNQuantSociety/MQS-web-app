@@ -8,15 +8,15 @@ export default function TeamsDropdown() {
       <button className="team-btn">
         TEAM
       </button>
-      <div className="dropdown-content"> {/* Changed from dropdown-menu to dropdown-content */}
+      <div className="dropdown-content"> 
         <Link href="/team/executives" className="dropdown-item">
           Executives
         </Link>
         <Link href="/team/website-pod" className="dropdown-item">
           Website Pod
         </Link>
-        <Link href="/team/asset-allocation" className="dropdown-item">
-          Asset & Allocation Data
+        <Link href="/team/dataInfra" className="dropdown-item">
+          Data & Infrastructure
         </Link>
         <Link href="/team/portfolio" className="dropdown-item">
           Portfolio

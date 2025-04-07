@@ -417,27 +417,105 @@ h2 {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: black;
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown:hover .dropdown-content { /* Changed selector to target parent hover */
+.dropdown:hover .dropdown-content { 
   display: block;
 }
 
 .dropdown-content a {
-  color: black;
+  color: whitesmoke;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #115842;
+}
+
+.show {
+  display: block;
 }
 
 .team-btn:hover{
-  color: #ddd; /* Change to your desired hover color */
+  color: #4af6c3; 
+}
+
+
+.data-infra-page {
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  padding: 3rem 1rem;
+}
+
+.data-infra-title {
+  font-size: 2.25rem; 
+  font-weight: 700;   
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.profile-container {
+  max-width: 72rem; 
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #111111;
+  border: 1px solid #14b8a6; 
+  border-radius: 1.5rem; 
+  padding: 1.5rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.profile-image {
+  width: 15rem; 
+  height: 20rem; 
+  background-color: #d1d5db; 
+  border-radius: 1rem; 
+  flex-shrink: 0;
+}
+
+.profile-info {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.profile-name {
+  font-size: 1.875rem; 
+  font-weight: 700;
+}
+
+.profile-role {
+  color: #2dd4bf; 
+  font-size: 1.125rem; 
+  font-weight: 600;
+}
+
+.profile-bio {
+  max-width: 36rem;
+  color: white;
+}
+
+.profile-link {
+  color: #60a5fa; 
+  text-decoration: underline;
+}
+
+.profile-container--spaced {
+  margin-top: 2.5rem;
 }
