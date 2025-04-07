@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  background-color: rgb(28, 23, 25);
+  color: white;
+}
+
+.title {
+  padding: 5rem 1rem 2rem;
+  text-align: center;
+  font-size: 4rem;
+  color: rgb(214, 210, 211);
+  margin: 100px;
+}
+
+.teamsPage {
+  padding: 1rem;
+}
+
+.executiveSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .executiveSection {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.memberGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+/* Shared Card Styles */
+.profileCard {
+  border: 2px solid rgb(78, 124, 99);
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileCard:hover {
+  transform: scale(1.05);
+  background-color: rgba(52, 52, 52, 0.543);
+}
+
+.profileImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.profileCard.hovered .profileImage {
+  transform: scale(1.05);
+}
+
+.textContainer {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textContainer h2 {
+  margin: 0.5rem 0 0;
+  font-size: 2rem;
+}
+
+.role {
+  font-size: 1.25rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.textContainer p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Executive Card Size */
+.profileCard.executive {
+  width: 100%;
+  max-width: 500px;
+  padding: 2rem;
+}
+
+/* Member Card Size */
+.profileCard.member {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .profileImage {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .textContainer h2 {
+    font-size: 1.5rem;
+  }
+
+  .profileCard.member {
+    max-width: 90%;
+  }
+}
