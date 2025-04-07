@@ -10,8 +10,6 @@ interface ToggleItemProps {
   setOpen: (title: SectionTitle) => void;
 }
 
-
-
 const initialContent: {
   [key in SectionTitle]: React.ReactNode;
 } = {
@@ -60,13 +58,21 @@ export default function About() {
     "WHO WE ARE": null,
     "WHERE TO FIND US": null,
   });
+  const [isScrolled, setIsScrolled] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-   
     setSectionContent(prevContent => ({
       ...prevContent,
       "ABOUT US": initialContent["ABOUT US"],
     }));
+
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const setContent = (title: SectionTitle, content: React.ReactNode | null) => {
@@ -88,12 +94,44 @@ export default function About() {
 
   return (
     <div className="page-content">
-      <section className="hero">
-        <h1>SOMETHING COOL,</h1>
-        <p>A TAG LINE FOR THE CLUB</p>
+
+      <section className="relative h-screen w-full">
+
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src="/video/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+
+        <div className={`absolute inset-0 bg-black transition-opacity duration-500 z-10 ${
+          isScrolled ? 'opacity-50' : 'opacity-20'
+        }`} />
+
+
+        <div className={`relative z-20 h-full flex flex-col justify-center items-center text-white transition-all duration-700 ${
+          isScrolled ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`}>
+          <h1 className="text-6xl md:text-8xl font-bold mb-4">SOMETHING COOL,</h1>
+          <p className="text-2xl md:text-3xl">A TAG LINE FOR THE CLUB</p>
+        </div>
+
+
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </section>
 
-      <section className="content flex">
+
+      <section className="content flex mt-20"> 
         <div className="toggle-list w-1/4 pr-4">
           <ToggleItem
             title="ABOUT US"
@@ -127,12 +165,11 @@ export default function About() {
         </div>
       </section>
 
-      <section className="video-section">
+      <section className="video-section py-20">
         <h2>STILL CONTEMPLATING WHETHER OR NOT TO JOIN?</h2>
         <p>Let this video explain exactly why you should join...</p>
-        
+        <img src="money-video-thumbnail.jpg" alt="Money Video" />
       </section>
     </div>
   );
 }
-
