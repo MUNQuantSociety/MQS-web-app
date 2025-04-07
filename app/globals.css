@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -169,7 +174,6 @@ code {
 }
 
 
-/* --- Custom Navbar Styles --- */
 
 body {
   margin: 0;
@@ -178,27 +182,19 @@ body {
   background-color: #222;
 }
 
-.header {
-  background-color: #142324;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  flex-wrap: wrap;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  transition: transform 0.2s;
-  position: relative;
-  width: 30px;
-  height: 54px;
-  margin-right: 10px;
-  line-height: normal;
+  gap: 10px;
+  z-index: 1001; 
 }
 
 .logoContainer:hover {
@@ -210,9 +206,8 @@ body {
 }
 
 .logoImage {
-  width: 40px; 
+  width: 40px;
   height: 40px;
-  margin-right: 10px;
   border-radius: 50%;
 }
 
@@ -225,14 +220,14 @@ body {
 }
 
 .logoText {
-  font-size: 1.5em;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 1px;
-  color: #4af6c3;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-}
+    font-size: 1.5em;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+    color: #4af6c3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+  }
 
 .logoText:hover {
   color: #6d9ee8;
@@ -240,8 +235,7 @@ body {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 1.5rem;
 }
 
 .nav-link {
@@ -291,12 +285,10 @@ body {
 }
 
 .page-content {
-  padding: 20px;
-  text-align: center;
-  margin-top: 20px;
+  padding-top: 80px; 
 }
 
-h2 {
+h2.about {
   text-align: center;
   margin-top: 50px;
   color:#4af6c3;
@@ -518,4 +510,8 @@ h2 {
 
 .profile-container--spaced {
   margin-top: 2.5rem;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
 }
