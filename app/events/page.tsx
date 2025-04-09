@@ -56,7 +56,7 @@ const upcomingEvents = [
 ];
 
 export default function EventsPage() {
-  const [filteredEvents, setFilteredEvents] = useState(events);
+  const [filteredEvents] = useState(events);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -89,7 +89,8 @@ export default function EventsPage() {
 
       <main className="main">
         <div className="container">
-          <section className="grid">
+        <div className="events-page">
+        <section className="grid">
             {filteredEvents.map((event, idx) => (
               <div key={idx} className="card">
                 <div className="image">
@@ -105,6 +106,8 @@ export default function EventsPage() {
               </div>
             ))}
           </section>
+        </div>
+          
         </div>
 
         <section className="upcomingSection">
