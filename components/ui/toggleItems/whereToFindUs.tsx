@@ -17,8 +17,7 @@ function WhereToFindUsToggleItem({ isOpen, setOpen }: ToggleItemProps) {
 
   return (
     <div className="toggle-item flex items-center mb-2 border rounded h-20 overflow-hidden">
-      <div
-        className="toggle-button-container w-full h-full p-4 cursor-pointer flex items-center justify-between"
+      <div className="toggle-button-container w-full h-full p-4 cursor-pointer flex items-center justify-between"
         onClick={toggleOpen}
       >
         <span className="truncate">WHERE TO FIND US</span>
