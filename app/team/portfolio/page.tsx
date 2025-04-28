@@ -1,55 +1,95 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import "./styles.css";
+import { link } from "fs";
 
-const PortfolioPage: React.FC = () => {
+const portfolioMember = [
+  {
+    name: "Name",
+    role: "Managing Director",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Name",
+    role: "Director",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+];
+
+
+export default function EventsPage() {
+  const [filteredEvents] = useState(portfolioMember);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      cards.forEach((card) => observer.unobserve(card));
+    };
+  }, []);
+
   return (
-    <div className="portfolio-page">
-      <h1 className="portfolio-title">MEET THE TEAM: Portfolio</h1>
-
-      
-      <div className="profile-container">
-        <div className="profile-image" />
-
-        <div className="profile-info">
-          <h2 className="profile-name">NAME</h2>
-          <p className="profile-role">Managing Director</p>
-          <p className="profile-bio">
-            Short bio or blurb of what The person wants to say goes here. Something brief and meaningful.
-          </p>
-          <a
-            href="#"
-            className="profile-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+    <>
+      <div className="hero">
+        <div className="overlay"></div>
+        <div className="heroText">
+          <h1>Meet the Portfolio Team.</h1>
         </div>
       </div>
 
-      
-      <div className="profile-container profile-container--spaced">
-        <div className="profile-image" />
+      <main className="main">
+        <div className="container">
+        <div className="events-page">
+        <section className="grid">
+            {filteredEvents.map((event, idx) => (
+              <div key={idx} className="card">
+                <div className="image">
+                  <img src={event.image} alt={event.name} />
+                </div>
+                <div className="details">
+                  <div className="center">
+                    <h1>{event.name}</h1>
+                    <p><strong>{event.role}</strong></p>
+                    <p>{event.bio}</p>
+                    <a
+                    href={event.linkedin}
+                    className="profile-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
 
-        <div className="profile-info">
-          <h2 className="profile-name">NAME</h2>
-          <p className="profile-role">Director</p>
-          <p className="profile-bio">
-            Short bio or blurb of what the person wants to say goes here. Something brief and meaningful.
-          </p>
-          <a
-            href="#"
-            className="profile-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </section>
         </div>
-      </div>
-    </div>
+          
+        </div>
+
+
+      </main>
+    </>
   );
-};
-
-export default PortfolioPage;
+}
