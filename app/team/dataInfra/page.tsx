@@ -1,55 +1,95 @@
-'use client';
+"use client";
 
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import "./styles.css";
+import { link } from "fs";
 
-const DataInfraPage: React.FC = () => {
+const dataInfraMember = [
+  {
+    name: "Kelvin Fumo",
+    role: "Managing Director",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+    bio:
+      "Short blurb of what kelvin wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Ian Anobis",
+    role: "Director",
+    linkedin: "#",
+    bio:
+      "Short blurb of what ian wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+];
+
+
+export default function EventsPage() {
+  const [filteredEvents] = useState(dataInfraMember);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      cards.forEach((card) => observer.unobserve(card));
+    };
+  }, []);
+
   return (
-    <div className="data-infra-page">
-      <h1 className="data-infra-title">MEET THE TEAM: DATA & INFRASTRUCTURE</h1>
-
-      
-      <div className="profile-container">
-        <div className="profile-image" />
-
-        <div className="profile-info">
-          <h2 className="profile-name">Kelvin Fumo</h2>
-          <p className="profile-role">Managing Director</p>
-          <p className="profile-bio">
-            Short bio or blurb of what Kelvin wants to say goes here. Something brief and meaningful.
-          </p>
-          <a
-            href="https://www.linkedin.com/in/kelvinfumo/"
-            className="profile-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+    <>
+      <div className="hero">
+        <div className="overlay"></div>
+        <div className="heroText">
+          <h1>Meet the Data & Infrastucture Team.</h1>
         </div>
       </div>
 
-      
-      <div className="profile-container profile-container--spaced">
-        <div className="profile-image" />
+      <main className="main">
+        <div className="container">
+        <div className="events-page">
+        <section className="grid">
+            {filteredEvents.map((event, idx) => (
+              <div key={idx} className="card">
+                <div className="image">
+                  <img src={event.image} alt={event.name} />
+                </div>
+                <div className="details">
+                  <div className="center">
+                    <h1>{event.name}</h1>
+                    <p><strong>{event.role}</strong></p>
+                    <p>{event.bio}</p>
+                    <a
+                    href={event.linkedin}
+                    className="profile-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
 
-        <div className="profile-info">
-          <h2 className="profile-name">Ian Anobis</h2>
-          <p className="profile-role">Director</p>
-          <p className="profile-bio">
-            Short bio or blurb of what Ian wants to say goes here. Something brief and meaningful.
-          </p>
-          <a
-            href="#"
-            className="profile-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn
-          </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </section>
         </div>
-      </div>
-    </div>
+          
+        </div>
+
+
+      </main>
+    </>
   );
-};
-
-export default DataInfraPage;
+}

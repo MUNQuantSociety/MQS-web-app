@@ -1,0 +1,202 @@
+.main {
+    min-height: 100vh;             
+    background-color: #000000c6;     
+    color: #e0e0e0;                
+}
+
+.events-page .container {
+    max-width: 75%;
+    margin: 0 auto;
+    padding: 0 20px; 
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 37%,
+        rgba(0, 0, 0, 0.65) 100%
+      ),
+      url("/MQF photos/first.jpg") no-repeat center center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.heroText {
+    position: relative;
+    z-index: 2;
+    color: rgb(239, 239, 239);
+    animation: fadeInUp 1.2s ease-out both;
+    padding: 0 1rem;
+    
+}
+.hero:hover {
+    transform: scale(1.05); 
+    transition: all 0.5s ease-in-out;  
+}
+
+.heroText h1 {
+    font-size: clamp(4rem, 6vw, 5rem);
+    margin-bottom: 2rem;
+}
+
+.heroText p {
+    font-size: clamp(1.5rem, 2.5vw, 1.5rem);
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.grid {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+}
+
+.card {
+    position: relative;
+    width: 650px;
+    height: 650px; 
+    margin: 10px;
+    background-color: #0b0a0a;
+    overflow: hidden;
+    border-radius: 0.5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    transform: perspective(2000px);
+    display: flex;
+    justify-items: center;
+    align-items: center;}
+
+.card .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    object-fit: cover;
+}
+
+.card .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 1s, opacity 0.5s;
+}
+
+.card:hover .image img {
+    opacity: 0.9;
+    transform: translateX(5%);
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background: #000000;
+    transform-origin: left;
+    transform: perspective(5000px) rotateY(-180deg);
+    transition: transform 0.2s ease-in-out;
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.card:hover .details {
+    transform: perspective(2000px) rotateY(0deg);
+}
+
+.card .details .center {
+    padding: 0px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #000000;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.card .details .center h1 {
+    font-size: 35px;
+    color: #fdfdfd;
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card .details .center p {
+    color: #fefefe;
+    margin: 40px;
+    font-size: 18px;
+}
+
+.card .details .center ul {
+    display: table;
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card .details .center ul li {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.card .details .center ul li a {
+    display: block;
+    background: #262626;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    transition: background 0.2s ease;
+}
+
+.card .details .center ul li a:hover {
+    background: #614c4c;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* 1 card per row */
+    }
+}
+

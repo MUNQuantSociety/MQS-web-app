@@ -2,99 +2,94 @@
 
 import React, { useState, useEffect } from "react";
 import "./style.css";
+import { link } from "fs";
 
-interface ProfileCardProps {
-  image: string;
-  name: string;
-  role: string;
-  message: string;
-  variant?: "executive" | "member";
-}
+const executiveMember = [
+  {
+    name: "Name",
+    role: "Managing Director",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Name",
+    role: "Director",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/MQF photos/stickGuy.png"
+  },
+];
 
-function ProfileCard({
-  image,
-  name,
-  role,
-  message,
-  variant = "executive",
-}: ProfileCardProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [mounted, setMounted] = useState(false);
+
+export default function EventsPage() {
+  const [filteredEvents] = useState(executiveMember);
 
   useEffect(() => {
-    setMounted(true);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => observer.observe(card));
+
+    return () => {
+      cards.forEach((card) => observer.unobserve(card));
+    };
   }, []);
 
-  if (!mounted) return null;
-
   return (
-    <div
-      className={`profileCard ${variant} ${isHovered ? "hovered" : ""}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <img src={image} alt={name} className="profileImage" />
-      <div className="textContainer">
-        <h2>{name}</h2>
-        <h3 className="role">{role}</h3>
-        <p>{message}</p>
-      </div>
-    </div>
-  );
-}
-
-export default function TeamsPage() {
-  return (
-    <div className="teamsPage">
-      <h1 className="title">MEET THE EXECUTIVES!</h1>
-
-      <div className="executiveSection">
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="JOSH KATTAPURAM"
-          role="PRESIDENT"
-          message="blurbbbbbbbbbbbbbbbbbbbb"
-          variant="executive"
-        />
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="Someone Else?"
-          role="VICE PRESIDENT"
-          message="blurbbbbbbbbbbbbbbbbbbbb"
-          variant="executive"
-        />
+    <>
+      <div className="hero">
+        <div className="overlay"></div>
+        <div className="heroText">
+          <h1>Meet the Executives.</h1>
+        </div>
       </div>
 
-      <div className="memberGrid">
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="Member One"
-          role="sumnBig"
-          message="message"
-          variant="member"
-        />
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="Member Two"
-          role="sumnBig"
-          message="message"
-          variant="member"
-        />
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="Member Three"
-          role="sumnBig"
-          message="message"
-          variant="member"
-        />
-        <ProfileCard
-          image="/MQF photos/stickGuy.png"
-          name="Member Four"
-          role="sumnBig"
-          message="message"
-          variant="member"
-        />
-      </div>
-    </div>
+      <main className="main">
+        <div className="container">
+        <div className="events-page">
+        <section className="grid">
+            {filteredEvents.map((event, idx) => (
+              <div key={idx} className="card">
+                <div className="image">
+                  <img src={event.image} alt={event.name} />
+                </div>
+                <div className="details">
+                  <div className="center">
+                    <h1>{event.name}</h1>
+                    <p><strong>{event.role}</strong></p>
+                    <p>{event.bio}</p>
+                    <a
+                    href={event.linkedin}
+                    className="profile-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >
+                      LinkedIn
+                    </a>
+
+                  </div>
+                </div>
+              </div>
+            ))}
+          </section>
+        </div>
+          
+        </div>
+
+
+      </main>
+    </>
   );
 }
