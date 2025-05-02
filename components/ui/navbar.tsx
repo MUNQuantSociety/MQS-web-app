@@ -41,7 +41,7 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center relative">
         <div className="logoContainer">
           <img
-            src="/logo/mqs_logo.png"
+            src="/Quant.png"
             alt="Quant Society Logo"
             className="logoImage"
           />
@@ -60,26 +60,29 @@ export default function Navbar() {
         
         <nav
           ref={navRef}
-          className={`nav md:flex space-x-6 text-white ${isMobileMenuOpen ? 'mobile-nav-open' : ''}`}
+          className={`nav hidden md:flex space-x-6 text-white`}
         >
-          <Link href="/about" className="nav-link" onClick={() => handleNavLinkClick('/about')}>ABOUT</Link>
-          <TeamsDropdown onCloseMenu={toggleMobileMenu} /> {/* Pass toggle function to Dropdown */}
-          <Link href="/articles" className="nav-link" onClick={() => handleNavLinkClick('/articles')}>PROJECTS</Link>
-          <Link href="/events" className="nav-link" onClick={() => handleNavLinkClick('/events')}>EVENTS</Link>
-          <Link href="/join-us" className="nav-link join-us" onClick={() => handleNavLinkClick('/join-us')}>JOIN US</Link>
+          <Link href="/about" className="nav-link">ABOUT</Link>
+          <TeamsDropdown onCloseMenu={toggleMobileMenu} />
+          <Link href="/articles" className="nav-link">PROJECTS</Link>
+          <Link href="/events" className="nav-link">EVENTS</Link>
+          <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeU9YmdLQMVuYfgZbiylYyQ80p9CHrWKPm2oo8xrhOGJNCJQA/viewform" className="nav-link join-us" target="_blank" rel="noopener noreferrer"
+          >JOIN US</Link>
         </nav>
+
       </div>
 
       {/* open hamburger */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu-content bg-black/80 backdrop-blur-md absolute top-full left-0 w-full py-4 flex flex-col items-center gap-4">
+        <div className="mobile-menu-content md:hidden bg-black/80 backdrop-blur-md absolute top-full left-0 w-full py-4 flex flex-col items-center gap-4">
           <Link href="/about" className="nav-link block" onClick={() => handleNavLinkClick('/about')}>ABOUT</Link>
-          <TeamsDropdown onCloseMenu={toggleMobileMenu} /> {/* Pass toggle function to Dropdown */}
+          <TeamsDropdown onCloseMenu={toggleMobileMenu} />
           <Link href="/articles" className="nav-link block" onClick={() => handleNavLinkClick('/articles')}>PROJECTS</Link>
           <Link href="/events" className="nav-link block" onClick={() => handleNavLinkClick('/events')}>EVENTS</Link>
           <Link href="/join-us" className="nav-link join-us block" onClick={() => handleNavLinkClick('/join-us')}>JOIN US</Link>
         </div>
       )}
+
     </header>
   );
 }

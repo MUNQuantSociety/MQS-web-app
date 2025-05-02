@@ -1,13 +1,14 @@
-.main {
+.main events-page {
     min-height: 100vh;             
     background-color: #111111c6;     
     color: #e0e0e0;                
 }
-.container {
+.events .container {
     max-width: 75%;
     margin: 0 auto;
-    padding: 0 20px; 
+    padding: 0 20px;
 }
+
 .hero {
     position: relative;
     width: 100%;
@@ -59,16 +60,32 @@
 .grid {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, minmax(900px, 900px));
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     gap: 15px;
-    /*padding: 10px;*/
-    justify-content: center;
+    padding: 4rem;
 }
-@media (max-width: 1900px) {
-    .grid {
-      grid-template-columns: 1fr;
-    }
-  }
+
+.pastSection {
+    padding: 4% 2% 6% 2%;
+    background-color: #000000c6;
+    color: #fff;
+    text-align: center;
+}
+
+.pastSection .sectionTitle {
+    font-size: clamp(4rem, 6vw, 6rem);
+    color: #4af6c3;
+    margin-bottom: 0;
+}
+
+.pastSection .sectionSubtitle {
+    font-size: clamp(1.5rem, 2vw, 2.5rem);
+    font-weight: 300;
+    padding: 0.7%;
+    margin-top: 0.3%;
+}
+
+
 .card {
     position: relative;
     width: 100%;
@@ -115,6 +132,11 @@
     align-content: center;
     padding: 0% 5% 0% 5%;
 }
+
+.card .details .center h1{
+    color: #4af6c3; /* Neon green */
+}
+
 .card:hover .details {
     transform: perspective(2000px) rotateY(0deg);
 }
@@ -148,12 +170,13 @@
     background: #614c4c;
 }*/
 .upcomingSection {
-    padding: 15% 2% 200px 2%;
+    padding: 6% 2% 6% 2%;
     background-color: 000000c6;
     color: #fff;
     text-align: center;
     html {font-size: 10px;}
 }
+
 .upcomingSection h1 {
     font-size: 100%;
     color: #e14d6be8;
@@ -161,7 +184,7 @@
 .upcomingSection h2 {
     font-size: 30%;
     font-weight: 300;
-    padding: 5% 5%;
+    padding: 0.5% 5%;
 }
 .upcomingSection h3 {
     font-size: 65%;
@@ -177,7 +200,7 @@
     justify-content: center;
     align-content: center;
     gap: 100px;
-    padding: 5% 10% 10% 10%;
+    padding: 5% 10% 0% 10%;
 }
 .upcomingItem {
     position: relative;

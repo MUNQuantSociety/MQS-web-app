@@ -180,7 +180,7 @@ body {
   padding-top: 60px;
   font-family: 'Oswald', sans-serif;
   color: #4af6c3;
-  background-color: #222;
+  background-color: black;
 }
 
 header {
@@ -238,7 +238,7 @@ header {
 
 .nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   
 }
 
@@ -371,7 +371,9 @@ header {
 .team-btn {
   color: white;
   text-decoration: none;
-  padding: 8px 15px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
   position: relative;
   font-family: 'Oswald', sans-serif;
   font-weight: 500;
@@ -403,10 +405,13 @@ header {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.888);
   min-width: 160px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  top: 105%;
+  padding: 0.4rem 0;
+  border-radius: 8px;
 }
 
 .dropdown:hover .dropdown-content { 
