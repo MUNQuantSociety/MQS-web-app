@@ -209,9 +209,9 @@ header {
 }
 
 .logoImage {
-  width: 40px;
+  width: 25px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 0%;
 }
 
 .logo-placeholder {

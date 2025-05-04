@@ -46,9 +46,9 @@ export default function EventsPage() {
         </div>
       </div>
 
-      <main className="main events-page">
+      <main className="main events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
 
-        <section className="upcomingSection" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
+        <section className="upcomingSection">
           <h1> UPCOMING EVENTS</h1>
           <h2>We're just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
           <div className="upcomingGrid">
@@ -66,7 +66,7 @@ export default function EventsPage() {
         <section className="pastSection">
           <h1 className="sectionTitle">PAST EVENTS</h1>
           <h2 className="sectionSubtitle">
-            Catch a glimpse of what we've done so far — from insightful workshops to engaging panels and more.
+            Catch a glimpse of what we've done so far...
           </h2>
           <div className="grid">
             {filteredEvents.map((event) => (

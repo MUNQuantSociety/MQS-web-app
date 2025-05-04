@@ -11,7 +11,7 @@ const executiveMember = [
     linkedin: "#",
     bio:
       "Short blurb of what the person wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+    image: "/josh.png"
   },
   {
     name: "Name",
@@ -22,10 +22,8 @@ const executiveMember = [
     image: "/MQF photos/stickGuy.png"
   },
 ];
-
-
-export default function EventsPage() {
-  const [filteredEvents] = useState(executiveMember);
+export default function TeamsPage() {
+  const [filteredTeams] = useState(executiveMember);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -55,23 +53,22 @@ export default function EventsPage() {
           <h1>Meet the Executives.</h1>
         </div>
       </div>
-
       <main className="main">
         <div className="container">
-        <div className="events-page">
+        <div className="teams-page">
         <section className="grid">
-            {filteredEvents.map((event, idx) => (
+            {filteredTeams.map((team, idx) => (
               <div key={idx} className="card">
                 <div className="image">
-                  <img src={event.image} alt={event.name} />
+                  <img src={team.image} alt={team.name} />
                 </div>
                 <div className="details">
                   <div className="center">
-                    <h1>{event.name}</h1>
-                    <p><strong>{event.role}</strong></p>
-                    <p>{event.bio}</p>
+                    <h1>{team.name}</h1>
+                    <p><strong>{team.role}</strong></p>
+                    <p>{team.bio}</p>
                     <a
-                    href={event.linkedin}
+                    href={team.linkedin}
                     className="profile-link"
                     target="_blank"
                     rel="noopener noreferrer"

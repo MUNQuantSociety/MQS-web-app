@@ -41,7 +41,11 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center relative">
         {/* logo stuff */}
         <div className="logoContainer">
-          <img src="/Quant.png" alt="Quant Society Logo" className="logoImage" />
+          <img
+            src="/Logo.png"
+            alt="Quant Society Logo"
+            className="logoImage"
+          />
           <Link href="/about" className="logoText">Quant Society</Link>
         </div>
 
