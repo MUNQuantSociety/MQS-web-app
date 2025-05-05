@@ -1,9 +1,7 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "../style.css";
 import { link } from "fs";
-
 const websiteMember = [
   {
     name: "Hameedah Salaam",
@@ -11,16 +9,48 @@ const websiteMember = [
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
     bio:
       "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+    image: "/headshots/hameedah.jpg"
   },
   {
     name: "Ayesha Ziauddin",
     role: "Director",
     linkedin: "#",
     bio:
-      "Short blurb of what Ayesha wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+      "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+    image: "/headshots/ayesha.jpg"
   },
+  {
+    name: "Zahra Khan",
+    role: "Associate",
+    linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
+    bio:
+      "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
+      image: "/headshots/zahra.jpg"
+    },
+  {
+    name: "Isaac Dzakpata",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what Ayesha wants to say goes here. Something brief and meaningful and ",
+      image: "/headshots/isaac.jpg"
+    },      
+  {
+  name: "Tejus Revi",
+  role: "Associate",
+  linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
+  bio:
+    "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
+    image: "/headshots/tejus.jpg"
+  },
+  {
+    name: "Safwan Salman",
+    role: "Associate",
+    linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
+    bio:
+      "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
+      image: "/headshots/safwan.jpg"
+    },
 ];
 
 
@@ -46,13 +76,12 @@ export default function EventsPage() {
       cards.forEach((card) => observer.unobserve(card));
     };
   }, []);
-
   return (
     <>
-      <div className="hero">
+      <div className="heroWebsite">
         <div className="overlay"></div>
         <div className="heroText">
-          <h1>Meet the Website Pod Team.</h1>
+          <h1>Meet the Website Pod.</h1>
         </div>
       </div>
 
@@ -69,14 +98,13 @@ export default function EventsPage() {
                   <div className="center">
                     <h1>{event.name}</h1>
                     <p><strong>{event.role}</strong></p>
-                    <p>{event.bio}</p>
+                    <p><br/>{event.bio}</p>
                     <a
                     href={event.linkedin}
                     className="profile-link"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >
-                      LinkedIn
+                    ><br/>LinkedIn
                     </a>
 
                   </div>

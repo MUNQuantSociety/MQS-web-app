@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "../style.css";
 import { link } from "fs";
 
 const dataInfraMember = [
@@ -10,15 +10,38 @@ const dataInfraMember = [
     role: "Managing Director",
     linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
     bio:
-      "Short blurb of what kelvin wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+    "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+    image: "/headshots/kelvin.jpg"
   },
   {
     name: "Ian Anobis",
     role: "Director",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
     bio:
-      "Short blurb of what ian wants to say goes here. Something brief and meaningful",
+    "This is where I say something cool, witty, or vaguely profound.", 
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Alen Jacob",
+    role: "Associate",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+    bio:
+    "This is where I say something cool, witty, or vaguely profound.", 
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Promit Das",
+    role: "Director",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+    bio: "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+    image: "/MQF photos/stickGuy.png"
+  },
+  {
+    name: "Utkarsh Upreti",
+    role: "Director",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+    bio:
+      "This is where I say something cool, witty, or vaguely profound.", 
     image: "/MQF photos/stickGuy.png"
   },
 ];
@@ -49,7 +72,7 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="hero">
+      <div className="heroDI">
         <div className="overlay"></div>
         <div className="heroText">
           <h1>Meet the Data & Infrastucture Team.</h1>

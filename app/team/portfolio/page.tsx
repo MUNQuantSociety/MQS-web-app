@@ -1,29 +1,91 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import "./styles.css";
+import "../style.css";
 import { link } from "fs";
-
 const portfolioMember = [
   {
-    name: "Name",
+    name: "Kelvin Fumo",
     role: "Managing Director",
     linkedin: "#",
     bio:
       "Short blurb of what the person wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+    image: "/headshots/kelvin.jpg"
   },
   {
-    name: "Name",
-    role: "Director",
+    name: "Tejus Revi",
+    role: "Lead Quant Dev",
     linkedin: "#",
     bio:
       "Short blurb of what the person wants to say goes here. Something brief and meaningful",
-    image: "/MQF photos/stickGuy.png"
+    image: "/headshots/tejus.jpg"
+    
   },
+  {
+    name: "Sameer Masood",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/sameer.jpg"
+  },
+  {
+    name: "Koushik",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/koushik.jpg"
+  },
+  {
+    name: "Zoya Zaidi",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/tejus.jpg"
+  },
+  {
+    name: "Baasil Sanu",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/tejus.jpg"
+  },
+  {
+    name: "Elliot Dicks",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/elliot.jpg"
+  },
+  {
+    name: "Fariha Mehnaz",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/fariha.jpg"
+  },
+  {
+    name: "Arooz Singh",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/elliot.jpg"
+  },
+  {
+    name: "Jake Clarke",
+    role: "Associate",
+    linkedin: "#",
+    bio:
+      "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    image: "/headshots/fariha.jpg"
+  },
+  
 ];
-
-
 export default function EventsPage() {
   const [filteredEvents] = useState(portfolioMember);
 
@@ -38,7 +100,6 @@ export default function EventsPage() {
       },
       { threshold: 0.2 }
     );
-
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => observer.observe(card));
 
@@ -49,7 +110,7 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="hero">
+      <div className="heroPortfolio">
         <div className="overlay"></div>
         <div className="heroText">
           <h1>Meet the Portfolio Team.</h1>

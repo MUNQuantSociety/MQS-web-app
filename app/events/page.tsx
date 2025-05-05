@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import "./styles.css";
 import { pastEvents, upcomingEvents} from "./eventsData"; // 
 
 type Event = {
@@ -13,15 +13,14 @@ type Event = {
 
 function EventCard({ event }: { event: Event }) {
   return (
-    <div className="card">
+    <div className="eCard">
       <div className="image">
         <img src={event.image} alt={event.title} />
       </div>
       <div className="details">
         <div className="center">
           <h1>{event.title}</h1>
-          <p>{event.description}</p>
-          <p><br/>{event.date}</p>
+          <p style = {{ fontWeight: "200" }}>{event.description}<br/><br/>{event.date}</p>
         </div>
       </div>
     </div>
@@ -32,21 +31,19 @@ export default function EventsPage() {
   const [filteredEvents, setFilteredEvents] = useState(pastEvents);
 
   useEffect(() => {
-    // Sort events by date, newest first
     const sortedEvents = [...pastEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     setFilteredEvents(sortedEvents);
   }, []);
 
   return (
     <>
-      <div className="hero">
-        <div className="overlay"></div>
-        <div className="heroText">
+      <div className="eventsHero">
+        <div className="eventsOverlay"></div>
+        <div className="eventsHeroText">
           <h1>See what we're up to.</h1>
         </div>
       </div>
-
-      <main className="main events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
+      <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
 
         <section className="upcomingSection">
           <h1> UPCOMING EVENTS</h1>
@@ -68,7 +65,7 @@ export default function EventsPage() {
           <h2 className="sectionSubtitle">
             Catch a glimpse of what we've done so far...
           </h2>
-          <div className="grid">
+          <div className="eventsGrid">
             {filteredEvents.map((event) => (
               <EventCard key={event.title} event={event} />
             ))}
