@@ -2,11 +2,11 @@
 import React, { useRef, useEffect } from 'react';
 import { ToggleItemProps } from './toggleItemTypes';
 
-function WhatWeDoToggleItem({ isOpen, setOpen }: ToggleItemProps) {
+function GetintouchToggleItem({ isOpen, setOpen }: ToggleItemProps) {
   const toggleRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => {
-    setOpen("WHAT WE DO");
+    setOpen("GET IN TOUCH!");
   };
 
   useEffect(() => {
@@ -17,11 +17,10 @@ function WhatWeDoToggleItem({ isOpen, setOpen }: ToggleItemProps) {
 
   return (
     <div className="toggle-item flex items-center mb-2 border rounded h-20 overflow-hidden">
-      <div
-        className="toggle-button-container w-full h-full p-4 cursor-pointer flex items-center justify-between"
+      <div className="toggle-button-container w-full h-full p-4 cursor-pointer flex items-center justify-between"
         onClick={toggleOpen}
       >
-        <span className="truncate">WHAT WE DO</span>
+        <span className="truncate">GET IN TOUCH!</span>
         <span
           className="toggle-icon text-2xl font-bold transition-transform duration-300"
           ref={toggleRef}
@@ -33,4 +32,4 @@ function WhatWeDoToggleItem({ isOpen, setOpen }: ToggleItemProps) {
   );
 }
 
-export default WhatWeDoToggleItem;
+export default GetintouchToggleItem;

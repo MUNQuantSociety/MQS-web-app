@@ -2,11 +2,11 @@
 import React, { useRef, useEffect } from 'react';
 import { ToggleItemProps } from './toggleItemTypes';
 
-function WhoWeAreToggleItem({ isOpen, setOpen }: ToggleItemProps) {
+function ProjectsToggleItem({ isOpen, setOpen }: ToggleItemProps) {
   const toggleRef = useRef<HTMLDivElement>(null);
 
   const toggleOpen = () => {
-    setOpen("WHO WE ARE");
+    setOpen("PROJECTS");
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function WhoWeAreToggleItem({ isOpen, setOpen }: ToggleItemProps) {
         className="toggle-button-container w-full h-full p-4 cursor-pointer flex items-center justify-between"
         onClick={toggleOpen}
       >
-        <span className="truncate">WHO WE ARE</span>
+        <span className="truncate">PROJECTS</span>
         <span
           className="toggle-icon text-2xl font-bold transition-transform duration-300"
           ref={toggleRef}
@@ -33,4 +33,4 @@ function WhoWeAreToggleItem({ isOpen, setOpen }: ToggleItemProps) {
   );
 }
 
-export default WhoWeAreToggleItem;
+export default ProjectsToggleItem;

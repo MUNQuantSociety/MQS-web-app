@@ -1,183 +1,281 @@
-
+/* Base page styles */
 .about-page {
-    color: #111827;
-    overflow-x: hidden;
-  }
-  
- 
-  .hero-section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, rgba(0,0,0,0.5) 10%, transparent 90%);
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 2;
-  }
-  
-  .hero-overlay.visible {
-    opacity: 1;
-  }
-  
-  .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    opacity: 0;
-    transition: opacity 1s, transform 1s;
-    z-index: 3;
-  }
-  
-  .hero-text.visible {
-    opacity: 1;
-    transform: translate(-50%, -45%);
-  }
-  
-  .hero-text h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-text p {
-    font-size: 1.5rem;
-  }
-  
+  color: #111827; /* Default text color, might be overridden */
+  overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
 
+/* Hero Section (fills the initial viewport) */
+.hero-section {
+  position: relative; /* Crucial for absolute positioning of children */
+  height: 100vh; /* Make section fill the viewport height */
+  overflow: hidden; /* Hide anything that might overflow */
+  z-index: 1; /* Base stacking context */
+}
+
+/* Background Video */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire area, cropping if needed */
+  position: absolute; /* Position behind content */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Behind text */
+}
+
+/* Optional Video Overlay (if you want to use it) */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Example gradient: darkens bottom */
+  background: linear-gradient(0deg, rgba(0,0,0,0.5) 10%, transparent 90%);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 1s ease;
+  z-index: 2; /* Above video, below text */
+}
+
+.hero-overlay.visible {
+  opacity: 1; /* Make overlay visible */
+}
+
+/* Main Title Container (Centered) */
+.main-title-container {
+  position: absolute;
+  top: 48%; /* Vertically centered (adjust 40%-50% as needed for balance) */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Precise centering */
+  text-align: center;
+  color: white;
+  z-index: 3; /* Above video and overlay */
+  width: 90%; /* Prevent text wrapping too early */
+}
+
+/* Main Title Text */
+.main-title-container .main-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Readability */
+}
+
+/* "Scroll Down" Prompt */
+.main-title-container .scroll-prompt {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+  font-weight: 300;
+  animation: pulseOpacity 2s infinite ease-in-out; /* Subtle animation */
+}
+
+/* Animation for the scroll prompt */
+@keyframes pulseOpacity {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* "Join Us..." Text (Bottom of Viewport) */
+.hero-bottom-text {
+  position: absolute;
+  bottom: 5vh; /* Position from the bottom edge (e.g., 5% of viewport height) */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  width: 90%; /* Max width relative to parent */
+  max-width: 600px; /* Optional: constrain absolute max width */
+  text-align: center;
+  color: white;
+  z-index: 3; /* Above video and overlay */
+  opacity: 1; /* Visible by default */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Readability */
+}
+
+.hero-bottom-text h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero-bottom-text p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+
+/* Toggle Section Below Hero */
 .toggle-section {
-    position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
-    padding: 4rem 2rem;
-    color: white;
-    z-index: 2;
-  }
+  position: relative; /* For pseudo-element positioning */
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  padding: 4rem 2rem;
+  color: white;
+  z-index: 2; /* Above default page flow */
+}
 
-  .toggle-section::before {
-    content: '';
-    position: absolute;
-    top: -15vh;
-    left: 0;
-    width: 100%;
-    height: 15vh;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-    z-index: -1;
+/* Fade effect from Hero to Toggle Section */
+.toggle-section::before {
+  content: '';
+  position: absolute;
+  top: -15vh; /* Overlap with bottom of hero section */
+  left: 0;
+  width: 100%;
+  height: 15vh; /* Height of the fade gradient */
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+  z-index: -1; /* Behind toggle content but above page default */
+}
+
+/* Layout for Toggle Items and Content */
+.toggle-wrapper {
+  display: flex;
+  gap: 4rem; /* Space between items list and content */
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the wrapper */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Container for the list of toggle buttons */
+.toggle-container {
+  flex: 1; /* Take up proportional space */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between toggle items */
+  min-width: 250px; /* Prevent getting too narrow */
+}
+
+/* Individual Toggle Button Style */
+.toggle-item {
+  background: transparent;
+  border: 2px solid white; /* Use white or a theme color */
+  color: white; /* Ensure text is visible */
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+  font-weight: bold;
+  font-size: 1.25rem;
+  text-align: left; /* Or center, adjust as needed */
+}
+
+.toggle-item:hover {
+  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+/* Style for the currently open toggle item */
+.toggle-item.open {
+  /* Example: Change background or border */
+  background: rgba(164, 7, 7, 0.2); /* Example accent color */
+  border-color: rgba(164, 7, 7, 0.8);
+}
+
+/* Container for the content displayed when a toggle is open */
+.toggle-content {
+  flex: 2; /* Take up more space than the items list */
+  background: transparent; /* Or a subtle background */
+  padding: 1rem;
+  font-size: 1.2rem;
+  animation: fadeIn 0.5s ease; /* Fade-in animation */
+  text-align: center; /* Or left, adjust as needed */
+}
+
+.toggle-content-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.toggle-content-body {
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Fade-in animation for toggle content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
- 
-  .toggle-wrapper {
-    display: flex;
-    gap: 4rem;
-    align-items: flex-start;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
- 
-  .toggle-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    min-width: 250px;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+  /* Adjust Hero Text Sizes */
+  .main-title-container .main-title {
+    font-size: 3rem;
   }
-  
- 
-  .toggle-item {
-    background: transparent;
-    border: 2px solid ;
-    padding: 1rem;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-    font-weight: bold;
-    font-size: 1.25rem;
+  .main-title-container .scroll-prompt {
+    font-size: 1rem;
   }
-  
- 
-  .toggle-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.02);
-  }
-  
- 
-  .toggle-item.open {
-    background: rgba(164, 7, 7, 0.2);
-  }
-  
- 
-  .toggle-content {
-    flex: 2;
-    background: transparent;
-    padding: 1rem;
-    font-size: 1.2rem;
-    animation: fadeIn 0.5s ease;
-    text-align: center;
-  }
-  
- 
-  .toggle-content-title {
+  .hero-bottom-text h1 {
     font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
   }
-  
- 
-  .toggle-content-body {
-    line-height: 1.6;
+  .hero-bottom-text p {
+    font-size: 1rem;
   }
-  
- 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .hero-bottom-text {
+     bottom: 4vh; /* Adjust positioning if needed */
   }
-  
- 
-  @media (max-width: 768px) {
-    .toggle-wrapper {
-      flex-direction: column;
-      align-items: center;
-    }
 
-    .toggle-container {
-        width: 100%;
-        max-width: 400px;
-      }
-    
-    
-    .toggle-content {
-      margin-top: -1rem;
-      
-    }
-
-    .toggle-section::before {
-        top: -20vw;
-        height: 20vw;
-      }
+  /* Stack Toggle Section vertically */
+  .toggle-wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; /* Adjust gap for vertical layout */
   }
-  
-  
+
+  .toggle-container {
+    width: 100%; /* Make items list full width */
+    max-width: 400px; /* Constrain width */
+    min-width: unset; /* Remove min-width */
+    align-items: center; /* Center items if container is wider */
+  }
+
+  .toggle-item {
+     width: 100%; /* Make buttons full width of container */
+     text-align: center;
+  }
+
+  .toggle-content {
+    margin-top: 0; /* Reset margin */
+    width: 100%; /* Ensure content takes full width */
+    max-width: 600px; /* Constrain content width */
+  }
+
+  /* Adjust fade gradient height/position */
+  .toggle-section::before {
+    top: -20vw;
+    height: 20vw;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further reduce Hero Text Sizes */
+  .main-title-container .main-title {
+    font-size: 2.5rem;
+  }
+  .hero-bottom-text h1 {
+    font-size: 1.8rem;
+  }
+  .hero-bottom-text p {
+    font-size: 0.9rem;
+  }
+  .hero-bottom-text {
+     bottom: 3vh; /* Fine-tune position */
+  }
+
+  /* Adjust padding on smaller screens */
+   .toggle-section {
+    padding: 3rem 1rem;
+  }
+}
+
+/* --- End of CSS --- */

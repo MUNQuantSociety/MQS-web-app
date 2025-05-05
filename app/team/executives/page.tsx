@@ -8,75 +8,84 @@ const executiveMember = [
     {
       name: "Joshua Kattapuram",
       role: "President",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+      linkedin: "https://www.linkedin.com/in/joshua-kattapuram/",
       bio:
-      "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
-      image: "/headshots/josh.png"
+      "Josh is a fourth year CS/Math stduent at Memorial. He has experience working on the trading desk at the Ontario Teacher's Pension Plan in Toronto. He also likes to play Tennis and the Piano!",
+      image: "/headshots/josh.jpg"
     },
     {
       name: "Ayesha Ziauddin",
       role: "Head of Operations",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
+      "Ayesha, is a third year Computer Science student at MUN. She is the Operations Lead at MQS.", 
       image: "/headshots/ayesha.jpg"
     },
     {
-      name: "Ducky Arora",
-      role: "Head of Marketing",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
-        image: "/headshots/ducky.jpg"
-      },
-    {
-      name: "Kelvin Fumo",
-      role: "Head of External Relations",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
-        image: "/headshots/kelvin.jpg"
-      },
-    {
       name: "Elliot Dicks",
-      role: "Another Head of External Relations",
+      role: "Portfolio 1 Managing Director, External Relations",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-        "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+        "Elliot heads a Passive Portfolio Team here at MQS",
         image: "/headshots/elliot.jpg"
       },
+      {
+        name: "Kelvin Fumo",
+        role: "Managing Director - Asset Allocation",
+        linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+        bio:
+          "Kelvin leads the Asset Allocation Team at MQS.",
+          image: "/headshots/kelvin.jpg"
+        },
+  {
+          name: "Hameedah Salaam",
+          role: "Lead Developer - Website Pod",
+          linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+          bio:
+            "Hameedah leads the website pod, and manages a team of over 4 people.", 
+            image: "/headshots/hameedah.jpg"
+          },
     {
-      name: "Fariha Mehnaz",
-      role: "Head of Strategic Partnerships",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
-        image: "/headshots/fariha.jpg"
-      },
+        name: "Fariha Mehnaz",
+        role: "Head of Strategic Partnerships",
+        linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+        bio:
+          "Fariha Mehnaz is the Director of Strategic Partnerships at MQS.", 
+          image: "/headshots/fariha.jpg"
+        },
+    {
+          name: "Tejus Revi",
+          role: "Lead Quantitative Developer",
+          linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+          bio:
+            "Tejus Revi Leads the Infrastructure and Data Team at MQS", 
+            image: "/headshots/tejus.jpg"
+          },
     {
       name: "Ian Anobis",
-      role: "Chief Treasurer",
+      role: "Treasurer",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
+        "Ian is our Compliance officer and treasurer.", 
         image: "/MQF photos/stickGuy.png"
       },
     {
       name: "Rimsha Aziz",
-      role: "Marketing Associate",
+      role: "Director of Marketing",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
       "This is where I say something cool, witty, or vaguely profound.", 
       image: "/headshots/rimsha.jpg"
     },
     {
-      name: "Zoya Zaidi",
-      role: "Marketing Associate",
+      name: "Sameer Masood",
+      role: "Portfolio 2 Managing Director",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
-      image: "/MQF photos/stickGuy.png"
+      "Sameer is a managing director and leads Portfolio 2.", 
+      image: "/headshots/sameer.jpg"
     },
+
 ];
 export default function TeamsPage() {
   const [filteredTeams] = useState(executiveMember);
