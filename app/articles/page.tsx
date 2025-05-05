@@ -58,7 +58,7 @@ export default function ArticlesPage() {
             key={tag}
             onClick={() => handleTagClick(tag)}
             className={`py-1 px-3 cursor-pointer text-xs rounded-full 
-              ${selectedTag === tag ? 'bg-green-500 text-white' : 'bg-transparent text-green-500 border border-green-500'}`}
+              ${selectedTag === tag ? 'bg-[#4af6c3] text-black' : 'bg-transparent text-[#4af6c3] border border-[#4af6c3]'}`}
           >
             {tag}
           </span>
@@ -83,7 +83,7 @@ export default function ArticlesPage() {
                 <span
                   key={tag}
                   onClick={() => handleTagClick(tag)}
-                  className="py-1 px-2 border-1 border-green-500 text-green-500 text-xs cursor-pointer"
+                  className="py-1 px-2 border-1 border-[#4af6c3] text-[#4af6c3] text-xs cursor-pointer"
                 >
                   {tag}
                 </span>
