@@ -11,7 +11,7 @@ const executiveMember = [
       linkedin: "https://www.linkedin.com/in/joshua-kattapuram/",
       bio:
       "Josh is a fourth year CS/Math stduent at Memorial. He has experience working on the trading desk at the Ontario Teacher's Pension Plan in Toronto. He also likes to play Tennis and the Piano!",
-      image: "/headshots/josh.jpg"
+      image: "/headshots/josh.JPG"
     },
     {
       name: "Ayesha Ziauddin",
@@ -35,7 +35,7 @@ const executiveMember = [
         linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
         bio:
           "Kelvin is a 5th year Business and Computer Science student at Memorial University. He has experience as an Equity Analyst at the Fund and as a Data Analyst at North Atlantic. He also enjoys Basketball and Motor Racing.",
-          image: "/headshots/kelvin.jpg"
+          image: "/headshots/kelvin.JPG"
         },
   {
           name: "Hameedah Salaam",
@@ -43,7 +43,7 @@ const executiveMember = [
           linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
           bio:
             "My name is Hameedah, I am a fourth year CS student who is interested in User experience, research and design. In my free time I like to find new dad jokes. Did you know “dogs can’t operate MRI machines but catscan!”", 
-            image: "/headshots/hameedah.jpg"
+            image: "/headshots/hameedah.JPG"
           },
     {
         name: "Fariha Mehnaz",
@@ -51,7 +51,7 @@ const executiveMember = [
         linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
         bio:
           "Fariha is a 4th year computer science student at MUN with strong interests in areas of data science and data security and encryption.", 
-          image: "/headshots/fariha.jpg"
+          image: "/headshots/fariha.JPG"
         },
     {
           name: "Tejus Revi",
@@ -74,7 +74,7 @@ const executiveMember = [
         role: "Director",
         linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
         bio: "Koushik is a 4th year computer science student and Math student interested in Quant Finance.",
-        image: "/MQF photos/koushik.png", // Placeholder Image
+        image: "/MQF photos/koushik.jpg", // Placeholder Image
       },
     {
       name: "Rimsha Aziz",
@@ -82,7 +82,7 @@ const executiveMember = [
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
       "Rimsha is a third year Commerce student at Memorial University. She likes learning about all things business. When she's not studying or working, she enjoys baking and watching movies.", 
-      image: "/headshots/rimsha.jpg"
+      image: "/headshots/rimsha.JPG"
     },
     {
       name: "Sameer Masood",
@@ -90,7 +90,7 @@ const executiveMember = [
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
       "Sameer is a 4th year Economics & Computer Science Student at MUN with a strong interest in financial markets and economic research. Outside of academics, he enjoys strength training and unwinding with a good movie", 
-      image: "/headshots/sameer.jpg"
+      image: "/headshots/sameer.JPG"
     },
 
 ];

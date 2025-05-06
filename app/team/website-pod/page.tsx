@@ -20,7 +20,7 @@ const websiteMember = [
     role: ROLES.MD,
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
     bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
-    image: "/headshots/hameedah.jpg",
+    image: "/headshots/hameedah.JPG",
   },
   {
     name: "Ayesha Ziauddin",

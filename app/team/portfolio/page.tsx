@@ -22,7 +22,7 @@ const portfolioMember = [
     role: ROLES.MD,
     linkedin: "#",
     bio: "Sameer is a 4th year Economics & Computer Science Student at MUN with a strong interest in financial markets and economic research. Outside of academics, he enjoys strength training and unwinding with a good movie.",
-    image: "/headshots/sameer.jpg",
+    image: "/headshots/sameer.JPG",
   },
   {
     name: "Elliot Dicks",
@@ -50,7 +50,7 @@ const portfolioMember = [
     role: ROLES.DIR, // Changed from Associate in original data based on image? Verify role.
     linkedin: "#",
     bio: "Fariha is a 4th year computer science student at MUN with strong interests in areas of data science and data security and encryption.",
-    image: "/headshots/fariha.jpg",
+    image: "/headshots/fariha.JPG",
   },
   {
     name: "Arooz Singh",
