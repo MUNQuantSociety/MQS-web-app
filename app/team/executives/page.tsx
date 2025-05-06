@@ -8,75 +8,84 @@ const executiveMember = [
     {
       name: "Joshua Kattapuram",
       role: "President",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+      linkedin: "https://www.linkedin.com/in/joshua-kattapuram/",
       bio:
-      "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
-      image: "/headshots/josh.png"
+      "Josh is a fourth year CS/Math stduent at Memorial. He has experience working on the trading desk at the Ontario Teacher's Pension Plan in Toronto. He also likes to play Tennis and the Piano!",
+      image: "/headshots/josh.jpg"
     },
     {
       name: "Ayesha Ziauddin",
       role: "Head of Operations",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
+      "Ayesha is a 3rd-year CS student at Memorial University. She's enthusiastic about web development and enjoys reading and sleeping in her downtime.", 
       image: "/headshots/ayesha.jpg"
     },
     {
-      name: "Ducky Arora",
-      role: "Head of Marketing",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
-        image: "/headshots/ducky.jpg"
-      },
-    {
-      name: "Kelvin Fumo",
-      role: "Head of External Relations",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
-        image: "/headshots/kelvin.jpg"
-      },
-    {
       name: "Elliot Dicks",
-      role: "Another Head of External Relations",
+      role: "Portfolio 1 Managing Director, External Relations",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-        "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+        "Elliot heads a Passive Portfolio Team here at MQS",
         image: "/headshots/elliot.jpg"
       },
+      {
+        name: "Kelvin Fumo",
+        role: "Managing Director - Asset Allocation",
+        linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+        bio:
+          "Kelvin is a 5th year Business and Computer Science student at Memorial University. He has experience as an Equity Analyst at the Fund and as a Data Analyst at North Atlantic. He also enjoys Basketball and Motor Racing.",
+          image: "/headshots/kelvin.jpg"
+        },
+  {
+          name: "Hameedah Salaam",
+          role: "Lead Developer - Website Pod",
+          linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+          bio:
+            "Hameedah leads the website pod, and manages a team of over 4 people.", 
+            image: "/headshots/hameedah.jpg"
+          },
     {
-      name: "Fariha Mehnaz",
-      role: "Head of Strategic Partnerships",
-      linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-      bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
-        image: "/headshots/fariha.jpg"
-      },
+        name: "Fariha Mehnaz",
+        role: "Head of Strategic Partnerships",
+        linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+        bio:
+          "Fariha is a 4th year computer science student at MUN with strong interests in areas of data science and data security and encryption.", 
+          image: "/headshots/fariha.jpg"
+        },
+    {
+          name: "Tejus Revi",
+          role: "Lead Quantitative Developer",
+          linkedin: "https://www.linkedin.com/in/tejusrevi/",
+          bio:
+            "Tejus is a computer science graduate from Memorial University with experience in building infrastructure to support big data analysis, particularly in the scientific research space. Outside of work, he enjoys strength athletics and sketching.", 
+            image: "/headshots/tejus.jpg"
+          },
     {
       name: "Ian Anobis",
-      role: "Chief Treasurer",
+      role: "Treasurer",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-        "This is where I say something cool, witty, or vaguely profound.", 
+        "Ian is our Compliance officer and treasurer.", 
         image: "/MQF photos/stickGuy.png"
       },
     {
       name: "Rimsha Aziz",
-      role: "Marketing Associate",
+      role: "Director of Marketing",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
+      "Rimsha is a third year Commerce student at Memorial University. She likes learning about all things business. When she's not studying or working, she enjoys baking and watching movies.", 
       image: "/headshots/rimsha.jpg"
     },
     {
-      name: "Zoya Zaidi",
-      role: "Marketing Associate",
+      name: "Sameer Masood",
+      role: "Portfolio 2 Managing Director",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
-      image: "/MQF photos/stickGuy.png"
+      "Sameer is a 4th year Economics & Computer Science Student at MUN with a strong interest in financial markets and economic research. Outside of academics, he enjoys strength training and unwinding with a good movie", 
+      image: "/headshots/sameer.jpg"
     },
+
 ];
 export default function TeamsPage() {
   const [filteredTeams] = useState(executiveMember);

@@ -32,22 +32,22 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
   
   export const upcomingEvents = [
     {
-      title: "Event 1",
+      title: "MQS Spring Intro",
       date: "May 15, 2025",
-      location: "MUN Campus",
-      description: "Blurb blurb blurb",
+      location: "IIC-2014 Bruneau Center",
+      description: "Join us and find out what we do!",
     },
 
     {
-      title: "Event 2",
-      date: "June 3, 2025",
-      location: "MUN Campus",
+      title: "MQS Session 1",
+      date: "May 19, 2025",
+      location: "TBD",
       description: "Blurb blurb blurb",
     },
     {
-      title: "Event 3",
-      date: "June 3, 2025",
-      location: "MUN Campus",
-      description: "Blurb blurb blurb",
+      title: "MQS Formal Mixer",
+      date: "End of May (TBD)",
+      location: "Toslow Cafe",
+      description: "A networking opportunity for MQS members and alumni to connect over drinks and snacks.",
     },
   ];

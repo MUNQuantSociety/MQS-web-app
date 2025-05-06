@@ -1,11 +1,12 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link'; // Import Link if you plan to use it, otherwise remove if not needed for the button. Added here just in case, but the button uses <a>.
 import { SectionTitle, initialContent } from '@/components/ui/toggleItems/toggleItemTypes';
 import AboutUsToggleItem from '@/components/ui/toggleItems/aboutUs';
-import WhatWeDoToggleItem from '@/components/ui/toggleItems/whatWeDo';
-import WhoWeAreToggleItem from '@/components/ui/toggleItems/whoWeAre';
-import WhereToFindUsToggleItem from '@/components/ui/toggleItems/whereToFindUs';
-import './style.css'; 
+import ProjectsToggleItem from '@/components/ui/toggleItems/Projects';
+import SpeakersToggleItem from '@/components/ui/toggleItems/Speakers';
+import GetintouchToggleItem from '@/components/ui/toggleItems/Getintouch';
+import './style.css'; // Ensure this CSS file contains styles for .nav-link and .join-us or add them
 
 export default function About() {
   const [openSection, setOpenSection] = useState<SectionTitle | null>(null);
@@ -14,10 +15,10 @@ export default function About() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 10) {
         setShowHeroText(true);
       } else {
-        setShowHeroText(false);
+         setShowHeroText(false);
       }
     };
     window.addEventListener('scroll', handleScroll);
@@ -26,7 +27,7 @@ export default function About() {
 
   const handleToggle = (title: SectionTitle) => {
     if (openSection === title) {
-      setOpenSection(null); 
+      setOpenSection(null);
     } else {
       setOpenSection(title);
     }
@@ -34,7 +35,7 @@ export default function About() {
 
   return (
     <div className="about-page">
-     
+
       <section className="hero-section">
         <video
           ref={videoRef}
@@ -44,50 +45,70 @@ export default function About() {
           playsInline
           className="hero-video"
         >
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="/video/downtown.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
 
-        <div className={`hero-overlay ${showHeroText ? 'visible' : ''}`} />
+        <div className="main-title-container">
+          <h1 className="main-title">MUN QUANT SOCIETY</h1>
 
-        <div className={`hero-text ${showHeroText ? 'visible' : ''}`}>
-          <h1>Your Story Starts Here</h1>
-          <p>Where ideas meet innovation.</p>
+          {/* --- START: Added JOIN US Button --- */}
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeU9YmdLQMVuYfgZbiylYyQ80p9CHrWKPm2oo8xrhOGJNCJQA/viewform"
+            // Using classes from Navbar for styling inspiration
+            // You might need to copy or adjust styles from Navbar's CSS into './style.css'
+            // Added 'hero-join-button' for potential specific overrides if needed
+            className="nav-link join-us hero-join-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            // Added inline style for spacing and to ensure it behaves like a block/inline-block for margins
+            style={{ display: 'inline-block', marginTop: '1rem', marginBottom: '0.5rem' }}
+          >
+            JOIN US
+          </a>
+          {/* --- END: Added JOIN US Button --- */}
+
+          <p className="scroll-prompt">scroll down</p>
         </div>
+
+        {/* Added conditional class based on showHeroText state */}
+        <div className={`hero-bottom-text ${showHeroText ? 'visible' : ''}`}>
+          <h1>Join us May 15th!</h1>
+          <p>Meet like-minded driven students.</p>
+        </div>
+
       </section>
 
       <section className="toggle-section">
-  <div className="toggle-wrapper">
-    
-    <div className="toggle-container">
-      <AboutUsToggleItem 
-        isOpen={openSection === "ABOUT US"} 
-        setOpen={handleToggle} 
-      />
-      <WhatWeDoToggleItem 
-        isOpen={openSection === "WHAT WE DO"} 
-        setOpen={handleToggle} 
-      />
-      <WhoWeAreToggleItem 
-        isOpen={openSection === "WHO WE ARE"} 
-        setOpen={handleToggle} 
-      />
-      <WhereToFindUsToggleItem 
-        isOpen={openSection === "WHERE TO FIND US"} 
-        setOpen={handleToggle} 
-      />
-    </div>
-
-    {openSection && (
-      <div className="toggle-content">
-        <h2 className="toggle-content-title">{openSection}</h2>
-        <div className="toggle-content-body">
-          {initialContent[openSection]}
+        <div className="toggle-wrapper">
+          <div className="toggle-container">
+            <AboutUsToggleItem
+              isOpen={openSection === "ABOUT US"}
+              setOpen={handleToggle}
+            />
+            <ProjectsToggleItem
+              isOpen={openSection === "PROJECTS"}
+              setOpen={handleToggle}
+            />
+            <SpeakersToggleItem
+              isOpen={openSection === "SPEAKERS & NETWORKING"}
+              setOpen={handleToggle}
+            />
+            <GetintouchToggleItem
+              isOpen={openSection === "GET IN TOUCH!"}
+              setOpen={handleToggle}
+            />
+          </div>
+          {openSection && (
+            <div className="toggle-content">
+              <h2 className="toggle-content-title">{openSection}</h2>
+              <div className="toggle-content-body">
+                {initialContent[openSection]}
+              </div>
+            </div>
+          )}
         </div>
-      </div>
-    )}
-    
-  </div>
-</section>
+      </section>
 
     </div>
   );
