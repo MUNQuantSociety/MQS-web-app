@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import TeamsDropdown from '@/app/teamsDropdown';
+import Image from 'next/image';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -41,10 +42,12 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center relative">
         {/* logo stuff */}
         <div className="logoContainer">
-          <img
+          <Image
             src="/Logo.png"
             alt="Quant Society Logo"
-            className="logoImage"
+            className="logoImage" // Your CSS might override dimensions, but props are still needed
+            width={50} // Add width (adjust value as needed)
+            height={50} // Add height (adjust value as needed)
           />
           <Link href="/about" className="logoText">Quant Society</Link>
         </div>

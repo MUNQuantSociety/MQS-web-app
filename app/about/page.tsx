@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
-import Link from 'next/link'; // Import Link if you plan to use it, otherwise remove if not needed for the button. Added here just in case, but the button uses <a>.
 import { SectionTitle, initialContent } from '@/components/ui/toggleItems/toggleItemTypes';
 import AboutUsToggleItem from '@/components/ui/toggleItems/aboutUs';
 import ProjectsToggleItem from '@/components/ui/toggleItems/Projects';

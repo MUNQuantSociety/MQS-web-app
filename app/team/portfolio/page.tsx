@@ -1,8 +1,8 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 // Assuming styles.css is one level up from the 'portfolio-pod' directory
 import "./styles.css";
-
+import Image from 'next/image';
 // --- Constants ---
 const ROLES = {
   MD: "Managing Director",
@@ -21,7 +21,7 @@ const portfolioMember = [
     name: "Sameer Masood",
     role: ROLES.MD,
     linkedin: "#",
-    bio: "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    bio: "Sameer is a 4th year Economics & Computer Science Student at MUN with a strong interest in financial markets and economic research. Outside of academics, he enjoys strength training and unwinding with a good movie.",
     image: "/headshots/sameer.jpg",
   },
   {
@@ -49,7 +49,7 @@ const portfolioMember = [
     name: "Fariha Mehnaz",
     role: ROLES.DIR, // Changed from Associate in original data based on image? Verify role.
     linkedin: "#",
-    bio: "Short blurb of what the person wants to say goes here. Something brief and meaningful",
+    bio: "Fariha is a 4th year computer science student at MUN with strong interests in areas of data science and data security and encryption.",
     image: "/headshots/fariha.jpg",
   },
   {
@@ -84,7 +84,7 @@ function DirectorCard({ member }) {
     // Apply Intersection Observer target class here
     <div className="card">
       <div className="image">
-        <img src={member.image} alt={member.name} />
+        <Image src={member.image} alt={member.name} fill/>
       </div>
       <div className="details">
         <div className="center">

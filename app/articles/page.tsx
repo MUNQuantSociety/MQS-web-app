@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation'
 import { Article } from '@/types/types';
-
+import Image from 'next/image';
 const formatDate = (dateString: string) => {
   const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('en-GB', options);
@@ -70,13 +70,16 @@ export default function ArticlesPage() {
         {filteredArticles.slice(0, 20).map((article) => (
           <div key={article.name} className="flex flex-col space-y-4 pb-4">
             <div>
-              <div className="w-[400px] h-[250px] overflow-hidden">
-                <img
-                  src={`/article-list/${article.name}/hero.jpg`}
-                  alt={article.title}
-                  className="object-cover max-h-[250px] max-w-[400px] min-h-[250px] min-w-[400px]"
-                />
-              </div>
+            <div className="w-[400px] h-[250px] overflow-hidden">
+              <Image
+                src={`/article-list/${article.name}/hero.jpg`}
+                alt={article.title}
+                width={400} // Add width prop
+                height={250} // Add height prop
+                className="object-cover" // Keep object-cover for aspect ratio handling
+                // You can likely remove max/min width/height classes here now
+              />
+            </div>
             </div>
             <div className="flex space-x-2 p-1 mb-1">
               {article.tags.map((tag) => (

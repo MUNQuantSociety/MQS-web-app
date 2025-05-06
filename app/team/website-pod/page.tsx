@@ -1,6 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./styles.css"; // Corrected import path
+import Image from 'next/image'; // Ensure Image is imported
 
 // --- Constants ---
 const ROLES = {
@@ -33,28 +34,28 @@ const websiteMember = [
     role: ROLES.ASSOC,
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
     bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
-    // image: "/headshots/zahra.jpg", // Image was present in original data? Included for consistency if needed, otherwise remove.
+    // image: "/headshots/zahra.jpg",
   },
   {
     name: "Isaac Dzakpata",
     role: ROLES.ASSOC,
     linkedin: "#",
     bio: "Short blurb of what Ayesha wants to say goes here. Something brief and meaningful and ",
-    // image: "/headshots/isaac.jpg", // Image was present in original data?
+    // image: "/headshots/isaac.jpg",
   },
   {
     name: "Tejus Revi",
     role: ROLES.ASSOC,
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
     bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
-    // image: "/headshots/tejus.jpg", // Image was present in original data?
+    // image: "/headshots/tejus.jpg",
   },
   {
     name: "Safwan Salman",
     role: ROLES.ASSOC,
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
     bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
-    // image: "/headshots/safwan.jpg", // Image was present in original data?
+    // image: "/headshots/safwan.jpg",
   },
 ];
 
@@ -62,17 +63,16 @@ const websiteMember = [
 
 // Component for Director Cards
 function DirectorCard({ member }) {
-  // Basic check for essential props
   if (!member || !member.name || !member.role || !member.image || !member.bio || !member.linkedin) {
-    // Handle missing data, e.g., return null or a placeholder
     console.warn("Missing data for DirectorCard:", member);
     return null;
   }
 
   return (
-    <div className="card"> {/* Intersection observer targets this element */}
-      <div className="image">
-        <img src={member.image} alt={member.name} />
+    <div className="card">
+      {/* Ensure parent div for Image has relative positioning if needed */}
+      <div className="image relative h-60"> {/* Example: Added relative and height */}
+        <Image src={member.image} alt={member.name} fill className="object-cover"/> {/* Added object-cover */}
       </div>
       <div className="details">
         <div className="center">
@@ -80,14 +80,12 @@ function DirectorCard({ member }) {
           <p>
             <strong>{member.role}</strong>
           </p>
-          {/* Added check for bio existence */}
           {member.bio && (
              <p>
                 <br />
                 {member.bio}
              </p>
           )}
-          {/* Added check and handling for '#' link */}
           {member.linkedin && member.linkedin !== "#" ? (
              <a
                 href={member.linkedin}
@@ -99,7 +97,6 @@ function DirectorCard({ member }) {
                LinkedIn
              </a>
           ) : (
-            // Optionally render something else if link is '#' or missing
             <p className="no-link-text"><br/>LinkedIn profile not available</p>
           )}
         </div>
@@ -110,9 +107,7 @@ function DirectorCard({ member }) {
 
 // Component for Other Team Member Items
 function TeamMemberItem({ member }) {
-   // Basic check for essential props
    if (!member || !member.name || !member.role || !member.linkedin) {
-    // Handle missing data, e.g., return null or a placeholder
     console.warn("Missing data for TeamMemberItem:", member);
     return null;
    }
@@ -121,7 +116,6 @@ function TeamMemberItem({ member }) {
     <div className="other-member-item">
       <h3>{member.name}</h3>
       <p className="member-role">{member.role}</p>
-      {/* Added check and handling for '#' link */}
       {member.linkedin && member.linkedin !== "#" ? (
          <a
            href={member.linkedin}
@@ -132,7 +126,6 @@ function TeamMemberItem({ member }) {
            LinkedIn Profile
          </a>
       ) : (
-        // Optionally render something else if link is '#' or missing
         <span className="no-link-text">Link not available</span>
       )}
     </div>
@@ -142,7 +135,6 @@ function TeamMemberItem({ member }) {
 
 // --- Main Page Component ---
 export default function EventsPage() {
-  // Filter members using constants and includes method
   const directors = websiteMember.filter(member =>
     DIRECTOR_ROLES.includes(member.role)
   );
@@ -150,16 +142,14 @@ export default function EventsPage() {
     !DIRECTOR_ROLES.includes(member.role)
   );
 
-  // Intersection Observer for Director Cards Animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            // observer.unobserve(entry.target); // Optional: Stop observing once visible
           } else {
-            // entry.target.classList.remove("visible"); // Optional: Re-animate when scrolling out
+            // entry.target.classList.remove("visible"); // Optional
           }
         });
       },
@@ -169,43 +159,56 @@ export default function EventsPage() {
     const cards = document.querySelectorAll(".card");
     cards.forEach((card) => observer.observe(card));
 
-    // Cleanup function
     return () => {
       cards.forEach((card) => {
-        if (card) { // Check if card still exists before unobserving
+        if (card) {
            observer.unobserve(card);
         }
       });
     };
-  }, []); // Empty dependency array: effect runs only once after initial render
+  }, []);
 
   return (
     <>
-      <div className="heroWebsite">
+      {/* === MODIFIED HERO SECTION START === */}
+      {/* Add 'relative' to establish positioning context for the 'fill' Image */}
+      {/* Make sure .heroWebsite in your CSS defines a height */}
+      <div className="heroWebsite relative">
+
+        {/* The Next.js Image Component for the background */}
+        <Image
+          // --- IMPORTANT: Replace with the ACTUAL path to your hero image ---
+          src="/path/to/your/heroWebsite-image.jpg"
+          alt="Background showing [describe image content briefly]" // Add descriptive alt text
+          fill // Tells the image to fill its parent container
+          className="object-cover z-[-1]" // 'object-cover' ensures it covers the area without distortion
+                                          // 'z-[-1]' places it behind other content in this div
+          priority // Optional: Add 'priority' if this image is critical for LCP (Largest Contentful Paint)
+        />
+
+        {/* Existing overlay and text - they will now render on top of the Image */}
         <div className="overlay"></div>
         <div className="heroText">
           <h1>Meet the Website Pod.</h1>
         </div>
       </div>
+      {/* === MODIFIED HERO SECTION END === */}
+
 
       <main className="main">
         <div className="container">
           <div className="events-page">
-            {/* Section for Directors using DirectorCard component */}
             <section className="grid">
               {directors.map((member) => (
-                // Use member.name or another unique ID if available for key
                 <DirectorCard key={member.name} member={member} />
               ))}
             </section>
 
-            {/* Section for Other Members using TeamMemberItem component */}
             {otherMembers.length > 0 && (
               <section className="other-members-section">
                 <h2>Team Members</h2>
                 <div className="other-members-list">
                   {otherMembers.map((member) => (
-                     // Use member.name or another unique ID if available for key
                     <TeamMemberItem key={member.name} member={member} />
                   ))}
                 </div>

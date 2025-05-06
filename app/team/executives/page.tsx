@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import "../style.css";
-import { link } from "fs";
+import Image from 'next/image';
 
 const executiveMember = [
     {
@@ -42,7 +42,7 @@ const executiveMember = [
           role: "Lead Developer - Website Pod",
           linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
           bio:
-            "Hameedah leads the website pod, and manages a team of over 4 people.", 
+            "My name is Hameedah, I am a fourth year CS student who is interested in User experience, research and design. In my free time I like to find new dad jokes. Did you know “dogs can’t operate MRI machines but catscan!”", 
             image: "/headshots/hameedah.jpg"
           },
     {
@@ -68,6 +68,13 @@ const executiveMember = [
       bio:
         "Ian is our Compliance officer and treasurer.", 
         image: "/MQF photos/stickGuy.png"
+      },
+      {
+        name: "Koushik Mote",
+        role: "Director",
+        linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
+        bio: "Koushik is a 4th year computer science student and Math student interested in Quant Finance.",
+        image: "/MQF photos/koushik.png", // Placeholder Image
       },
     {
       name: "Rimsha Aziz",
@@ -122,7 +129,7 @@ export default function TeamsPage() {
             {filteredTeams.map((team, idx) => (
               <div key={idx} className={`card ${team.role === "President" ? "president-card" : ""}`}>
                 <div className="image">
-                  <img src={team.image} alt={team.name} />
+                  <Image src={team.image} alt={team.name} fill/>
                 </div>
                 <div className="details">
                   <div className="center">
