@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import { pastEvents, upcomingEvents} from "./eventsData"; // 
+import Image from 'next/image';
 
 type Event = {
   title: string;
@@ -15,7 +16,7 @@ function EventCard({ event }: { event: Event }) {
   return (
     <div className="eCard">
       <div className="image">
-        <img src={event.image} alt={event.title} />
+        <Image src={event.image} alt={event.title} fill/>
       </div>
       <div className="details">
         <div className="center">
@@ -40,14 +41,14 @@ export default function EventsPage() {
       <div className="eventsHero">
         <div className="eventsOverlay"></div>
         <div className="eventsHeroText">
-          <h1>See what we're up to.</h1>
+          <h1>See what we&apos;re up to.</h1>
         </div>
       </div>
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
 
         <section className="upcomingSection">
           <h1> UPCOMING EVENTS</h1>
-          <h2>We're just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
+          <h2>We&apos;re just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
           <div className="upcomingGrid">
             {upcomingEvents.map((event) => (
               <div key={event.title} className="upcomingItem">
@@ -63,7 +64,7 @@ export default function EventsPage() {
         <section className="pastSection">
           <h1 className="sectionTitle">PAST EVENTS</h1>
           <h2 className="sectionSubtitle">
-            Catch a glimpse of what we've done so far...
+            Catch a glimpse of what we&apos;ve done so far...
           </h2>
           <div className="eventsGrid">
             {filteredEvents.map((event) => (

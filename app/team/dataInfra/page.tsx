@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-// Assuming styles.css is one level up
+import React, { useEffect } from "react";
+
 import "./styles.css";
 
 // --- Constants ---
@@ -22,7 +22,7 @@ const dataInfraMember = [
     name: "Kelvin Fumo",
     role: ROLES.MD_ASSET_ALLOC,
     linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-    bio: "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+    bio: "Kelvin is a 5th year Business and Computer Science student at Memorial University. He has experience as an Equity Analyst at the Fund and as a Data Analyst at North Atlantic. He also enjoys Basketball and Motor Racing. ",
     image: "/headshots/kelvin.jpg",
   },
   {
@@ -38,6 +38,13 @@ const dataInfraMember = [
     linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
     bio: "This is where I say something cool, witty, or vaguely profound.",
     image: "/MQF photos/stickGuy.png", // Placeholder Image
+  },
+  {
+    name: "Koushik Mote",
+    role: ROLES.DIR_ASSET_ALLOC,
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
+    bio: "Koushik is a 4th year computer science student and Math student interested in Quant Finance.",
+    image: "/MQF photos/koushik.png", // Placeholder Image
   },
   {
     name: "Alen Jacob",
