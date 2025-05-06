@@ -18,7 +18,7 @@ const executiveMember = [
       role: "Head of Operations",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "Ayesha, is a third year Computer Science student at MUN. She is the Operations Lead at MQS.", 
+      "Ayesha is a 3rd-year CS student at Memorial University. She's enthusiastic about web development and enjoys reading and sleeping in her downtime.", 
       image: "/headshots/ayesha.jpg"
     },
     {
@@ -34,7 +34,7 @@ const executiveMember = [
         role: "Managing Director - Asset Allocation",
         linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
         bio:
-          "Kelvin leads the Asset Allocation Team at MQS.",
+          "Kelvin is a 5th year Business and Computer Science student at Memorial University. He has experience as an Equity Analyst at the Fund and as a Data Analyst at North Atlantic. He also enjoys Basketball and Motor Racing.",
           image: "/headshots/kelvin.jpg"
         },
   {
@@ -50,15 +50,15 @@ const executiveMember = [
         role: "Head of Strategic Partnerships",
         linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
         bio:
-          "Fariha Mehnaz is the Director of Strategic Partnerships at MQS.", 
+          "Fariha is a 4th year computer science student at MUN with strong interests in areas of data science and data security and encryption.", 
           image: "/headshots/fariha.jpg"
         },
     {
           name: "Tejus Revi",
           role: "Lead Quantitative Developer",
-          linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
+          linkedin: "https://www.linkedin.com/in/tejusrevi/",
           bio:
-            "Tejus Revi Leads the Infrastructure and Data Team at MQS", 
+            "Tejus is a computer science graduate from Memorial University with experience in building infrastructure to support big data analysis, particularly in the scientific research space. Outside of work, he enjoys strength athletics and sketching.", 
             image: "/headshots/tejus.jpg"
           },
     {
@@ -74,7 +74,7 @@ const executiveMember = [
       role: "Director of Marketing",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "This is where I say something cool, witty, or vaguely profound.", 
+      "Rimsha is a third year Commerce student at Memorial University. She likes learning about all things business. When she's not studying or working, she enjoys baking and watching movies.", 
       image: "/headshots/rimsha.jpg"
     },
     {
@@ -82,7 +82,7 @@ const executiveMember = [
       role: "Portfolio 2 Managing Director",
       linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
       bio:
-      "Sameer is a managing director and leads Portfolio 2.", 
+      "Sameer is a 4th year Economics & Computer Science Student at MUN with a strong interest in financial markets and economic research. Outside of academics, he enjoys strength training and unwinding with a good movie", 
       image: "/headshots/sameer.jpg"
     },
 

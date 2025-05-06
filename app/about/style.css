@@ -1,56 +1,55 @@
 /* Base page styles */
 .about-page {
-  color: #111827; /* Default text color, might be overridden */
-  overflow-x: hidden; /* Prevent horizontal scrollbars */
+  color: #111827;
+  overflow-x: hidden;
 }
 
 /* Hero Section (fills the initial viewport) */
 .hero-section {
-  position: relative; /* Crucial for absolute positioning of children */
-  height: 100vh; /* Make section fill the viewport height */
-  overflow: hidden; /* Hide anything that might overflow */
-  z-index: 1; /* Base stacking context */
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
 }
 
 /* Background Video */
 .hero-video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Cover the entire area, cropping if needed */
-  position: absolute; /* Position behind content */
+  object-fit: cover;
+  position: absolute;
   top: 0;
   left: 0;
-  z-index: 1; /* Behind text */
+  z-index: 1;
 }
 
-/* Optional Video Overlay (if you want to use it) */
+/* Optional Video Overlay */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Example gradient: darkens bottom */
   background: linear-gradient(0deg, rgba(0,0,0,0.5) 10%, transparent 90%);
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
   transition: opacity 1s ease;
-  z-index: 2; /* Above video, below text */
+  z-index: 2;
 }
 
 .hero-overlay.visible {
-  opacity: 1; /* Make overlay visible */
+  opacity: 1;
 }
 
 /* Main Title Container (Centered) */
 .main-title-container {
   position: absolute;
-  top: 48%; /* Vertically centered (adjust 40%-50% as needed for balance) */
+  top: 48%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Precise centering */
+  transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  z-index: 3; /* Above video and overlay */
-  width: 90%; /* Prevent text wrapping too early */
+  z-index: 3;
+  width: 90%;
 }
 
 /* Main Title Text */
@@ -58,7 +57,7 @@
   font-size: 4.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Readability */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* "Scroll Down" Prompt */
@@ -67,7 +66,7 @@
   opacity: 0.8;
   margin-top: 0.5rem;
   font-weight: 300;
-  animation: pulseOpacity 2s infinite ease-in-out; /* Subtle animation */
+  animation: pulseOpacity 2s infinite ease-in-out;
 }
 
 /* Animation for the scroll prompt */
@@ -80,19 +79,25 @@
   }
 }
 
-/* "Join Us..." Text (Bottom of Viewport) */
+/* "Join Us..." Text (Bottom of Viewport - Starts Hidden) */
 .hero-bottom-text {
   position: absolute;
-  bottom: 5vh; /* Position from the bottom edge (e.g., 5% of viewport height) */
+  bottom: 5vh;
   left: 50%;
-  transform: translateX(-50%); /* Center horizontally */
-  width: 90%; /* Max width relative to parent */
-  max-width: 600px; /* Optional: constrain absolute max width */
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
   text-align: center;
   color: white;
-  z-index: 3; /* Above video and overlay */
-  opacity: 1; /* Visible by default */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Readability */
+  z-index: 3;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.8s ease-in-out; /* Smooth fade-in */
+}
+
+/* Style for when the text should be visible */
+.hero-bottom-text.visible {
+  opacity: 1; /* Become visible */
 }
 
 .hero-bottom-text h1 {
@@ -109,77 +114,76 @@
 
 /* Toggle Section Below Hero */
 .toggle-section {
-  position: relative; /* For pseudo-element positioning */
+  position: relative;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
   padding: 4rem 2rem;
   color: white;
-  z-index: 2; /* Above default page flow */
+  z-index: 2;
 }
 
 /* Fade effect from Hero to Toggle Section */
 .toggle-section::before {
   content: '';
   position: absolute;
-  top: -15vh; /* Overlap with bottom of hero section */
+  top: -15vh;
   left: 0;
   width: 100%;
-  height: 15vh; /* Height of the fade gradient */
+  height: 15vh;
   background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-  z-index: -1; /* Behind toggle content but above page default */
+  z-index: -1;
 }
 
 /* Layout for Toggle Items and Content */
 .toggle-wrapper {
   display: flex;
-  gap: 4rem; /* Space between items list and content */
+  gap: 4rem;
   align-items: flex-start;
   max-width: 1200px;
-  margin: 0 auto; /* Center the wrapper */
-  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 /* Container for the list of toggle buttons */
 .toggle-container {
-  flex: 1; /* Take up proportional space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* Space between toggle items */
-  min-width: 250px; /* Prevent getting too narrow */
+  gap: 1rem;
+  min-width: 250px;
 }
 
 /* Individual Toggle Button Style */
 .toggle-item {
   background: transparent;
-  border: 2px solid white; /* Use white or a theme color */
-  color: white; /* Ensure text is visible */
+  border: 2px solid white;
+  color: white;
   padding: 1rem;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
   font-weight: bold;
   font-size: 1.25rem;
-  text-align: left; /* Or center, adjust as needed */
+  text-align: left;
 }
 
 .toggle-item:hover {
-  background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
-  transform: scale(1.02); /* Slight zoom on hover */
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.02);
 }
 
 /* Style for the currently open toggle item */
 .toggle-item.open {
-  /* Example: Change background or border */
-  background: rgba(164, 7, 7, 0.2); /* Example accent color */
+  background: rgba(164, 7, 7, 0.2);
   border-color: rgba(164, 7, 7, 0.8);
 }
 
 /* Container for the content displayed when a toggle is open */
 .toggle-content {
-  flex: 2; /* Take up more space than the items list */
-  background: transparent; /* Or a subtle background */
+  flex: 2;
+  background: transparent;
   padding: 1rem;
   font-size: 1.2rem;
-  animation: fadeIn 0.5s ease; /* Fade-in animation */
-  text-align: center; /* Or left, adjust as needed */
+  animation: fadeIn 0.5s ease;
+  text-align: center;
 }
 
 .toggle-content-title {
@@ -189,7 +193,7 @@
 }
 
 .toggle-content-body {
-  line-height: 1.6; /* Improve readability */
+  line-height: 1.6;
 }
 
 /* Fade-in animation for toggle content */
@@ -222,32 +226,32 @@
     font-size: 1rem;
   }
   .hero-bottom-text {
-     bottom: 4vh; /* Adjust positioning if needed */
+     bottom: 4vh;
   }
 
   /* Stack Toggle Section vertically */
   .toggle-wrapper {
     flex-direction: column;
     align-items: center;
-    gap: 2rem; /* Adjust gap for vertical layout */
+    gap: 2rem;
   }
 
   .toggle-container {
-    width: 100%; /* Make items list full width */
-    max-width: 400px; /* Constrain width */
-    min-width: unset; /* Remove min-width */
-    align-items: center; /* Center items if container is wider */
+    width: 100%;
+    max-width: 400px;
+    min-width: unset;
+    align-items: center;
   }
 
   .toggle-item {
-     width: 100%; /* Make buttons full width of container */
+     width: 100%;
      text-align: center;
   }
 
   .toggle-content {
-    margin-top: 0; /* Reset margin */
-    width: 100%; /* Ensure content takes full width */
-    max-width: 600px; /* Constrain content width */
+    margin-top: 0;
+    width: 100%;
+    max-width: 600px;
   }
 
   /* Adjust fade gradient height/position */
@@ -262,14 +266,14 @@
   .main-title-container .main-title {
     font-size: 2.5rem;
   }
-  .hero-bottom-text h1 {
+   .hero-bottom-text h1 {
     font-size: 1.8rem;
   }
   .hero-bottom-text p {
     font-size: 0.9rem;
   }
   .hero-bottom-text {
-     bottom: 3vh; /* Fine-tune position */
+     bottom: 3vh;
   }
 
   /* Adjust padding on smaller screens */

@@ -13,9 +13,9 @@ export const initialContent: {
   [key in SectionTitle]: React.ReactNode;
 } = {
   "ABOUT US": <div>We're Memorial University's premier Quantitative Finance & Trading Society<br /><br />
-  We're incredibly passionate, driven and friendly!<br />
-  Do you want to add to your resume? Network with industry professionals? Learn how to manage your own portfolio?<br />
-  You're at the right spot<br /></div>,
+  We strongly believe in the talent nurtured here in Newfoundland, and prepare talented students for roles in Trading, Capital markets, and Computer Science leveraging cutting edge resources all built in-house.<br />
+  <br /><br />
+  Want to develop your skills in a challenging and competitive environment? You're at the right spot. <br /></div>,
   "PROJECTS": <div>At MUN Quant Society, we’re all about learning by doing. Through model development, and data-driven investment strategies, we empower our
   members to learn and apply their knowledge practically.<br /><br />
   We manage a fund, work on projects & research papers to ensure that you’ll have practical projects you can add to your resume!</div>,

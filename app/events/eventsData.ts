@@ -48,6 +48,6 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
       title: "MQS Formal Mixer",
       date: "End of May (TBD)",
       location: "Toslow Cafe",
-      description: "A networking opportunity for MQS members and alumni to connect over drinks and appetizers. This is a great chance to meet other members and learn more about the club.",
+      description: "A networking opportunity for MQS members and alumni to connect over drinks and snacks.",
     },
   ];
