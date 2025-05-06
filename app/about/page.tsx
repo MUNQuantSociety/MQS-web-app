@@ -33,10 +33,8 @@ export default function About() {
   };
 
   return (
-    // Main container div for the entire page
     <div className="about-page">
 
-      {/* Hero Section with Video Background */}
       <section className="hero-section">
         <video
           ref={videoRef}
@@ -50,16 +48,19 @@ export default function About() {
           Your browser does not support the video tag.
         </video>
 
-        {/* Centered Content over Video */}
         <div className="main-title-container">
           <h1 className="main-title">MUN QUANT SOCIETY</h1>
 
-          
+          {/* --- START: Added JOIN US Button --- */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSeU9YmdLQMVuYfgZbiylYyQ80p9CHrWKPm2oo8xrhOGJNCJQA/viewform"
+            // Using classes from Navbar for styling inspiration
+            // You might need to copy or adjust styles from Navbar's CSS into './style.css'
+            // Added 'hero-join-button' for potential specific overrides if needed
             className="nav-link join-us hero-join-button"
             target="_blank"
             rel="noopener noreferrer"
+            // Added inline style for spacing and to ensure it behaves like a block/inline-block for margins
             style={{ display: 'inline-block', marginTop: '1rem', marginBottom: '0.5rem' }}
           >
             JOIN US
@@ -69,19 +70,17 @@ export default function About() {
           <p className="scroll-prompt">scroll down</p>
         </div>
 
-        {/* Bottom Text revealed on scroll */}
+        {/* Added conditional class based on showHeroText state */}
         <div className={`hero-bottom-text ${showHeroText ? 'visible' : ''}`}>
           <h1>Join us May 15th!</h1>
           <p>Meet like-minded driven students.</p>
         </div>
 
-      </section> {/* End of hero-section */}
+      </section>
 
-      {/* Toggle Items Section */}
-      <section className="toggle-section"> {/* This section tag was previously unclosed */}
+      <section className="toggle-section">
         <div className="toggle-wrapper">
-          {/* Container for the clickable toggle headers */}
-          <div className="toggle-container">
+        <div className="toggle-container">
             <AboutUsToggleItem
               title="ABOUT US"
               setContent={() => {}}
@@ -107,20 +106,17 @@ export default function About() {
               setOpen={handleToggle}
             />
           </div> 
-        </div> 
-
-        {/* Conditionally rendered content area below the toggles */}
-        {openSection && (
-          <div className="toggle-content">
-            <h2 className="toggle-content-title">{openSection}</h2>
-            <div className="toggle-content-body">
-              {initialContent[openSection]}
+          {openSection && (
+            <div className="toggle-content">
+              <h2 className="toggle-content-title">{openSection}</h2>
+              <div className="toggle-content-body">
+                {initialContent[openSection]}
+              </div>
             </div>
-          </div>
-        )}
-        
-      </section> 
+          )}
+        </div>
+      </section>
 
-    </div> 
-  ); 
-} 
+    </div>
+  );
+}
