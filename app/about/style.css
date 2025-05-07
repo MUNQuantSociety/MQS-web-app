@@ -9,7 +9,7 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  z-index: 1;
+  z-index: 1; /* Establishes a stacking context */
 }
 
 /* Background Video */
@@ -20,10 +20,23 @@
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1; /* Base layer of hero-section */
 }
 
-/* Optional Video Overlay */
+/* NEW: Video Fade using hero-section::after */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0; /* Align to the bottom of the hero-section */
+  left: 0;
+  width: 100%;
+  height: 25vh; /* Increased height for a more prominent fade */
+  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); /* Fade from dark to transparent */
+  z-index: 2; /* Above the video, below text and other overlays */
+  pointer-events: none; /* Allow clicks to pass through the fade */
+}
+
+/* Optional Video Overlay - from your CSS */
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -33,7 +46,7 @@
   background: linear-gradient(0deg, rgba(0,0,0,0.5) 10%, transparent 90%);
   opacity: 0;
   transition: opacity 1s ease;
-  z-index: 2;
+  z-index: 3; /* Above the ::after video fade */
 }
 
 .hero-overlay.visible {
@@ -48,11 +61,10 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  z-index: 3;
+  z-index: 4; /* Above video, ::after fade, and overlay */
   width: 90%;
 }
 
-/* Main Title Text */
 .main-title-container .main-title {
   font-size: 4.5rem;
   font-weight: 700;
@@ -60,7 +72,6 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
-/* "Scroll Down" Prompt */
 .main-title-container .scroll-prompt {
   font-size: 1.2rem;
   opacity: 0.8;
@@ -69,17 +80,11 @@
   animation: pulseOpacity 2s infinite ease-in-out;
 }
 
-/* Animation for the scroll prompt */
 @keyframes pulseOpacity {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
-/* "Join Us..." Text (Bottom of Viewport - Starts Hidden) */
 .hero-bottom-text {
   position: absolute;
   bottom: 5vh;
@@ -89,49 +94,88 @@
   max-width: 600px;
   text-align: center;
   color: white;
-  z-index: 3;
+  z-index: 4; /* Above video, ::after fade, and overlay */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-  opacity: 0; /* Start hidden */
-  transition: opacity 0.8s ease-in-out; /* Smooth fade-in */
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
 }
 
-/* Style for when the text should be visible */
-.hero-bottom-text.visible {
-  opacity: 1; /* Become visible */
+.hero-bottom-text.visible { opacity: 1; }
+.hero-bottom-text h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+.hero-bottom-text p { font-size: 1.2rem; opacity: 0.9; }
+
+/* --- START: Sponsors Section CSS --- */
+.sponsors-section {
+  padding: 2rem 2rem;
+  text-align: center;
+  /* Sits on the dark area created by hero-section::after and toggle-section's dark bg */
+  background-color: transparent;
+  color: white;
+  position: relative;
+  /* z-index: 2; /* Now relative to root, after hero section */
+  /* Let's use a higher z-index for sections after hero if needed, but natural flow might be enough */
+   z-index: 5; /* To be clearly above hero elements if any overlap, though not expected */
 }
 
-.hero-bottom-text h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.sponsors-section h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-.hero-bottom-text p {
-  font-size: 1.2rem;
-  opacity: 0.9;
+.sponsors-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
+.sponsor-logo-wrapper {
+  position: relative;
+  width: 160px;
+  height: 80px;
+  transition: transform 0.3s ease, background-color 0.6s ease;
+  background-color: rgba(211, 211, 211, 0.60);
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.sponsor-logo-wrapper:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.sponsor-logo-wrapper a,
+.sponsor-logo-wrapper > .next-image-wrapper {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.sponsors-image {
+  object-fit: contain !important;
+}
+/* --- END: Sponsors Section CSS --- */
 
 /* Toggle Section Below Hero */
 .toggle-section {
   position: relative;
+  /* This background now starts effectively after the hero-section's ::after fade */
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
   padding: 4rem 2rem;
   color: white;
-  z-index: 2;
+  /* z-index: 2; /* Sibling to sponsors-section, after hero */
+  z-index: 5; /* Consistent with sponsors section */
 }
 
-/* Fade effect from Hero to Toggle Section */
-.toggle-section::before {
-  content: '';
-  position: absolute;
-  top: -15vh;
-  left: 0;
-  width: 100%;
-  height: 15vh;
-  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
-  z-index: -1;
-}
+/* REMOVED .toggle-section::before as fade is now hero-section::after */
 
 /* Layout for Toggle Items and Content */
 .toggle-wrapper {
@@ -141,9 +185,10 @@
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  position: relative;
+  /* z-index: 1; /* Content within .toggle-section stacks normally */
 }
 
-/* Container for the list of toggle buttons */
 .toggle-container {
   flex: 1;
   display: flex;
@@ -152,7 +197,6 @@
   min-width: 250px;
 }
 
-/* Individual Toggle Button Style */
 .toggle-item {
   background: transparent;
   border: 2px solid white;
@@ -170,13 +214,11 @@
   transform: scale(1.02);
 }
 
-/* Style for the currently open toggle item */
 .toggle-item.open {
   background: rgba(164, 7, 7, 0.2);
   border-color: rgba(164, 7, 7, 0.8);
 }
 
-/* Container for the content displayed when a toggle is open */
 .toggle-content {
   flex: 2;
   background: transparent;
@@ -186,100 +228,50 @@
   text-align: center;
 }
 
-.toggle-content-title {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+.toggle-content-title { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
+.toggle-content-body { line-height: 1.6; }
 
-.toggle-content-body {
-  line-height: 1.6;
-}
-
-/* Fade-in animation for toggle content */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 
 /* --- Responsive Adjustments --- */
-
 @media (max-width: 768px) {
-  /* Adjust Hero Text Sizes */
-  .main-title-container .main-title {
-    font-size: 3rem;
-  }
-  .main-title-container .scroll-prompt {
-    font-size: 1rem;
-  }
-  .hero-bottom-text h1 {
-    font-size: 2rem;
-  }
-  .hero-bottom-text p {
-    font-size: 1rem;
-  }
-  .hero-bottom-text {
-     bottom: 4vh;
-  }
+  .main-title-container .main-title { font-size: 3rem; }
+  .main-title-container .scroll-prompt { font-size: 1rem; }
+  .hero-bottom-text h1 { font-size: 2rem; }
+  .hero-bottom-text p { font-size: 1rem; }
+  .hero-bottom-text { bottom: 4vh; }
 
-  /* Stack Toggle Section vertically */
-  .toggle-wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-  }
+  .hero-section::after { height: 20vh; } /* Adjust fade height for tablets */
 
-  .toggle-container {
-    width: 100%;
-    max-width: 400px;
-    min-width: unset;
-    align-items: center;
-  }
+  .sponsors-section { padding: 1.5rem 1.5rem; }
+  .sponsors-section h2 { font-size: 2rem; }
+  .sponsors-container { gap: 2rem; }
+  .sponsor-logo-wrapper { width: 130px; height: 65px; padding: 0.4rem; }
 
-  .toggle-item {
-     width: 100%;
-     text-align: center;
-  }
+  /* .toggle-section::before removed */
 
-  .toggle-content {
-    margin-top: 0;
-    width: 100%;
-    max-width: 600px;
-  }
-
-  /* Adjust fade gradient height/position */
-  .toggle-section::before {
-    top: -20vw;
-    height: 20vw;
-  }
+  .toggle-wrapper { flex-direction: column; align-items: center; gap: 2rem; }
+  .toggle-container { width: 100%; max-width: 400px; min-width: unset; align-items: center; }
+  .toggle-item { width: 100%; text-align: center; }
+  .toggle-content { margin-top: 0; width: 100%; max-width: 600px; }
 }
 
 @media (max-width: 480px) {
-  /* Further reduce Hero Text Sizes */
-  .main-title-container .main-title {
-    font-size: 2.5rem;
-  }
-   .hero-bottom-text h1 {
-    font-size: 1.8rem;
-  }
-  .hero-bottom-text p {
-    font-size: 0.9rem;
-  }
-  .hero-bottom-text {
-     bottom: 3vh;
-  }
+  .main-title-container .main-title { font-size: 2.5rem; }
+  .hero-bottom-text h1 { font-size: 1.8rem; }
+  .hero-bottom-text p { font-size: 0.9rem; }
+  .hero-bottom-text { bottom: 3vh; }
 
-  /* Adjust padding on smaller screens */
-   .toggle-section {
-    padding: 3rem 1rem;
-  }
+  .hero-section::after { height: 20vh; } /* Adjust fade height for mobile */
+
+  .sponsors-section { padding: 1rem 1rem; }
+  .sponsors-section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
+  .sponsors-container { gap: 1.5rem; }
+  .sponsor-logo-wrapper { width: 100px; height: 50px; padding: 0.25rem; }
+
+  .toggle-section { padding: 3rem 1rem; }
 }
-
 /* --- End of CSS --- */

@@ -21,7 +21,7 @@
         rgba(0, 0, 0, 0.3),
         rgb(0, 0, 0, 0.8)
       ),
-      url("/MQF photos/random.jpg") no-repeat center center;
+      url("/MQF photos/first.jpg") no-repeat center center;
     background-size: cover;
 }
 .eventsOverlay {
