@@ -19,7 +19,7 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
       date: "April 7, 2025",
       description:
         "Our final gathering of the semester was the ideal send-off before exams and summer internships, where members had the opportunity to capture high-quality professional headshots. Smiles, snacks, and a few bonus group shots made it the perfect celebration for everything we accomplished over the semester.",
-      image: "/MQF photos/linkedIn.jpg"
+      image: "/MQF photos/group.jpg"
     },
     {
       title: "Bonus Gathering",
@@ -39,15 +39,17 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
     },
 
     {
-      title: "MQS Session 1",
-      date: "May 19, 2025",
-      location: "TBD",
-      description: "Blurb blurb blurb",
-    },
-    {
       title: "MQS Formal Mixer",
-      date: "End of May (TBD)",
+      date: "May 30, 2025",
       location: "Toslow Cafe",
-      description: "A networking opportunity for MQS members and alumni to connect over drinks and snacks.",
+      description: "A networking opportunity for MQS members to connect over drinks and snacks (6PM)",
     },
+
+    {
+      title: "MQS x ANC Networking Event",
+      date: "June (TBD)",
+      location: "ANC,",
+      description: "A networking opportunity for MQS members to connect with local industry professionals.",
+    },
+    
   ];
