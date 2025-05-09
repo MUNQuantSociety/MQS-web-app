@@ -1,7 +1,7 @@
 ---
 title: "Diving Into Quant Finance: Where Math Meets Markets"
-author: "MUN Quant Society" # Or replace with actual author/society name
-date: "2025-05-05" # Current Date
+author: "MUN Quant Society"
+date: "2025-04-25"
 tags:
   [
     "Quantitative Finance",
@@ -13,7 +13,7 @@ tags:
 summary: "An introduction to the world of quantitative finance, exploring what it is, who 'quants' are, the skills required, key areas within the field, and how to get started."
 ---
 
-![Banner](/article-list/article-2/hero.jpg)
+![Banner](/article-list/article-2/placeholder_banner_quant_finance.jpg)
 
 # Diving Into Quant Finance: Where Math Meets Markets
 

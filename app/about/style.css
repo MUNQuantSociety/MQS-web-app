@@ -23,7 +23,7 @@
   z-index: 1; /* Base layer of hero-section */
 }
 
-/* NEW: Video Fade using hero-section::after */
+/* Video Fade using hero-section::after */
 .hero-section::after {
   content: '';
   position: absolute;
@@ -104,6 +104,54 @@
 .hero-bottom-text h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
 .hero-bottom-text p { font-size: 1.2rem; opacity: 0.9; }
 
+
+/* --- START: Animated Text Section CSS --- */
+.animated-text-section {
+  padding: 4rem 2rem; /* Adjust padding as desired */
+  text-align: center;
+  background-color: transparent; /* Blends with the dark theme */
+  color: white; /* Default color for any static text like an optional title */
+  position: relative;
+  z-index: 5; /* Consistent with sponsors/toggle sections */
+  /* Optional: give it some minimum height if text is short, to ensure scroll area */
+  /* min-height: 60vh; */
+}
+
+/* Optional title for the animated text section (if you add one) */
+/*
+.animated-text-section .section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+*/
+
+.animated-text-content {
+  max-width: 700px; /* Adjust max-width of the text block */
+  margin: 0 auto;
+  text-align: left; /* Or 'center' if you prefer centered lines */
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.animated-line {
+  font-size: 2rem; /* Adjust base font size for the animated text */
+  line-height: 1.0; /* Adjust line spacing */
+  margin-bottom: 1.25rem; /* Space between lines of text */
+  font-weight: 500; /* Example font weight */
+}
+
+.animated-word {
+  display: inline-block; /* Allows for better control if needed, and respects spaces */
+  opacity: 0.3; /* Initial dimmed state */
+  color: #A0A0A0; /* Initial dimmed color */
+  transition: opacity 0.4s ease-out, color 0.4s ease-out; /* Smooth transition for highlight */
+}
+/* --- END: Animated Text Section CSS --- */
+
+
 /* --- START: Sponsors Section CSS --- */
 .sponsors-section {
   padding: 2rem 2rem;
@@ -112,8 +160,6 @@
   background-color: transparent;
   color: white;
   position: relative;
-  /* z-index: 2; /* Now relative to root, after hero section */
-  /* Let's use a higher z-index for sections after hero if needed, but natural flow might be enough */
    z-index: 5; /* To be clearly above hero elements if any overlap, though not expected */
 }
 
@@ -140,7 +186,7 @@
   width: 160px;
   height: 80px;
   transition: transform 0.3s ease, background-color 0.6s ease;
-  background-color: rgba(211, 211, 211, 0.60);
+  background-color: rgba(211, 211, 211, 0.60); /* User's last preferred color */
   border-radius: 8px;
   padding: 0.5rem;
   box-sizing: border-box;
@@ -148,11 +194,11 @@
 
 .sponsor-logo-wrapper:hover {
   transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.25); /* User's last preferred hover color */
 }
 
 .sponsor-logo-wrapper a,
-.sponsor-logo-wrapper > .next-image-wrapper {
+.sponsor-logo-wrapper > .next-image-wrapper { /* If next/image adds a span wrapper */
   display: block;
   width: 100%;
   height: 100%;
@@ -171,11 +217,8 @@
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
   padding: 4rem 2rem;
   color: white;
-  /* z-index: 2; /* Sibling to sponsors-section, after hero */
   z-index: 5; /* Consistent with sponsors section */
 }
-
-/* REMOVED .toggle-section::before as fade is now hero-section::after */
 
 /* Layout for Toggle Items and Content */
 .toggle-wrapper {
@@ -186,7 +229,6 @@
   margin: 0 auto;
   flex-wrap: wrap;
   position: relative;
-  /* z-index: 1; /* Content within .toggle-section stacks normally */
 }
 
 .toggle-container {
@@ -246,13 +288,23 @@
 
   .hero-section::after { height: 20vh; } /* Adjust fade height for tablets */
 
+  /* Animated Text Section Responsive */
+  .animated-text-section {
+    padding: 3rem 1.5rem;
+  }
+  .animated-line {
+    font-size: 1.6rem; /* Smaller font on tablets */
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* Sponsors Section Responsive */
   .sponsors-section { padding: 1.5rem 1.5rem; }
   .sponsors-section h2 { font-size: 2rem; }
   .sponsors-container { gap: 2rem; }
   .sponsor-logo-wrapper { width: 130px; height: 65px; padding: 0.4rem; }
 
-  /* .toggle-section::before removed */
-
+  /* Toggle Section Responsive */
   .toggle-wrapper { flex-direction: column; align-items: center; gap: 2rem; }
   .toggle-container { width: 100%; max-width: 400px; min-width: unset; align-items: center; }
   .toggle-item { width: 100%; text-align: center; }
@@ -267,11 +319,22 @@
 
   .hero-section::after { height: 20vh; } /* Adjust fade height for mobile */
 
+  /* Animated Text Section Responsive */
+  .animated-text-section {
+    padding: 2.5rem 1rem;
+  }
+  .animated-line {
+    font-size: 1.3rem; /* Smaller font on mobile */
+    line-height: 1.5;
+  }
+
+  /* Sponsors Section Responsive */
   .sponsors-section { padding: 1rem 1rem; }
   .sponsors-section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
   .sponsors-container { gap: 1.5rem; }
   .sponsor-logo-wrapper { width: 100px; height: 50px; padding: 0.25rem; }
 
+  /* Toggle Section Responsive */
   .toggle-section { padding: 3rem 1rem; }
 }
 /* --- End of CSS --- */

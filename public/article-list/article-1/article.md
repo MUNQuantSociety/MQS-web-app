@@ -8,7 +8,6 @@ summary: "An in-house backtesting engine developed by the MUN Quant Society for 
 ---
 
 ![Banner](/article-list/article-1/backtest.jpg)
-
 The MUN Quant Society is proud to present our in-house Backtest Engine, a sophisticated platform designed for the rigorous evaluation of quantitative trading strategies. Developed entirely by society members, this engine provides a robust framework for simulating strategy performance against historical market data, serving as a cornerstone project for applying theoretical knowledge to practical scenarios.
 
 ## Core Features
