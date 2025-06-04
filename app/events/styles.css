@@ -20,9 +20,9 @@
         rgba(0, 0, 0, 0),
         rgba(0, 0, 0, 0.3),
         rgb(0, 0, 0, 0.8)
-      ),
-      url("/MQF photos/first.jpg") no-repeat center center;
-    background-size: cover;
+      ), 
+      url("/MQF photos/this.jpg") no-repeat center center;
+    background-size: cover; 
 }
 .eventsOverlay {
     position: absolute;
@@ -133,10 +133,10 @@
     background: #000000;
     width: 90%;
     overflow-wrap: break-word;
-    font-size: clamp(12px, 1.3vw, 22px);
+    font-size: clamp(15px, 1.3vw, 22px);
 }
 .upcomingSection {
-    padding: 6% 2% 6% 2%;
+    padding: 6% 3% 6% 3%;
     background-color: #000000c6;
     color: #fff;
     text-align: center;
@@ -151,12 +151,12 @@
     padding: 0.5% 5%;
 }
 .upcomingSection h3 {
-    font-size: 65%;
+    font-size: clamp(1.5rem, 50%, 2.4rem);
+    padding-bottom: 1%;
 }
 .upcomingSection p {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 25%, 1.2rem);
     line-height: 2;
-    margin: 30px;
 }
 .upcomingGrid {
     display: flex;
@@ -171,9 +171,12 @@
     width: 450px;
     height: 450px;
     background: #111111c6;
-    align-content: center;
+    place-content: center;
+    text-align: center;
+    padding: 0 3%;
     box-sizing: border-box;
     border: 1px solid #e14d6be8;
+
 }
 /* Stacked layer behind */
 .upcomingItem::before {

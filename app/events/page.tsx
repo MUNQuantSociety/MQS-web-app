@@ -54,7 +54,7 @@ export default function EventsPage() {
               <div key={event.title} className="upcomingItem">
                 <div className="upcomingContent">
                   <h3>{event.title}</h3>
-                  <p>{event.date} <br/>{event.location}<br/><br/>{event.description}</p>
+                  <p>{event.date} <br/>{event.location}<br/>{event.description}</p>
                 </div>
               </div>
             ))}

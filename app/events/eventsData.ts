@@ -1,6 +1,13 @@
 
 export const pastEvents = [//Do not add events with duplicate titles, it messes with the EventCard
     {
+            title: "Spring Mixer",
+      date: "May 30, 2025",
+      description:
+        "More laughs and memories as we started the term with a fun evening of networking, games and good food at Toslow Cafe.",
+      image: "/MQF photos/springgg.jpg"
+    },
+    {
       title: "Social Mixer",
       date: "February 27, 2025",
       description:
@@ -21,13 +28,7 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
         "Our final gathering of the semester was the ideal send-off before exams and summer internships, where members had the opportunity to capture high-quality professional headshots. Smiles, snacks, and a few bonus group shots made it the perfect celebration for everything we accomplished over the semester.",
       image: "/MQF photos/group.jpg"
     },
-    {
-      title: "Bonus Gathering",
-      date: "April 7, 2025",
-      description:
-        "More laughs and memories as we wrapped up the term with a surprise pizza drop and casual game night.",
-      image: "/MQF photos/random.jpg"
-    },
+  
   ];
   
   export const upcomingEvents = [
@@ -51,5 +52,4 @@ export const pastEvents = [//Do not add events with duplicate titles, it messes 
       location: "ANC,",
       description: "A networking opportunity for MQS members to connect with local industry professionals.",
     },
-    
   ];
