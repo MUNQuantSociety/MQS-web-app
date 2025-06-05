@@ -13,7 +13,12 @@ const ROLES = {
   ASSOC: "Associate",
 };
 
-const DIRECTOR_ROLES = [ROLES.MD_ASSET_ALLOC, ROLES.DIR_ASSET_ALLOC, ROLES.DIR, ROLES.LEAD_QUANT_DEV];
+const DIRECTOR_ROLES = [
+  ROLES.MD_ASSET_ALLOC,
+  ROLES.DIR_ASSET_ALLOC,
+  ROLES.DIR,
+  ROLES.LEAD_QUANT_DEV,
+];
 
 // --- Data ---
 // Consider moving to data/dataInfraMembers.js
@@ -44,7 +49,7 @@ const dataInfraMember = [
     role: ROLES.DIR_ASSET_ALLOC,
     linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
     bio: "Koushik is a 4th year computer science student and Math student interested in Quant Finance.",
-    image: "/MQF photos/koushik.jpg", // Placeholder Image
+    image: "/headshots/koushik.jpg", // Placeholder Image
   },
   {
     name: "Alen Jacob",
@@ -69,14 +74,19 @@ const dataInfraMember = [
   },
 ];
 
-
 // --- Sub-Components (Should be imported from shared location) ---
 
 // Component for Director Cards (Exact same as previous example)
 // @ts-expect-error - Added to avoid null error
 function DirectorCard({ member }) {
-    // Basic check for essential props
-  if (!member || !member.name || !member.role || !member.image || !member.linkedin) {
+  // Basic check for essential props
+  if (
+    !member ||
+    !member.name ||
+    !member.role ||
+    !member.image ||
+    !member.linkedin
+  ) {
     console.warn("Missing data for DirectorCard:", member);
     return null;
   }
@@ -92,20 +102,16 @@ function DirectorCard({ member }) {
           <p>
             <strong>{member.role}</strong>
           </p>
-          {member.bio && (
-             <p>
-                {member.bio}
-             </p>
-          )}
+          {member.bio && <p>{member.bio}</p>}
           {member.linkedin && member.linkedin !== "#" ? (
-             <a
-                href={member.linkedin}
-                className="profile-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-               LinkedIn
-             </a>
+            <a
+              href={member.linkedin}
+              className="profile-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
           ) : (
             <p className="no-link-text">LinkedIn profile not available</p>
           )}
@@ -118,24 +124,24 @@ function DirectorCard({ member }) {
 // Component for Other Team Member Items (Exact same as previous example)
 // @ts-expect-error - Added to avoid null error
 function TeamMemberItem({ member }) {
-   if (!member || !member.name || !member.role || !member.linkedin) {
+  if (!member || !member.name || !member.role || !member.linkedin) {
     console.warn("Missing data for TeamMemberItem:", member);
     return null;
-   }
+  }
 
   return (
     <div className="other-member-item">
       <h3>{member.name}</h3>
       <p className="member-role">{member.role}</p>
       {member.linkedin && member.linkedin !== "#" ? (
-         <a
-           href={member.linkedin}
-           className="profile-link-simple"
-           target="_blank"
-           rel="noopener noreferrer"
-         >
-           LinkedIn Profile
-         </a>
+        <a
+          href={member.linkedin}
+          className="profile-link-simple"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn Profile
+        </a>
       ) : (
         <span className="no-link-text">Link not available</span>
       )}
@@ -143,24 +149,23 @@ function TeamMemberItem({ member }) {
   );
 }
 
-
 // --- Main Page Component ---
 // Renamed component
 export default function DataInfrastructurePage() {
   // Filter members using constants
-  const directors = dataInfraMember.filter(member =>
+  const directors = dataInfraMember.filter((member) =>
     DIRECTOR_ROLES.includes(member.role)
   );
   // Treat everyone else as 'other members'
-  const otherMembers = dataInfraMember.filter(member =>
-    !DIRECTOR_ROLES.includes(member.role)
+  const otherMembers = dataInfraMember.filter(
+    (member) => !DIRECTOR_ROLES.includes(member.role)
   );
 
   // Intersection Observer for Director Cards Animation
   useEffect(() => {
     const cards = document.querySelectorAll(".card");
     if (cards.length === 0) {
-        return; // No director cards on this page? Don't set up observer.
+      return; // No director cards on this page? Don't set up observer.
     }
 
     const observer = new IntersectionObserver(
@@ -181,7 +186,6 @@ export default function DataInfrastructurePage() {
 
     // Cleanup
     return () => observer.disconnect();
-
   }, []); // Run once on mount
 
   return (
@@ -198,18 +202,18 @@ export default function DataInfrastructurePage() {
       <main className="main">
         {/* Standard container structure */}
         <div className="container">
-          <div className="data-infra-page-content"> {/* Optional specific wrapper */}
-
+          <div className="data-infra-page-content">
+            {" "}
+            {/* Optional specific wrapper */}
             {/* Section for Directors */}
             {directors.length > 0 && (
-                <section className="grid">
+              <section className="grid">
                 {directors.map((member) => (
-                    // Pass image prop only to DirectorCard
-                    <DirectorCard key={member.name} member={member} />
+                  // Pass image prop only to DirectorCard
+                  <DirectorCard key={member.name} member={member} />
                 ))}
-                </section>
+              </section>
             )}
-
             {/* Section for Other Members */}
             {otherMembers.length > 0 && (
               <section className="other-members-section">
