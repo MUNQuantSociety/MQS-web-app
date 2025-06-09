@@ -168,8 +168,8 @@ export default function About() {
           <p className="scroll-prompt">scroll down</p>
         </div>
         <div className={`hero-bottom-text ${showHeroText ? 'visible' : ''}`}>
-          <h1>Intro Session: May 15th!</h1>
-          <p>5 PM | Bruneau Center!</p>
+          <h1></h1>
+          <p></p>
         </div>
       </section>
 
