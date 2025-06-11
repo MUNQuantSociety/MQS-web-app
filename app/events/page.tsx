@@ -20,8 +20,8 @@ function EventCard({ event }: { event: Event }) {
       </div>
       <div className="details">
         <div className="center">
-          <h1>{event.title}</h1>
-          <p style = {{ fontWeight: "200" }}>{event.description}<br/><br/>{event.date}</p>
+          <h3>{event.title}</h3>
+          <p>{event.description}<br/><br/>{event.date}</p>
         </div>
       </div>
     </div>
@@ -40,8 +40,7 @@ export default function EventsPage() {
     <>
       <div className="eventsHero">
         <div className="eventsOverlay"></div>
-        <div className="eventsHeroText">
-          <h1>See what we&apos;re up to.</h1>
+        <div className="heroText">See what we&apos;re up to.
         </div>
       </div>
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
@@ -54,25 +53,22 @@ export default function EventsPage() {
               <div key={event.title} className="upcomingItem">
                 <div className="upcomingContent">
                   <h3>{event.title}</h3>
-                  <p>{event.date} <br/>{event.location}<br/>{event.description}</p>
+                  <h4 style={{fontWeight: '600'}}>{event.date}<br/> {event.location}</h4>
+                  <h4>{event.description}</h4>
                 </div>
               </div>
             ))}
           </div>
         </section>
-
         <section className="pastSection">
-          <h1 className="sectionTitle">PAST EVENTS</h1>
-          <h2 className="sectionSubtitle">
-            Catch a glimpse of what we&apos;ve done so far...
-          </h2>
-          <div className="eventsGrid">
+          <h1>PAST EVENTS</h1>
+          <h2>Catch a glimpse of what we&apos;ve done so far...</h2>
+          <div className="pastEventsGrid">
             {filteredEvents.map((event) => (
               <EventCard key={event.title} event={event} />
             ))}
           </div>
         </section>
-        
       </main>
     </>
   );

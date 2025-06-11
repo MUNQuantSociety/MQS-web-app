@@ -1,7 +1,38 @@
+h1 { 
+    /*Section titles*/
+    font-size: 90%;
+}
+h2 { 
+    /*Section subtitles*/
+    font-size: clamp(1.4rem, 1.5vw, 2.5rem);
+}
+h3 { 
+    /*Card titles*/
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+}
+h4 { 
+    /*Upcoming card text*/
+    font-size: "clamp(1rem, 10vw, 9rem)";
+}
+p { 
+    /*Past card text*/
+    font-size: clamp(0.6rem, 1.5vw, 1.5rem);
+}
+body {
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0.4),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.7),
+        rgb(0, 0, 0, 0.9)
+      ),
+      url("/MQF photos/this.JPG") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
 .mainE events-page {
-    min-height: 100vh;             
-    background-color: #111111c6;     
-    color: #e0e0e0;                
+    min-height: 100vh;
+    color: #e0e0e0;
 }
 .events .container {
     max-width: 75%;
@@ -9,43 +40,25 @@
     padding: 0 20px;
 }
 .eventsHero {
-    position: relative;
+    top: 0;
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 0.3),
-        rgb(0, 0, 0, 0.8)
-      ), 
-      url("/MQF photos/this.jpg") no-repeat center center;
-    background-size: cover; 
 }
-.eventsOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
-.eventsHeroText {
-    position: relative;
-    z-index: 2;
-    color: rgb(239, 239, 239);
+.heroText {
+    position: sticky;
+    top: 50%;
+    color: white;
     animation: fadeInUp 1.2s ease-out both;
-    padding: 0 1rem;
+    font-size: clamp(3rem, 10vw, 8rem);
+    padding-bottom: 50vh
 }
 .eventsHero:hover {
     transform: scale(1.1); 
-    transition: transform 0.7s ease-in-out;  
+    transition: transform 0.7s ease-in-out ;  
 }
-.eventsHeroText h1 {
-    font-size: clamp(5rem, 6vw, 9rem);}
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -56,55 +69,32 @@
         transform: translateY(0);
     }
 }
-.eventsGrid {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, minmax(250px, 1fr));
-    gap: clamp(1.5vw, 30px, 2vw);
+.pastEventsGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     padding: 10vh 8vw 10vw 8vw;
 }
-@media (max-width: 1000px) {
-    .eventsGrid {
-        grid-template-columns: 1fr;
-    }
-}
 .pastSection {
-    padding: 150px 0% 6% 0%;
-    background-color: #000000c6;
+    padding: 20vh 0% 6% 0%;
     color: #fff;
     text-align: center;
-}
-.pastSection .sectionTitle {
-    font-size: 90%;
-    color: #4af6c3;
-}
-.pastSection .sectionSubtitle {
-    font-size: 35%;
-    font-weight: 300;
+    h1 {color: #4af6c3;}
 }
 .eCard {
     position: relative;
-    width: 100%;
     /*width: clamp(300px, 100%, 2000px);*/
     aspect-ratio: 1 / 1;
     background-color: #0b0a0a;
     overflow: hidden;
     border-radius: 0.5px;
+    flex: 1 44%;
+    margin: 1.2rem;
     display: flex;
     transform: perspective(2000px);
 }
-.eCard .image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    object-fit: cover;
-}
 .eCard .image img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     transition: transform 1s, opacity 0.5s;
 }
@@ -124,39 +114,18 @@
     opacity: 0.85;
     z-index: 1;
     align-content: center;
-    padding: 0% 5% 5% 5%;
+    padding: 0% 2% 5% 4%;
 }
 .eCard:hover .details {
     transform: perspective(2000px) rotateY(0deg);
 }
-.eCard .details .center {
-    background: #000000;
-    width: 90%;
-    overflow-wrap: break-word;
-    font-size: clamp(15px, 1.3vw, 22px);
-}
 .upcomingSection {
-    padding: 6% 3% 6% 3%;
-    background-color: #000000c6;
+    /*padding: 2%;*/
     color: #fff;
     text-align: center;
-}
-.upcomingSection h1 {
-    font-size: 90%;
-    color: #e14d6be8;
-}
-.upcomingSection h2 {
-    font-size: 30%;
-    font-weight: 100;
-    padding: 0.5% 5%;
-}
-.upcomingSection h3 {
-    font-size: clamp(1.5rem, 50%, 2.4rem);
-    padding-bottom: 1%;
-}
-.upcomingSection p {
-    font-size: clamp(1.2rem, 25%, 1.2rem);
-    line-height: 2;
+    h1 {color: #e14d6be8;}
+    h2 {padding: 2% 10%}
+    h4 {line-height: 2;}
 }
 .upcomingGrid {
     display: flex;
@@ -164,7 +133,7 @@
     justify-content: center;
     align-content: center;
     gap: 100px;
-    padding: 5% 0% 0% 0%;
+    padding: 10vh 2vh 0 2vh;
 }
 .upcomingItem {
     position: relative;
@@ -173,10 +142,10 @@
     background: #111111c6;
     place-content: center;
     text-align: center;
-    padding: 0 3%;
+    padding: 2%;
     box-sizing: border-box;
     border: 1px solid #e14d6be8;
-
+    padding: 0 5vh;
 }
 /* Stacked layer behind */
 .upcomingItem::before {
@@ -198,7 +167,7 @@
     border: hidden;
     transform: translate(10px, 10px) scale(1.1,1.1);
     transition: transform 0.4s ease-in-out;
-}
-.upcomingItem:hover .upcomingContent {
-    transform: translate(0, 0);
+    .upcomingContent {
+        transform: translate(0, 0);
+    }
 }
