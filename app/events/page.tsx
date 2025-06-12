@@ -38,12 +38,11 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className="eventsHero">
-        <div className="eventsOverlay"></div>
+      <div className="hero">
         <div className="heroText">See what we&apos;re up to.
         </div>
       </div>
-      <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
+      <main className="main events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
 
         <section className="upcomingSection">
           <h1> UPCOMING EVENTS</h1>
