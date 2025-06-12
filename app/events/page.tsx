@@ -27,7 +27,6 @@ function EventCard({ event }: { event: Event }) {
     </div>
   );
 }
-
 export default function EventsPage() {
   const [filteredEvents, setFilteredEvents] = useState(pastEvents);
 
@@ -35,14 +34,20 @@ export default function EventsPage() {
     const sortedEvents = [...pastEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     setFilteredEvents(sortedEvents);
   }, []);
+  useEffect(() => {
+    document.body.classList.add('events-page');
+    return () => {
+      document.body.classList.remove('events-page');
+    };
+  }, []);
 
   return (
     <>
-      <div className="hero">
+      <div className="heroE">
         <div className="heroText">See what we&apos;re up to.
         </div>
       </div>
-      <main className="main events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
+      <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
 
         <section className="upcomingSection">
           <h1> UPCOMING EVENTS</h1>
