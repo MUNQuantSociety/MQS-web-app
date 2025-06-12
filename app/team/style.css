@@ -11,11 +11,11 @@ h3 {
     font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
 h4 { 
-    /*Upcoming teamCard text*/
+    /*Upcoming events text*/
     font-size: "clamp(1rem, 10vw, 9rem)";
 }
 p { 
-    /*Past teamCard text*/
+    /*Past events text*/
     font-size: clamp(0.6rem, 1.5vw, 1.5rem);
 }
 .heroText { 
@@ -60,21 +60,6 @@ body {
   transition: transform 0.7s ease-in-out; 
 }
 
-
-/*.heroExec .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-  z-index: 1;
-}*/
-/*.heroText {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  font-size: clamp(3rem, 10vw, 8rem);
-  animation: fadeInUp 1.2s ease-out both;
-}*/
 .heroText {
     /*position: sticky;*/
     top: 50%;
@@ -167,11 +152,9 @@ body {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: #e14d6ba5;
 }
-/* Text for missing link */
 .no-link-text {
     color: #777;
     font-style: italic;
-    /* margin-top: 1rem; */ /* Remove specific margin */
     display: inline-block; /* Allow alignment */
     padding: 9px 18px; /* Match link padding for alignment */
 }
