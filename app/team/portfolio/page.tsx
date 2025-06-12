@@ -8,7 +8,7 @@ function DirectorCard({ member }: { member: typeof portfolioMember[0] }) {
     console.warn("Missing data for DirectorCard:", member);
     return null;
   }
-return (
+  return (
     <div className="teamCard">
       <div className="image">
         <img src={member.image} alt={member.name} />
@@ -17,8 +17,11 @@ return (
         <div className="center">
           <h3>{member.name}</h3>
           <p>{member.role}</p>
-          {member.bio && <p><small>{member.bio}</small></p>}
-          {member.linkedin !== "#" ? (
+          <p>
+            <br />
+            <small>{member.bio}</small>
+          </p> <br />
+          {member.linkedin && member.linkedin !== "#" ? (
             <a
               href={member.linkedin}
               className="profile-link"
@@ -28,8 +31,7 @@ return (
               LinkedIn
             </a>
           ) : (
-            <p className="no-link-text">LinkedIn profile not available</p>
-          )}
+            <p className="no-link-text">LinkedIn profile not available</p>)}
         </div>
       </div>
     </div>
@@ -82,7 +84,7 @@ export default function PortfolioPage() {
     );
     cards.forEach((c) => obs.observe(c));
     return () => obs.disconnect();
-  }, []); 
+  }, []);
 
   return (
     <>

@@ -29,19 +29,21 @@ function DirectorCard({ member }) {
         <div className="center">
           <h3>{member.name}</h3>
           <p>{member.role}</p>
-          {member.bio && <p><small>{member.bio}</small></p>} <br />
-          {member.linkedin && member.linkedin !== "#" ? (
-            <a
-              href={member.linkedin}
-              className="profile-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
-          ) : (
-            <p className="no-link-text">LinkedIn profile not available</p>
-          )}
+<p>
+                      <br />
+                      <small>{member.bio}</small>
+                    </p> <br />
+                    {member.linkedin && member.linkedin !== "#" ? (
+                      <a
+                        href={member.linkedin}
+                        className="profile-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        LinkedIn
+                      </a>
+                    ) : (
+                      <p className="no-link-text">LinkedIn profile not available</p>)}
         </div>
       </div>
     </div>
