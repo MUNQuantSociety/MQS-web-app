@@ -105,51 +105,49 @@ export default function TeamsPage() {
   }, []);
   return (
     <>
-      <div className="heroExec">
-        <div className="overlay"></div>
-        <div className="heroText">
-          <h1>Meet the Executives.</h1>
-        </div>
+      <div className="heroT" style={
+        { "--hero-img": `url("/MQF photos/groot.JPG")`, } as React.CSSProperties
+      }>
+        <div className="heroText">Meet the Executives.</div>
       </div>
-      <main className="main">
-        <div className="container">
-          <div className="teams-page">
-            <section className="grid">
-              {filteredTeams.map((team, idx) => (
-                <div
-                  key={idx}
-                  className={`card ${
-                    team.role === "President" ? "president-card" : ""
+      <main className="mainT">
+        <div className="wrapper">
+          <section className="techTeamsGrid">
+            {filteredTeams.map((team, idx) => (
+              <div
+                key={idx}
+                className={`teamCard ${team.role === "President" ? "president-teamCard" : ""
                   }`}
-                >
-                  <div className="image">
-                    <Image src={team.image} alt={team.name} fill />
-                  </div>
-                  <div className="details">
-                    <div className="center">
-                      <h1>{team.name}</h1>
-                      <p>
-                        <strong>{team.role}</strong>
-                      </p>
-                      <p>
-                        <br />
-                        {team.bio}
-                      </p>
+              >
+                <div className="image">
+                  <Image src={team.image} alt={team.name} fill />
+                </div>
+                <div className="details">
+                  <div className="center">
+                    <h3>{team.name}</h3>
+                    <p>
+                      {team.role}
+                    </p>
+                    <p>
+                      <br />
+                      <small>{team.bio}</small>
+                    </p> <br />
+                    {team.linkedin && team.linkedin !== "#" ? (
                       <a
                         href={team.linkedin}
                         className="profile-link"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <br />
                         LinkedIn
                       </a>
-                    </div>
+                    ) : (
+                      <p className="no-link-text">LinkedIn profile not available</p>)}
                   </div>
                 </div>
-              ))}
-            </section>
-          </div>
+              </div>
+            ))}
+          </section>
         </div>
       </main>
     </>
