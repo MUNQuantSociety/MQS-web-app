@@ -82,7 +82,6 @@ body {
   }
 }
 .techTeamsGrid {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -164,11 +163,12 @@ body {
     place-items: center;
     border-radius: 5px;
     h2 {margin-bottom: 4rem;}
+    
 }
 .other-members-list {
     display: flex;
     flex-wrap: wrap;
-    /*justify-content: center;*/
+    justify-content: center;
     gap: 2rem;
     padding: 5rem 0;
     width: 80%;
@@ -179,12 +179,12 @@ body {
     padding: 2rem;
     border-radius: 5px;
     text-align: center;
-    flex-basis: 30%;
-    flex-grow: 1;
+    flex: 0 1 30%;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4),
                 inset 0 1px 1px rgba(255, 255, 255, 0.05);
     border: 1px solid #333333;
     transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+
 }
 .other-member-item:hover {
     transform: translateY(-8px) scale(1.02);
