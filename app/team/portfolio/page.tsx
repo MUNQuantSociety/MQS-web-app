@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import "../style.css";
-import Image from 'next/image';
-import { portfolioMember, DIRECTOR_ROLES } from "./portfolioMembers";
+import { portfolioMember, DIRECTOR_ROLES} from "./portfolioMembers";
 function DirectorCard({ member }: { member: typeof portfolioMember[0] }) {
   if (!member || !member.name || !member.role || !member.image || !member.linkedin) {
     console.warn("Missing data for DirectorCard:", member);

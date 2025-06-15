@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { dataInfraMember, DIRECTOR_ROLES, ROLES } from "./DIMembers"; //
+import { dataInfraMember, DIRECTOR_ROLES } from "./DIMembers"; //
 
 import "../style.css";
 
