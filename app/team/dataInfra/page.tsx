@@ -116,7 +116,7 @@ export default function DataInfrastructurePage() {
     <>
       {/* Use the specific hero class */}
       <div className="heroT" style={
-        { "--hero-img": `url("/MQF photos/guys.JPG")`, } as React.CSSProperties
+        { "--hero-img": `url("/MQF photos/guys.jpg")`, } as React.CSSProperties
       }>
         <div className="heroText">Meet the Data & Infrastructure Team.
         </div>

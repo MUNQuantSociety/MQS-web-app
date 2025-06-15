@@ -88,7 +88,7 @@ export default function WebsitePodPage() {
     <>
       <div
         className="heroT"
-        style={{ "--hero-img": `url("/MQF photos/website.JPG")` } as React.CSSProperties}
+        style={{ "--hero-img": `url("/MQF photos/website.jpg")` } as React.CSSProperties}
       >
         <div className="heroText">Meet the Website Pod.</div>
       </div>

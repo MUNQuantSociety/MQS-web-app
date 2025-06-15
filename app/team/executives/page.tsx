@@ -106,7 +106,7 @@ export default function TeamsPage() {
   return (
     <>
       <div className="heroT" style={
-        { "--hero-img": `url("/MQF photos/groot.JPG")`, } as React.CSSProperties
+        { "--hero-img": `url("/MQF photos/groot.jpg")`, } as React.CSSProperties
       }>
         <div className="heroText">Meet the Executives.</div>
       </div>

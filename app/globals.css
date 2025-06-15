@@ -680,7 +680,7 @@ body {
     top: 0;
     left: 0;
     width: 60%;
-    height: 100%;
+    height: 110%;
     background: #000000;
     transform-origin: left;
     transform: perspective(5000px) rotateY(-180deg);
@@ -789,7 +789,7 @@ body.events-page {
         rgba(0, 0, 0, 0.7),
         rgb(0, 0, 0, 0.95)
       ),
-      url("/MQF photos/this.JPG") no-repeat center center;
+      url("/MQF photos/this.jpg") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
