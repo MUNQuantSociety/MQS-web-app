@@ -655,6 +655,7 @@ body {
   /*opacity: 0;*/
   flex: 0 1 44%;
   margin: 1.2rem;
+
 }
 .president-teamCard {
   flex: 0 0 60%;
@@ -679,7 +680,7 @@ body {
     top: 0;
     left: 0;
     width: 60%;
-    height: 110%;
+    height: 100%;
     background: #000000;
     transform-origin: left;
     transform: perspective(5000px) rotateY(-180deg);
