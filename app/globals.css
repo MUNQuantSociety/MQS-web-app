@@ -836,6 +836,7 @@ body.events-page {
     justify-content: center;
     align-content: center;
     padding: 10vh 8vw 10vw 8vw;
+    gap: 2rem;
 }
 .pastSection {
     padding: 20vh 0% 6% 0%;
@@ -845,12 +846,12 @@ body.events-page {
 }
 .eCard {
     position: relative;
+    min-width: 380px;
     aspect-ratio: 1 / 1;
     background-color: #0b0a0a;
     overflow: hidden;
     border-radius: 5px;
     flex: 0 1 44%;
-    margin: 1.2rem;
     display: flex;
     transform: perspective(2000px);
 }
@@ -896,8 +897,8 @@ body.events-page {
 }
 .upcomingItem {
     position: relative;
-    width: 450px;
-    height: 450px;
+    width: clamp(150px, 60vw, 450px);
+    height: clamp(150px, 60vw, 450px);
     background: #111111c6;
     place-content: center;
     text-align: center;
