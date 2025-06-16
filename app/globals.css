@@ -789,7 +789,7 @@ body.events-page {
         rgba(0, 0, 0, 0.7),
         rgb(0, 0, 0, 0.95)
       ),
-      url("/MQF photos/this.jpg") no-repeat center center;
+      url("/MQF photos/eventsHero.jpg") no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
 }
