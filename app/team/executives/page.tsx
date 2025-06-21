@@ -17,7 +17,7 @@ const executiveMember = [
     role: "VP and Treasurer",
     linkedin: "https://www.linkedin.com",
     bio: "My name is Ian, I am a CS student at MUN. I have a Bachelor's degree in Philosophy (Maj.) and Classics (Min.). I have served as an officer with the Royal Canadian Navy. Apart from finance my interests include world history and strategy games.",
-    image: "/headshots/Ian.jpg",
+    image: "/headshots/ian.jpg",
   },
   {
     name: "Ayesha Ziauddin",
@@ -59,49 +59,49 @@ const executiveMember = [
     role: "Managing Director - Active Portfolio",
     linkedin: "https://www.linkedin.com/in/zoya-zaidi/",
     bio: " ",
-    image: "/headshots/Zoya.jpg",
+    image: "/headshots/zoya.jpg",
   },
   {
     name: "Keegan Churchill",
     role: "Managing Director - Active Portfolio",
     linkedin: "https://www.linkedin.com/in/keegan-churchill-myers-409a79170/",
     bio: " ",
-    image: "/headshots/Keegan.jpg",
+    image: "/headshots/keegan.jpg",
   },
   {
     name: "Baasil Sanu",
     role: "Managing Director - Passive Portfolio",
     linkedin: "https://www.linkedin.com/in/baasilsanu/",
     bio: "I am Baasil, a quantitative researcher with experience in intraday trading, simulations, and data-driven modeling in finance and fluid dynamics. I have worked on academic research and practical financial analysis.",
-    image: "/headshots/Baasil.jpg",
+    image: "/headshots/baasil.jpg",
   },
   {
     name: "Nisarg Dave",
     role: "Managing Director - Passive Portfolio",
     linkedin: "https://www.linkedin.com/in/ndave310/",
-    bio: "",
-    image: "/headshots/Nisarg.jpg",
+    bio: "I have a background in neuroscience and data analytics, with research experience in agriculture, genetics, and computational biology. I am interested in behavioural finance and global markets.",
+    image: "/headshots/nisarg.jpg",
   },
   {
     name: "Mpundu Chikoya",
     role: "Managing Director - Asset and Allocation",
     linkedin: "https://www.linkedin.com/in/mpundu-chikoya-bb5aa2258/", // Placeholder Link
-    bio: "",
-    image: "/headshots/Mpundu.jpg", // Placeholder Image
+    bio: "I am a 3rd year Applied Math and Economics major. I have interests in risk management and analysis. For fun, I like to bake and swim.",
+    image: "/headshots/mpundu.jpg", // Placeholder Image
   },
   {
     name: "Kamal Ali",
     role: "Co-Director - Data and Infrastructure",
     linkedin: "https://www.linkedin.com/in/kamal-awad-ali/",
-    bio: "",
-    image: "/headshots/Kamal.JPG",
+    bio: "I am a 4th-year Applied Math student with a diploma in Engineering. My primary interests lie in dynamical systems, data science, and physics-informed neural networks.",
+    image: "/headshots/kamal.JPG",
   },
   {
     name: "Koushik Mote",
     role: "Co-Director - Data and Infrastructure",
     linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/",
     bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I also enjoy chatting with people, playing pool, and watching thought provoking films.",
-    image: "/headshots/Koushik.JPG",
+    image: "/headshots/koushik.JPG",
   },
 ];
 export default function TeamsPage() {
