@@ -58,7 +58,7 @@ const executiveMember = [
     name: "Zoya Zaidi",
     role: "Managing Director - Active Portfolio",
     linkedin: "https://www.linkedin.com/in/zoya-zaidi/",
-    bio: " ",
+    bio: "My name is Zoya, I am a third year Bachelor of commerce (co-op) student at MUN. Zoya enjoys investing in stocks and actively building her portfolio and applying financial principles in practical settings.",
     image: "/headshots/zoya.jpg",
   },
   {
