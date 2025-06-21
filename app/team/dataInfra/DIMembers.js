@@ -1,14 +1,14 @@
 export const ROLES = {
   MD_ASSET_ALLOC: "Managing Director, Asset Allocation",
   LEAD_QUANT_DEV: "Lead Quantitative Developer",
-  DIR_ASSET_ALLOC: "Director, Asset Allocation",
+  DIR_DATA_INFRA: "Director, Data and Infrastructure",
   DIR: "Director",
   ASSOC: "Associate",
 };
 
 export const DIRECTOR_ROLES = [
   ROLES.MD_ASSET_ALLOC,
-  ROLES.DIR_ASSET_ALLOC,
+  ROLES.DIR_DATA_INFRA,
   ROLES.DIR,
   ROLES.LEAD_QUANT_DEV,
 ];
@@ -22,45 +22,40 @@ export const dataInfraMember = [
     image: "/headshots/kelvin.JPG",
   },
   {
-    name: "Tejus Revi",
-    role: ROLES.LEAD_QUANT_DEV, // Treated as 'other member' below
-    linkedin: "https://www.linkedin.com/in/tejusrevi/",
-    bio: "Tejus is a computer science graduate from Memorial University with experience in building infrastructure to support big data analysis, particularly in the scientific research space. Outside of work, he enjoys strength athletics and sketching.",
-    image: "/headshots/tejus.jpg", // Image exists but won't be passed to TeamMemberItem
-  },
-  {
-    name: "Ian Anobis",
-    role: ROLES.DIR_ASSET_ALLOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
-    bio: "This is where I say something cool, witty, or vaguely profound.",
-    image: "/MQF photos/stickGuy.png", // Placeholder Image
+    name: "Mpundu Chikoya",
+    role: ROLES.MD_ASSET_ALLOC, // Treated as 'other member' below
+    linkedin: "https://www.linkedin.com/in/mpundu-chikoya-bb5aa2258/",
+    bio: "I am a 3rd year Applied Math and Economics major. I have interests in risk management and analysis. For fun, I like to bake and swim.",
+    image: "/headshots/mpundu.jpg", // Image exists but won't be passed to TeamMemberItem
   },
   {
     name: "Koushik Mote",
-    role: ROLES.DIR_ASSET_ALLOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
-    bio: "Koushik is a 4th year computer science student and Math student interested in Quant Finance.",
-    image: "/headshots/koushik.jpg", // Placeholder Image
+    role: ROLES.DIR_DATA_INFRA,
+    linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/", 
+    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I enjoy socializing, playing pool, and watching thought provoking films.",
+    image: "/headshots/koushik.JPG",
+  },
+  {
+    name: "Kamal Ali",
+    role: ROLES.DIR_DATA_INFRA,
+    linkedin: "https://www.linkedin.com/in/kamal-awad-ali/",
+    bio: "I am a 4th-year Applied Math student with a diploma in Engineering. My primary interests lie in dynamical systems, data science, and physics-informed neural networks.",
+    image: "/headshots/kamal.JPG",
   },
   {
     name: "Alen Jacob",
     role: ROLES.ASSOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
-    bio: "This is where I say something cool, witty, or vaguely profound.",
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", 
     // No image passed
   },
   {
     name: "Promit Das",
     role: ROLES.ASSOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
-    bio: "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
-    image: "/MQF photos/stickGuy.png", // Placeholder Image
+    linkedin: "https://www.linkedin.com/in/promitd/", 
   },
   {
     name: "Utkarsh Upreti",
     role: ROLES.ASSOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", // Placeholder Link
-    bio: "This is where I say something cool, witty, or vaguely profound.",
-    image: "/MQF photos/stickGuy.png", // Placeholder Image
+    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", 
   },
 ];
