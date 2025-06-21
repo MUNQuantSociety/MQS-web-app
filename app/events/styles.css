@@ -1,24 +1,87 @@
-h1 { 
+h1 {
     /*Section titles*/
     font-size: clamp(3rem, 5vw, 4rem);
 }
-h2 { 
+h2 {
     /*Section subtitles*/
     font-size: clamp(1.4rem, 1.5vw, 2.5rem);
 }
-h3 { 
-    /*eCard titles*/
+h3 {
+    /*teamCard titles*/
     font-size: clamp(1.5rem, 2.5vw, 3rem);
 }
-h4 { 
-    /*Upcoming card text*/
+h4 {
+    /*Upcoming events text*/
     font-size: "clamp(1rem, 10vw, 9rem)";
 }
-p { 
-    /*Past card text*/
+p {
+    /*Past events text*/
     font-size: clamp(0.6rem, 1.5vw, 1.5rem);
 }
-.heroText { 
-    /*Past card text*/
+.heroText {
     font-size: clamp(2rem, 6vw, 8rem);
+}
+.pastEventsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    grid-auto-flow: dense;
+    background-color: #0a0a0a41;
+}
+.grid-item {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, clip-path 0.4s ease;
+}
+.grid-item-content {
+    position: relative;
+    z-index: 2;
+}
+.grid-item::before {
+    content: ''; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 210, 210, 0.178);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
+}
+.grid-item.is-hovered::before {
+    opacity: 1;
+}
+.grid-item-image {
+    z-index: -1;
+    clip-path: inherit;
+}
+.primary-item.notch-right {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 90% 50%, 100% 60%, 100% 100%, 0% 100%);
+}
+.primary-item.notch-left {
+    clip-path: polygon(0% 40%, 10% 50%, 0% 60%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+.primary-item.notch-top {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 60% 0%, 50% 10%, 40% 0%, 0% 0%);
+
+}
+.primary-item.notch-bottom {
+  clip-path: polygon(100% 0%, 100% 100%, 60% 100%, 50% 90%, 40% 100%, 0% 100%, 0% 0%);
+}
+
+.grid-item.is-hovered.primary-item {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+  .pastEventsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

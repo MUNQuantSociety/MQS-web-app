@@ -1,39 +1,74 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./styles.css";
-import { pastEvents, upcomingEvents} from "./eventsData"; // 
 import Image from 'next/image';
+import { generateEventsLayout, simplePastEvents, GridItemData, ArrowDirection } from "./eventsData";
+import { useMediaQuery } from "./useMediaQuery";
 
-type Event = {
-  title: string;
-  date: string;
-  description: string;
-  image: string;
-};
+function GridItem({ item, hoveredId, setHoveredId }: { item: GridItemData; hoveredId: string | null; setHoveredId: (id: string | null) => void; }) {
+  const { type, event, arrow, row, col } = item;
+  const isPrimaryWithImage = type === 'primary' && event.image;
 
-function EventCard({ event }: { event: Event }) {
+  const baseId = item.id.substring(1);
+  const isHovered = hoveredId === baseId;
+
+  const classNames = ['grid-item'];
+  if (type === 'primary') {
+    classNames.push('primary-item');
+    if (arrow) {
+      const notchDirectionMap: { [key in ArrowDirection]: string } = {
+        left: 'right',
+        right: 'left',
+        up: 'bottom',
+        down: 'top',
+      };
+      classNames.push(`notch-${notchDirectionMap[arrow]}`);
+    }
+  }
+  if (isHovered) {
+    classNames.push('is-hovered');
+  }
   return (
-    <div className="eCard">
-      <div className="image">
-        <Image src={event.image} alt={event.title} fill/>
-      </div>
-      <div className="details">
-        <div className="center">
-          <h3>{event.title}</h3>
-          <p>{event.description}<br/><br/>{event.date}</p>
+    <div
+      className={classNames.join(' ')}
+      style={{
+        gridRow: row,
+        gridColumn: col,
+      }}
+      onMouseEnter={() => setHoveredId(baseId)}
+      onMouseLeave={() => setHoveredId(null)}
+    >
+      {isPrimaryWithImage && (
+        <Image
+          src={event.image!}
+          alt={event.title}
+          layout="fill"
+          objectFit="cover"
+          className="grid-item-image"
+        />
+      )}
+      {type === 'primary' ? (
+        <div className="grid-item-content">
+          {/*<h2>{event.title}</h2>*/}
         </div>
-      </div>
+      ) : (
+        <div className="grid-item-content details-content">
+          <h2>{event.title}</h2>
+          {event.description && <p>{event.description}</p>}
+        </div>
+      )}
     </div>
   );
 }
 export default function EventsPage() {
-  const [filteredEvents, setFilteredEvents] = useState(pastEvents);
+  const isTwoColumn = useMediaQuery('(max-width: 768px)');
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const eventsLayout = useMemo(() => {
+    const layoutType = isTwoColumn ? '2-col' : '3-col';
+    return generateEventsLayout(simplePastEvents, layoutType);
+  }, [isTwoColumn]);
 
-  useEffect(() => {
-    const sortedEvents = [...pastEvents].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    setFilteredEvents(sortedEvents);
-  }, []);
   useEffect(() => {
     document.body.classList.add('events-page');
     return () => {
@@ -45,33 +80,15 @@ export default function EventsPage() {
     <>
       <div className="heroE">
         <div className="heroText">See what we&apos;re up to.
-        </div>
-      </div>
+        </div>            </div>
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
-
-        <section className="upcomingSection">
-          <h1> UPCOMING EVENTS</h1>
-          <h2>We&apos;re just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
-          <div className="upcomingGrid">
-            {upcomingEvents.map((event) => (
-              <div key={event.title} className="upcomingItem">
-                <div className="upcomingContent">
-                  <h3>{event.title}</h3>
-                  <h4 style={{fontWeight: '600'}}>{event.date}<br/> {event.location}</h4>
-                  <h4>{event.description}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
+        <section className="pastEventsGrid">
+          {eventsLayout.map(item => (
+            <GridItem key={item.id} item={item} hoveredId={hoveredId} setHoveredId={setHoveredId} />
+          ))}
         </section>
-        <section className="pastSection">
-          <h1>PAST EVENTS</h1>
-          <h2>Catch a glimpse of what we&apos;ve done so far...</h2>
-          <div className="pastEventsGrid">
-            {filteredEvents.map((event) => (
-              <EventCard key={event.title} event={event} />
-            ))}
-          </div>
+        <section className="upcomingSection">
+          <h2>We&apos;re just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
         </section>
       </main>
     </>

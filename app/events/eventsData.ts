@@ -1,55 +1,139 @@
+// eventsData.ts
 
-export const pastEvents = [//Do not add events with duplicate titles, it messes with the EventCard
-    {
-            title: "Spring Mixer",
-      date: "May 30, 2025",
-      description:
-        "More laughs and memories as we started the term with a fun evening of networking, games and good food at Toslow Cafe.",
-      image: "/MQF photos/springgg.jpg"
-    },
-    {
-      title: "Social Mixer",
-      date: "February 27, 2025",
-      description:
-        "For our first-ever mixer of the year, MQF hosted a cozy evening of community-building in collaboration with the Economics Society and The Fund. Members connected over coffee and insightful conversations and engaged with peers outside the classroom to set the tone for the term ahead.",
-      image: "/MQF photos/first.jpg"
-    },
-    {
-      title: "Casual Dinner",
-      date: "April 4, 2025",
-      description:
-        "A low-key evening where we traded stock data for menus and portfolios for shared appetizers. No name tags, no pressure — just quant enthusiasts sharing laughs and stories. Turns out, we bond over more than data.",
-      image: "/MQF photos/lemon.jpg"
-    },
-    {
-      title: "Headshots Day",
-      date: "April 7, 2025",
-      description:
-        "Our final gathering of the semester was the ideal send-off before exams and summer internships, where members had the opportunity to capture high-quality professional headshots. Smiles, snacks, and a few bonus group shots made it the perfect celebration for everything we accomplished over the semester.",
-      image: "/MQF photos/group.jpg"
-    },
-  
-  ];
-  
-  export const upcomingEvents = [
-    {
-      title: "MQS Spring Intro",
-      date: "May 15, 2025",
-      location: "IIC-2014 Bruneau Center",
-      description: "Join us and find out what we do!",
-    },
+export type ArrowDirection = 'up' | 'down' | 'left' | 'right';
 
-    {
-      title: "MQS Formal Mixer",
-      date: "May 30, 2025",
-      location: "Toslow Cafe",
-      description: "A networking opportunity for MQS members to connect over drinks and snacks (6PM)",
-    },
+export type GridItemData = {
+   id: string;
+   row: number;
+   col: number;
+   type: 'primary' | 'details';
+   event: {
+      title: string;
+      description?: string;
+      image?: string;
+   };
+   arrow?: ArrowDirection;
+};
+// Define new events here.
 
-    {
-      title: "MQS x ANC Networking Event",
-      date: "June (TBD)",
-      location: "ANC,",
-      description: "A networking opportunity for MQS members to connect with local industry professionals.",
-    },
-  ];
+// Total number of events needs to be a multiple of 3 for the grid to not have empty blocks at the end.
+
+export const simplePastEvents = [
+   {
+      title: 'p1',
+      description: 'Our very first event setting the stage for the society.',
+      image: '/MQF photos/p1.jpg'
+   },
+   {
+      title: 'p2',
+      description: 'An introduction to the world of quantitative finance.',
+      image: '/MQF photos/p2.jpg'
+   },
+   {
+      title: 'p3',
+      description: 'A hands-on workshop on building trading algorithms.',
+      image: '/MQF photos/p3.jpg'
+   },
+   {
+      title: 'p4',
+      description: 'Insights from a professional quant trader.',
+      image: '/MQF photos/p4.jpg'
+   },
+   {
+      title: 'p5',
+      description: 'Connect with peers and industry professionals.',
+      image: '/MQF photos/p5.jpg'
+   },
+   {
+      title: 'p6',
+      description: 'Celebrating a successful year of events.',
+      image: '/MQF photos/p6.jpg'
+   },
+   {
+      title: 'p7',
+      description: 'Our very first event setting the stage for the society.',
+      image: '/MQF photos/p7.jpg'
+   },
+   {
+      title: 'p8',
+      description: 'An introduction to the world of quantitative finance.',
+      image: '/MQF photos/p8.jpg'
+   },
+   {
+      title: 'p9',
+      description: 'A hands-on workshop on building trading algorithms.',
+      image: '/MQF photos/p9.jpg'
+   },
+   {
+      title: 'p10',
+      description: 'Insights from a professional quant trader.',
+      image: '/MQF photos/p10.jpg'
+   },
+   {
+      title: 'p11',
+      description: 'Connect with peers and industry professionals.',
+      image: '/MQF photos/p11.jpg'
+   },
+   {
+      title: 'p12',
+      description: 'Celebrating a successful year of events.',
+      image: '/MQF photos/p12.jpg'
+   },
+
+];
+
+export function generateEventsLayout(
+   events: typeof simplePastEvents,
+   layoutType: '3-col' | '2-col'
+): GridItemData[] {
+   const finalLayout: GridItemData[] = [];
+   const basePattern3Col = [
+      { p_row: 1, p_col: 1, d_row: 1, d_col: 2, arrow: 'left' as ArrowDirection },
+      { p_row: 1, p_col: 3, d_row: 2, d_col: 3, arrow: 'up' as ArrowDirection },
+      { p_row: 2, p_col: 2, d_row: 2, d_col: 1, arrow: 'right' as ArrowDirection },
+      { p_row: 3, p_col: 1, d_row: 4, d_col: 1, arrow: 'up' as ArrowDirection },
+      { p_row: 3, p_col: 3, d_row: 3, d_col: 2, arrow: 'right' as ArrowDirection },
+      { p_row: 4, p_col: 2, d_row: 4, d_col: 3, arrow: 'left' as ArrowDirection },
+   ];
+   const basePattern2Col = [
+      { p_row: 1, p_col: 1, d_row: 1, d_col: 2, arrow: 'left' as ArrowDirection },
+      { p_row: 2, p_col: 2, d_row: 2, d_col: 1, arrow: 'right' as ArrowDirection },
+   ];
+   const is3Col = layoutType === '3-col';
+   const basePattern = is3Col ? basePattern3Col : basePattern2Col;
+   const cycleLength = is3Col ? 6 : 2;
+   const rowOffsetMultiplier = is3Col ? 4 : 2;
+   events.forEach((eventData, i) => {
+      const eventNumber = i + 1;
+      const patternIndex = i % cycleLength;
+      const template = basePattern[patternIndex];
+
+      const block = Math.floor(i / cycleLength);
+      const rowOffset = block * rowOffsetMultiplier;
+
+      const primaryItem: GridItemData = {
+         id: `p${eventNumber}`,
+         row: template.p_row + rowOffset,
+         col: template.p_col,
+         type: 'primary',
+         arrow: template.arrow,
+         event: {
+            title: eventData.title,
+            image: eventData.image,
+         }
+      };
+      const detailsItem: GridItemData = {
+         id: `d${eventNumber}`,
+         row: template.d_row + rowOffset,
+         col: template.d_col,
+         type: 'details',
+         arrow: template.arrow,
+         event: {
+            title: eventData.title,
+            description: eventData.description,
+         }
+      };
+      finalLayout.push(primaryItem, detailsItem);
+   });
+   return finalLayout;
+}
