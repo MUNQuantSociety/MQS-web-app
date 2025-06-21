@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Oswald } from 'next/font/google'; // Import the Oswald font
+import { Lato, Abril_Fatface, Nunito, Noto_Sans, Roboto, Montserrat, Rubik, Josefin_Sans, } from 'next/font/google'; // Import the font
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 
 // Configure the font
-const oswald = Oswald({ 
+const mqsFont = Lato({ 
   subsets: ['latin'], // Specify subsets if needed
-  weight: ['500'],    // Specify the weight(s) you want to load
+  weight: ['400'],    // Specify the weight(s) you want to load
   display: 'swap',    // Optional: keeps text visible while font loads
 });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     // Apply the font className to the html tag
-    <html lang="en" className={oswald.className}>
+    <html lang="en" className={mqsFont.className}>
       <body className="antialiased bg-black font-sans"> 
         <Navbar />
         {children}

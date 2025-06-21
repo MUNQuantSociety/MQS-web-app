@@ -157,7 +157,7 @@ h4 {
 }
 
 pre {
-  background-color: #292837; 
+  background-color: #212121;
   color: #f8f8f2; 
   padding: 1rem;
   border-radius: 0.5rem;
@@ -172,15 +172,12 @@ code {
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
 }
-
-
-
 body {
   margin: 0;
   padding-top: 60px;
-  font-family: 'Oswald', sans-serif;
-  color: #4af6c3;
-  background-color: black;
+  /*font-family: 'Oswald', sans-serif;*/
+  color: #90D4C5;
+  background-color: #1a1a1a;
 }
 
 header {
@@ -189,7 +186,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000; 
-  background: linear-gradient(to bottom, rgba(8, 8, 8, 0.8)); 
+  background: linear-gradient(to bottom, #1a1a1a); 
   backdrop-filter: blur(10px);
 }
 
@@ -224,30 +221,27 @@ header {
 
 .logoText {
     font-size: 1.5em;
-    font-family: 'Oswald', sans-serif;
+    /*font-family: 'Oswald', sans-serif;*/
     letter-spacing: 1px;
-    color: #4af6c3;
+    color: #90D4C5;
     text-decoration: none;
     transition: color 0.3s ease;
     text-transform: uppercase;
   }
-
 .logoText:hover {
   color: #6d9ee8;
 }
-
 .nav {
   display: flex;
   gap: 1rem;
   
 }
-
 .nav-link {
   color: white;
   text-decoration: none;
   padding: 8px 15px;
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Oswald', sans-serif;*/
   font-weight: 500;
   letter-spacing: 1px;
   transition: color 0.3s ease;
@@ -271,20 +265,21 @@ header {
 }
 
 .nav-link:hover {
-  color: #4af6c3;
+  color: #90D4C5;
 }
 
 .nav-link.join-us {
-  background-color: #2F433F;
-  color: #ffffff;
-  border-radius: 17px;
+  background-color: #1a1a1a;
+  color: #90D4C5;
+  border-radius: 20px;
   padding: 8px 20px;
-  box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 0 10px rgba(186, 195, 193, 0.4);
   transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .nav-link.join-us:hover {
-  background-color: #115842;
+  background-color: rgb(62, 86, 78);
+  color: #bbbbbb;
   transform: scale(1.05);
 }
 
@@ -346,7 +341,7 @@ header {
     width: auto; 
     padding: 8px 20px; 
     border-radius: 17px; 
-    background-color: #2F433F; 
+    background-color: #323232; 
     color: #ffffff;
     text-decoration: none;
     box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
@@ -357,8 +352,9 @@ header {
   }
 
   .mobile-nav-open a.join-us:hover {
-    background-color: #115842;
+    background-color: #9dbcb6;
     transform: scale(1.05);
+    color: #323232;
   }
 
 }
@@ -375,7 +371,7 @@ header {
   display: flex;
   align-items: center;
   position: relative;
-  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Oswald', sans-serif;*/
   font-weight: 500;
   letter-spacing: 1px;
   transition: color 0.3s ease;
@@ -399,13 +395,13 @@ header {
 }
 
 .team-btn:hover {
-  color: #4af6c3;
+  color: #90D4C5;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #1a1a1a;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1;
   top: 105%;
@@ -423,13 +419,13 @@ header {
   text-align: left;
 }
 .dropdown-content a:hover {
-  background-color: #115842;
+  background-color: #81b0a5;
 }
 .show {
   display: block;
 }
 .team-btn:hover{
-  color: #4af6c3; 
+  color: #90D4C5; 
 }
 .mobile-nav-open .dropdown {
   width: 70%;
@@ -482,7 +478,7 @@ header {
   transition: background-color 0.3s ease;
 }
 .mobile-nav-open .dropdown-content a:hover {
-  background-color: #115842;
+  background-color: #90D4C5;
 }
 .data-infra-page {
   min-height: 100vh;
@@ -583,7 +579,7 @@ header {
 }
 
 body {
-  font-family: 'Oswald', sans-serif;
+  /*font-family: 'Oswald', sans-serif;*/
 }
 
 /*------------------Teams page styles--------------------*/
@@ -830,19 +826,12 @@ body.events-page {
         transform: translateY(0);
     }
 }
-.pastEventsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    padding: 10vh 8vw 10vw 8vw;
-    gap: 2rem;
-}
-.pastSection {
+
+/*.pastSection {
     padding: 20vh 0% 6% 0%;
     color: #fff;
     text-align: center;
-    h1 {color: #4af6c3;}
+    h1 {color: #90D4C5;}
 }
 .eCard {
     position: relative;
@@ -879,15 +868,15 @@ body.events-page {
 }
 .eCard:hover .details {
     transform: perspective(2000px) rotateY(0deg);
-}
+}*/
 .upcomingSection {
     color: #fff;
     text-align: center;
     h1 {color: #e14d6be8;}
-    h2 {padding: 0% 10%}
+    h2 {padding: 10%}
     h4 {line-height: 2;}
 }
-.upcomingGrid {
+/*.upcomingGrid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -908,7 +897,7 @@ body.events-page {
     padding: 0 5vh;
     border-radius: 5px;
 }
-/* Stacked layer behind */
+/* 
 .upcomingItem::before {
     position: absolute;
     content: '';
@@ -933,4 +922,4 @@ body.events-page {
     .upcomingContent {
         transform: translate(0, 0);
     }
-}
+}*/

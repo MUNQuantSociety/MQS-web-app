@@ -1,6 +1,6 @@
 /* Base page styles */
 .about-page {
-  color: #111827;
+  color: #1a1a1a;
   overflow-x: hidden;
 }
 
@@ -214,7 +214,7 @@
 .toggle-section {
   position: relative;
   /* This background now starts effectively after the hero-section's ::after fade */
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  background: linear-gradient(#1a1a1a, rgba(0, 0, 0, 0.95));
   padding: 4rem 2rem;
   color: white;
   z-index: 5; /* Consistent with sponsors section */
