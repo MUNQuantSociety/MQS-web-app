@@ -21,7 +21,7 @@ p {
 .heroText {
     font-size: clamp(2rem, 6vw, 8rem);
 }
-.pastEventsGrid {
+.eventsGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
@@ -81,7 +81,7 @@ p {
 }
 
 @media (max-width: 768px) {
-  .pastEventsGrid {
+  .eventsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }

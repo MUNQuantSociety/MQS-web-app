@@ -82,7 +82,7 @@ export default function EventsPage() {
         <div className="heroText">See what we&apos;re up to.
         </div>            </div>
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
-        <section className="pastEventsGrid">
+        <section className="eventsGrid">
           {eventsLayout.map(item => (
             <GridItem key={item.id} item={item} hoveredId={hoveredId} setHoveredId={setHoveredId} />
           ))}
