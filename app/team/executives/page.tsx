@@ -9,7 +9,7 @@ const executiveMember = [
     name: "Joshua Kattapuram",
     role: "President",
     linkedin: "https://www.linkedin.com/in/joshua-kattapuram/",
-    bio: "My name is Josh, I am a fourth year CS/Math student at MUN. I have experience working on the trading desk at the Ontario Teacher's Pension Plan in Toronto. I also like to play Tennis and the Piano!",
+    bio: "I'm a final year CS/Math student at MUN. I've worked on the trading desk at the Ontario Teacher's Pension Plan in Toronto. I also play Tennis and Piano!",
     image: "/headshots/josh.JPG",
   },
   {

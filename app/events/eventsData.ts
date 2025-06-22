@@ -20,65 +20,50 @@ export type GridItemData = {
 
 export const simplePastEvents = [
    {
-      title: 'p1',
-      description: 'Our very first event setting the stage for the society.',
-      image: '/MQF photos/p1.jpg'
-   },
-   {
-      title: 'p2',
-      description: 'An introduction to the world of quantitative finance.',
-      image: '/MQF photos/p2.jpg'
-   },
-   {
-      title: 'p3',
-      description: 'A hands-on workshop on building trading algorithms.',
+      title: 'Hike!',
+      description: 'Meet the website team',
       image: '/MQF photos/p3.jpg'
    },
    {
-      title: 'p4',
-      description: 'Insights from a professional quant trader.',
-      image: '/MQF photos/p4.jpg'
-   },
-   {
-      title: 'p5',
-      description: 'Connect with peers and industry professionals.',
-      image: '/MQF photos/p5.jpg'
-   },
-   {
-      title: 'p6',
-      description: 'Celebrating a successful year of events.',
+      title: 'Macro Update',
+      description: 'Weekly update on market moving events',
       image: '/MQF photos/p6.jpg'
    },
    {
-      title: 'p7',
-      description: 'Our very first event setting the stage for the society.',
-      image: '/MQF photos/p7.jpg'
+      title: 'Interview Practice!',
+      description: 'Working on interview problems together',
+      image: '/MQF photos/p2.jpg'
    },
    {
-      title: 'p8',
-      description: 'An introduction to the world of quantitative finance.',
-      image: '/MQF photos/p8.jpg'
+      title: 'Spring Social!',
+      description: 'Our members connected over an evening of food and drinks',
+      image: '/MQF photos/p14.jpg'
    },
    {
-      title: 'p9',
-      description: 'A hands-on workshop on building trading algorithms.',
-      image: '/MQF photos/p9.jpg'
+      title: 'Projects!',
+      description: 'Our data & Infrastructure team brainstorming session',
+      image: '/MQF photos/p1.jpg'
    },
    {
-      title: 'p10',
-      description: 'Insights from a professional quant trader.',
-      image: '/MQF photos/p10.jpg'
+      title: 'Figgie Time!',
+      description: 'A probability based game invented by smart folk at Jane Street',
+      image: '/MQF photos/p5.jpg'
    },
    {
-      title: 'p11',
-      description: 'Connect with peers and industry professionals.',
+      title: 'Winter Dinner',
+      description: 'Always a good time',
       image: '/MQF photos/p11.jpg'
    },
    {
-      title: 'p12',
-      description: 'Celebrating a successful year of events.',
-      image: '/MQF photos/p12.jpg'
+      title: 'Portfolio Construction',
+      description: 'Our Portfolio Team brainstorming strategies',
+      image: '/MQF photos/keegan_explaining.jpg'
    },
+   {
+      title: 'Asset Allocation',
+      description: 'Working on fund asset mix decisions',
+      image: '/MQF photos/asset_allocation.jpg'
+   }
 
 ];
 

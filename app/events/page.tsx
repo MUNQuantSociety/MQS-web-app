@@ -54,7 +54,7 @@ function GridItem({ item, hoveredId, setHoveredId }: { item: GridItemData; hover
         </div>
       ) : (
         <div className="grid-item-content details-content">
-          <h2>{event.title}</h2>
+          <h1>{event.title}</h1>
           {event.description && <p>{event.description}</p>}
         </div>
       )}
@@ -79,7 +79,7 @@ export default function EventsPage() {
   return (
     <>
       <div className="heroE">
-        <div className="heroText">See what we&apos;re up to.
+        <div className="heroText">What we do.
         </div>            </div>
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
         <section className="eventsGrid">
@@ -88,7 +88,7 @@ export default function EventsPage() {
           ))}
         </section>
         <section className="upcomingSection">
-          <h2>We&apos;re just getting started! Stay tuned for our regular events featuring guest speakers from leading financial institutions, industry panels, workshops on technical skills, and networking opportunities that will bring the world of quantitative finance straight to you.</h2>
+          <h2>We do so much more and we&apos;re just getting started! Join us today!</h2>
         </section>
       </main>
     </>
