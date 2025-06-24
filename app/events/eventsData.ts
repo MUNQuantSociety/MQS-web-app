@@ -20,7 +20,7 @@ export type GridItemData = {
 
 export const simplePastEvents = [
    {
-      title: 'HIKE!',
+      title: 'Hike!',
       description: 'Meet the website team.',
       image: '/MQF photos/p3.jpg'
    },
