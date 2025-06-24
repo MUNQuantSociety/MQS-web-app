@@ -186,7 +186,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000; 
-  background: linear-gradient(to bottom, #1a1a1a); 
+  background: linear-gradient(to bottom, #141414d6); 
   backdrop-filter: blur(10px);
 }
 
@@ -220,7 +220,8 @@ header {
 }
 
 .logoText {
-    font-size: 1.5em;
+    font-size: 1.8rem;
+    font-weight: 700;
     /*font-family: 'Oswald', sans-serif;*/
     letter-spacing: 1px;
     color: #90D4C5;
@@ -229,7 +230,7 @@ header {
     text-transform: uppercase;
   }
 .logoText:hover {
-  color: #6d9ee8;
+  color: #95b4e4e3;
 }
 .nav {
   display: flex;
@@ -578,10 +579,6 @@ header {
   margin-bottom: 3rem;
 }
 
-body {
-  /*font-family: 'Oswald', sans-serif;*/
-}
-
 /*------------------Teams page styles--------------------*/
 
 .mainT {
@@ -618,6 +615,7 @@ body {
   background-attachment: fixed;
   transform: scale(1);
   transition: transform 0.7s ease-in-out; 
+  padding: 0 2vw 0 4vw;
 }
 .heroT:hover {
   transform: scale(1.1); 
@@ -664,6 +662,7 @@ body {
 .teamCard .image img {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1/1;
     object-fit: cover;
     transition: transform 0.6s ease, opacity 0.6s ease;
     display: block;
@@ -779,11 +778,8 @@ body {
 
 body.events-page {
         background: linear-gradient(to bottom,
-        rgba(0, 0, 0, 0.4),
         rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.7),
-        rgb(0, 0, 0, 0.95)
+        rgb(0, 0, 0, 0.8)
       ),
       url("/MQF photos/eventsHero.jpg") no-repeat center center;
     background-size: cover;

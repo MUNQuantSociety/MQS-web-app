@@ -20,51 +20,50 @@ export type GridItemData = {
 
 export const simplePastEvents = [
    {
-      title: 'Hike!',
-      description: 'MEET THE WEBSITE TEAM',
+      title: 'HIKE!',
+      description: 'Meet the website team.',
       image: '/MQF photos/p3.jpg'
    },
    {
       title: 'Macro Update',
-      description: 'WEEKLY UPDATE ON MARKET-MOVING EVENTS',
+      description: 'Weekly update on market-moving events.',
       image: '/MQF photos/p6.jpg'
    },
    {
       title: 'Interview Practice',
-      description: 'BEATING NERVES TOGETHER WITH HANDS-ON PROBLEM-SOLVING SESSIONS',
+      description: 'Beating nerves together with some problem-solving sessions.',
       image: '/MQF photos/p2.jpg'
    },
    {
       title: 'Spring Social',
-      description: 'A COZY EVENING OF FOOD AND DRINKS',
+      description: 'A cozy evening of food and drinks.',
       image: '/MQF photos/p14.jpg'
    },
    {
       title: 'Projects!',
-      description: 'OUR DATA AND INFRASTRUCTURE TEAM BRAINSTORMING IDEAS',
+      description: 'Our data and infrastructure team brainstorming ideas.',
       image: '/MQF photos/p1.jpg'
    },
    {
       title: 'Figgie Time!',
-      description: 'TRADING WITS IN A PROBBAILITY-BASED GAME INVENTED BY SMART FOLK AT JANE STREET',
+      description: 'Trading wits in a probability-based game invented by smart folk at Jane Street.',
       image: '/MQF photos/p5.jpg'
    },
    {
       title: 'Winter Dinner',
-      description: 'ALWAYS A GOOD TIME',
+      description: 'Always a good time.',
       image: '/MQF photos/p11.jpg'
    },
    {
       title: 'Portfolio Construction',
-      description: 'OUT PORTFOLIO TEAM BRAINSTORMING STRATEGIES',
+      description: 'Our portfolio team brainstorming strategies.',
       image: '/MQF photos/keegan_explaining.jpg'
    },
    {
       title: 'Asset Allocation',
-      description: 'MAKING IMPORTANT FUND-ASSET-MIX DECISIONS',
+      description: 'Making important fund-asset-mix decisions.',
       image: '/MQF photos/asset_allocation.jpg'
    }
-
 ];
 
 export function generateEventsLayout(
