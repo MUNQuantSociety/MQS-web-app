@@ -21,47 +21,47 @@ export type GridItemData = {
 export const simplePastEvents = [
    {
       title: 'Hike!',
-      description: 'Meet the website team',
+      description: 'MEET THE WEBSITE TEAM',
       image: '/MQF photos/p3.jpg'
    },
    {
       title: 'Macro Update',
-      description: 'Weekly update on market moving events',
+      description: 'WEEKLY UPDATE ON MARKET-MOVING EVENTS',
       image: '/MQF photos/p6.jpg'
    },
    {
-      title: 'Interview Practice!',
-      description: 'Working on interview problems together',
+      title: 'Interview Practice',
+      description: 'BEATING NERVES TOGETHER WITH HANDS-ON PROBLEM-SOLVING SESSIONS',
       image: '/MQF photos/p2.jpg'
    },
    {
-      title: 'Spring Social!',
-      description: 'Our members connected over an evening of food and drinks',
+      title: 'Spring Social',
+      description: 'A COZY EVENING OF FOOD AND DRINKS',
       image: '/MQF photos/p14.jpg'
    },
    {
       title: 'Projects!',
-      description: 'Our data & Infrastructure team brainstorming session',
+      description: 'OUR DATA AND INFRASTRUCTURE TEAM BRAINSTORMING IDEAS',
       image: '/MQF photos/p1.jpg'
    },
    {
       title: 'Figgie Time!',
-      description: 'A probability based game invented by smart folk at Jane Street',
+      description: 'TRADING WITS IN A PROBBAILITY-BASED GAME INVENTED BY SMART FOLK AT JANE STREET',
       image: '/MQF photos/p5.jpg'
    },
    {
       title: 'Winter Dinner',
-      description: 'Always a good time',
+      description: 'ALWAYS A GOOD TIME',
       image: '/MQF photos/p11.jpg'
    },
    {
       title: 'Portfolio Construction',
-      description: 'Our Portfolio Team brainstorming strategies',
+      description: 'OUT PORTFOLIO TEAM BRAINSTORMING STRATEGIES',
       image: '/MQF photos/keegan_explaining.jpg'
    },
    {
       title: 'Asset Allocation',
-      description: 'Working on fund asset mix decisions',
+      description: 'MAKING IMPORTANT FUND-ASSET-MIX DECISIONS',
       image: '/MQF photos/asset_allocation.jpg'
    }
 
