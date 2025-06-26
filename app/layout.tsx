@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import { Lato, Abril_Fatface, Nunito, Noto_Sans, Roboto, Montserrat, Rubik, Josefin_Sans, } from 'next/font/google'; // Import the font
+//import {Abril_Fatface, Nunito, Noto_Sans, Roboto, Montserrat, Rubik, Josefin_Sans, } from 'next/font/google';
+import { Lato} from 'next/font/google'; 
+
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 
