@@ -1,4 +1,4 @@
-import { Code } from "lucide-react";
+//import { Code } from "lucide-react";
 
 export const pastEvents = [//Do not add events with duplicate titles, it messes with the EventCard
     {
