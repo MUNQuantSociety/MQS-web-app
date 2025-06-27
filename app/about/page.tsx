@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useEffect, useRef, useState } from 'react';
 import { initialContent } from '@/components/ui/toggleItems/toggleItemTypes';
 import Image from 'next/image';
@@ -28,6 +27,14 @@ const sponsors = [
     logo: '/logo/cair_logo.png',
     link: 'https://www.mun.ca/research/cair/',
   },
+];
+
+const advisors = [
+  { logo: '/logo/blackrock-white.png', alt: 'BlackRock' },
+  { logo: '/logo/msft.jpg', alt: 'Microsoft' },
+  { logo: '/logo/omers.png', alt: 'OMERS' },
+  { logo: '/logo/otpp.png', alt: 'OTPP' },
+  { logo: '/logo/soc_white_logo.png', alt: 'Société Générale' },
 ];
 
 const panels = [
@@ -162,6 +169,31 @@ export default function AboutPage() {
               </div>
             </a>
           ))}
+        </div>
+      </section>
+
+      {/* Advisors */}
+      <section className="marquee-section">
+        <h2>Our Advisors</h2>
+        <div className="marquee-container fadeout-horizontal">
+          <div className="marquee-track">
+            {/* Generate 4 copies of the advisors array for seamless loop */}
+            {[...advisors, ...advisors, ...advisors, ...advisors].map((advisor, index) => (
+              <div key={index} className="marquee-item">
+                <div className="marquee-content">
+                  <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Image
+                      src={advisor.logo}
+                      alt={advisor.alt}
+                      width={120}
+                      height={60}
+                      className="marquee-image"
+                    />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

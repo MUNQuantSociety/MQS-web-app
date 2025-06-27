@@ -246,6 +246,113 @@
   opacity: 0.9;
 }
 
+/* ============================== */
+/* === MARQUEE SECTION ========= */
+/* ============================== */
+.marquee-section {
+  background: #111;
+  color: #fff;
+  padding: 5rem 1.5rem;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.fadeout-horizontal {
+  position: relative;
+}
+
+.fadeout-horizontal::before,
+.fadeout-horizontal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fadeout-horizontal::before {
+  left: 0;
+  background: linear-gradient(to right, #111, transparent);
+}
+
+.fadeout-horizontal::after {
+  right: 0;
+  background: linear-gradient(to left, #111, transparent);
+}
+
+.marquee-section h2 {
+  font-size: 2.35rem;
+  margin-bottom: 2.25rem;
+  color: white;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.marquee-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 180px;
+  height: 120px;
+
+  border-radius: 14px;
+  padding: 1rem;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px) saturate(150%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+
+  transition: 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.marquee-content:hover {
+  transform: translateY(-6px) scale(1.03);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.marquee-image {
+  object-fit: contain !important;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
 
 /* ============================== */
 /* === RESPONSIVE ============== */
@@ -337,4 +444,3 @@
     padding: 3rem 1rem;
   }
 }
-
