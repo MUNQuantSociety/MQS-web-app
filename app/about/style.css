@@ -1,88 +1,120 @@
-/* Base page styles */
+/* === GENERAL PAGE SETUP === */
 .about-page {
-  color: #1a1a1a;
+  position: relative;
+  min-height: 100vh;
   overflow-x: hidden;
+  background: transparent;
 }
 
-/* Hero Section (fills the initial viewport) */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #00F9BB 0%, #00C4FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(0, 249, 187, 0.45);
+}
+
+.about-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* === HERO SECTION === */
 .hero-section {
   position: relative;
   height: 100vh;
   overflow: hidden;
-  z-index: 1; /* Establishes a stacking context */
+  z-index: 1;
 }
 
-/* Background Video */
-.hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1; /* Base layer of hero-section */
-}
-
-/* Video Fade using hero-section::after */
 .hero-section::after {
   content: '';
   position: absolute;
-  bottom: 0; /* Align to the bottom of the hero-section */
+  bottom: -1px;
   left: 0;
-  width: 100%;
-  height: 25vh; /* Increased height for a more prominent fade */
-  background: linear-gradient(to top, rgba(0,0,0,0.95), transparent); /* Fade from dark to transparent */
-  z-index: 2; /* Above the video, below text and other overlays */
-  pointer-events: none; /* Allow clicks to pass through the fade */
+  right: 0;
+  height: 120px;
+  background: inherit;
+  filter: blur(30px) brightness(0.6);
+  z-index: 2;
+  pointer-events: none;
 }
 
-/* Optional Video Overlay - from your CSS */
-.hero-overlay {
+.hero-video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(0deg, rgba(0,0,0,0.5) 10%, transparent 90%);
-  opacity: 0;
-  transition: opacity 1s ease;
-  z-index: 3; /* Above the ::after video fade */
+  object-fit: cover;
+  z-index: 1;
 }
 
-.hero-overlay.visible {
-  opacity: 1;
-}
-
-/* Main Title Container (Centered) */
-.main-title-container {
+.hero-overlay {
   position: absolute;
-  top: 48%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0;
+  width: 100%;
+  height: 30vh;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.8) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.main-title-container {
+  position: relative;
+  z-index: 3;
   text-align: center;
-  color: white;
-  z-index: 4; /* Above video, ::after fade, and overlay */
-  width: 90%;
+  color: #ebeded;
+  padding-top: 25vh;
 }
 
-.main-title-container .main-title {
-  font-size: 4.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+.main-title {
+  font-size: 4rem;
+  font-weight: 900;
+  text-shadow: 3px 3px 12px black;
 }
 
-.main-title-container .scroll-prompt {
-  font-size: 1.2rem;
+.scroll-prompt {
+  margin-top: 1rem;
+  animation: pulseOpacity 2s infinite;
   opacity: 0.8;
-  margin-top: 0.5rem;
   font-weight: 300;
-  animation: pulseOpacity 2s infinite ease-in-out;
 }
 
 @keyframes pulseOpacity {
-  0%, 100% { opacity: 0.6; }
+  0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
+}
+
+.about-page-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background-image: url('/about_page/about_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: -30px;
+  filter: blur(5px) brightness(0.9);
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+.about-page-content {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  padding: 2rem 1rem;
 }
 
 .hero-bottom-text {
@@ -94,247 +126,200 @@
   max-width: 600px;
   text-align: center;
   color: white;
-  z-index: 4; /* Above video, ::after fade, and overlay */
+  z-index: 4;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
 
-.hero-bottom-text.visible { opacity: 1; }
-.hero-bottom-text h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 0.5rem; }
-.hero-bottom-text p { font-size: 1.2rem; opacity: 0.9; }
+.hero-bottom-text.visible {
+  opacity: 1;
+}
 
+.hero-bottom-text h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
 
-/* --- START: Animated Text Section CSS --- */
-.animated-text-section {
-  padding: 4rem 2rem; /* Adjust padding as desired */
+.hero-bottom-text p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.animated-text-section,
+.sponsors-section,
+.about-section{
+  padding: 4rem 2rem;
   text-align: center;
-  background-color: transparent; /* Blends with the dark theme */
-  color: white; /* Default color for any static text like an optional title */
-  position: relative;
-  z-index: 5; /* Consistent with sponsors/toggle sections */
-  /* Optional: give it some minimum height if text is short, to ensure scroll area */
-  /* min-height: 60vh; */
-}
-
-/* Optional title for the animated text section (if you add one) */
-/*
-.animated-text-section .section-title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
+  background-color: rgba(45, 46, 47, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 5;
+  border-radius: 18px;
+  margin: 3rem 1rem;
+  box-shadow: 0 8px 24px rgba(71, 165, 165, 0.55);
 }
-*/
 
 .animated-text-content {
-  max-width: 700px; /* Adjust max-width of the text block */
-  margin: 0 auto;
-  text-align: left; /* Or 'center' if you prefer centered lines */
-  margin-top: 150px;
-  margin-bottom: 150px;
+  max-width: 700px;
+  margin: 150px auto;
+  text-align: left;
 }
 
 .animated-line {
-  font-size: 2rem; /* Adjust base font size for the animated text */
-  line-height: 1.0; /* Adjust line spacing */
-  margin-bottom: 1.25rem; /* Space between lines of text */
-  font-weight: 500; /* Example font weight */
+  font-size: 2rem;
+  line-height: 1.0;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
 }
 
 .animated-word {
-  display: inline-block; /* Allows for better control if needed, and respects spaces */
-  opacity: 0.3; /* Initial dimmed state */
-  color: #A0A0A0; /* Initial dimmed color */
-  transition: opacity 0.4s ease-out, color 0.4s ease-out; /* Smooth transition for highlight */
-}
-/* --- END: Animated Text Section CSS --- */
-
-
-/* --- START: Sponsors Section CSS --- */
-.sponsors-section {
-  padding: 2rem 2rem;
-  text-align: center;
-  /* Sits on the dark area created by hero-section::after and toggle-section's dark bg */
-  background-color: transparent;
-  color: white;
-  position: relative;
-   z-index: 5; /* To be clearly above hero elements if any overlap, though not expected */
+  display: inline-block;
+  opacity: 0.3;
+  color: #A0A0A0;
+  transition: opacity 0.4s ease-out, color 0.4s ease-out;
 }
 
 .sponsors-section h2 {
-  font-size: 2.25rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .sponsors-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 2rem;
   flex-wrap: wrap;
-  gap: 2.5rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  
 }
 
 .sponsor-logo-wrapper {
-  position: relative;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 0.5rem 1rem;
   width: 160px;
-  height: 80px;
-  transition: transform 0.3s ease, background-color 0.6s ease;
-  background-color: rgba(211, 211, 211, 0.60); /* User's last preferred color */
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-sizing: border-box;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 8px 24px rgba(71, 165, 165, 0.55);
+  backdrop-filter: blur(4px);
 }
 
 .sponsor-logo-wrapper:hover {
-  transform: scale(1.05);
-  background-color: rgba(255, 255, 255, 0.25); /* User's last preferred hover color */
-}
-
-.sponsor-logo-wrapper a,
-.sponsor-logo-wrapper > .next-image-wrapper { /* If next/image adds a span wrapper */
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: relative;
+  transform: translateY(-6px);
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .sponsors-image {
-  object-fit: contain !important;
-}
-/* --- END: Sponsors Section CSS --- */
-
-/* Toggle Section Below Hero */
-.toggle-section {
-  position: relative;
-  /* This background now starts effectively after the hero-section's ::after fade */
-  background: linear-gradient(#1a1a1a, rgba(0, 0, 0, 0.95));
-  padding: 4rem 2rem;
-  color: white;
-  z-index: 5; /* Consistent with sponsors section */
+  object-fit: contain;
+  max-height: 60px;
+  max-width: 100%;
+  position: relative !important;
 }
 
-/* Layout for Toggle Items and Content */
-.toggle-wrapper {
+.section-content {
   display: flex;
-  gap: 4rem;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-  position: relative;
+  flex-direction: row;
+  max-width: 1300px;
+  width: 100%;
+  gap: 3rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
 }
 
-.toggle-container {
+.fade-section.visible .section-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-content.reverse {
+  flex-direction: row-reverse;
+}
+
+.section-image-wrapper {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  min-width: 250px;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+  min-height: 300px;
 }
 
-.toggle-item {
-  background: transparent;
-  border: 2px solid white;
-  color: white;
+.section-image {
+  object-fit: cover;
+}
+
+.section-text-wrapper {
+  flex: 1;
+  color: #fff;
   padding: 1rem;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
-  font-weight: bold;
-  font-size: 1.25rem;
-  text-align: left;
 }
 
-.toggle-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.02);
+.section-text-wrapper h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.toggle-item.open {
-  background: rgba(164, 7, 7, 0.2);
-  border-color: rgba(164, 7, 7, 0.8);
+.scroll-text {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #eaeaea;
+  white-space: pre-line;
 }
 
-.toggle-content {
-  flex: 2;
-  background: transparent;
-  padding: 1rem;
-  font-size: 1.2rem;
-  animation: fadeIn 0.5s ease;
-  text-align: center;
-}
-
-.toggle-content-title { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; }
-.toggle-content-body { line-height: 1.6; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
-  .main-title-container .main-title { font-size: 3rem; }
-  .main-title-container .scroll-prompt { font-size: 1rem; }
-  .hero-bottom-text h1 { font-size: 2rem; }
-  .hero-bottom-text p { font-size: 1rem; }
-  .hero-bottom-text { bottom: 4vh; }
-
-  .hero-section::after { height: 20vh; } /* Adjust fade height for tablets */
-
-  /* Animated Text Section Responsive */
-  .animated-text-section {
-    padding: 3rem 1.5rem;
-  }
-  .animated-line {
-    font-size: 1.6rem; /* Smaller font on tablets */
-    line-height: 1.6;
-    margin-bottom: 1rem;
+  .main-title {
+    font-size: 3rem;
   }
 
-  /* Sponsors Section Responsive */
-  .sponsors-section { padding: 1.5rem 1.5rem; }
-  .sponsors-section h2 { font-size: 2rem; }
-  .sponsors-container { gap: 2rem; }
-  .sponsor-logo-wrapper { width: 130px; height: 65px; padding: 0.4rem; }
+  .about-title {
+    font-size: 2.5rem;
+  }
 
-  /* Toggle Section Responsive */
-  .toggle-wrapper { flex-direction: column; align-items: center; gap: 2rem; }
-  .toggle-container { width: 100%; max-width: 400px; min-width: unset; align-items: center; }
-  .toggle-item { width: 100%; text-align: center; }
-  .toggle-content { margin-top: 0; width: 100%; max-width: 600px; }
+  .about-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+  }
+
+  .about-hero-section {
+    height: 50vh;
+  }
+
+  .section-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .section-content.reverse {
+    flex-direction: column;
+  }
+
+  .section-text-wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+  .scroll-text {
+    font-size: 1rem;
+  }
+
+  .section-image-wrapper {
+    aspect-ratio: auto;
+    height: 250px;
+    width: 100%;
+  }
 }
-
-@media (max-width: 480px) {
-  .main-title-container .main-title { font-size: 2.5rem; }
-  .hero-bottom-text h1 { font-size: 1.8rem; }
-  .hero-bottom-text p { font-size: 0.9rem; }
-  .hero-bottom-text { bottom: 3vh; }
-
-  .hero-section::after { height: 20vh; } /* Adjust fade height for mobile */
-
-  /* Animated Text Section Responsive */
-  .animated-text-section {
-    padding: 2.5rem 1rem;
-  }
-  .animated-line {
-    font-size: 1.3rem; /* Smaller font on mobile */
-    line-height: 1.5;
-  }
-
-  /* Sponsors Section Responsive */
-  .sponsors-section { padding: 1rem 1rem; }
-  .sponsors-section h2 { font-size: 1.8rem; margin-bottom: 2rem; }
-  .sponsors-container { gap: 1.5rem; }
-  .sponsor-logo-wrapper { width: 100px; height: 50px; padding: 0.25rem; }
-
-  /* Toggle Section Responsive */
-  .toggle-section { padding: 3rem 1rem; }
-}
-/* --- End of CSS --- */
