@@ -2,142 +2,101 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { initialContent } from '@/components/ui/toggleItems/toggleItemTypes';
-import './style.css';
 import Image from 'next/image';
+import './style.css';
 
 const animatedTextLines = [
-  "MQS is a student team at Memorial University",
-  "aiming to provide a quality education in",
-  "financial markets and algorithm development.",
-  "",
-  "We enable students to learn the",
-  "fundamentals of quantitative analysis",
-  "for real world applications."
+  'MQS is a student team at Memorial University',
+  'aiming to provide a quality education in',
+  'financial markets and algorithm development.',
+  '',
+  'We enable students to learn the',
+  'fundamentals of quantitative analysis',
+  'for real-world applications.',
 ];
 
 const sponsors = [
   {
     id: 'fmp',
-    name: 'Financial Modelling Prep',
-    logoUrl: '/logo/fmp_logo.png',
+    name: 'FMP',
+    logo: '/logo/fmp_logo.png',
     link: 'https://financialmodelingprep.com/',
   },
   {
     id: 'cair',
     name: 'CAIR',
-    logoUrl: '/logo/cair_logo.png',
+    logo: '/logo/cair_logo.png',
     link: 'https://www.mun.ca/research/cair/',
   },
 ];
 
-const sections = [
-  { title: 'ABOUT US', content: initialContent['ABOUT US'], bgImage: '/about_page/intro.jpg' },
-  { title: 'PROJECTS', content: initialContent['PROJECTS'], bgImage: '/about_page/toslow.png' },
-  { title: 'SPEAKERS & NETWORKING', content: initialContent['SPEAKERS & NETWORKING'], bgImage: '/about_page/teams.png' },
-  { title: 'GET IN TOUCH!', content: initialContent['GET IN TOUCH!'], bgImage: '/about_page/intro.jpg' },
+const panels = [
+  { title: 'ABOUT US', img: '/about_page/about_bg.jpg', txt: initialContent['ABOUT US'] },
+  { title: 'PROJECTS', img: '/about_page/teams.png', txt: initialContent['PROJECTS'] },
+  { title: 'SPEAKERS & NETWORKING', img: '/about_page/contact.jpg', txt: initialContent['SPEAKERS & NETWORKING'] },
+  { title: 'GET IN TOUCH!', img: '/about_page/web_hike.png', txt: initialContent['GET IN TOUCH!'] },
 ];
 
 export default function AboutPage() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const animatedTextSectionRef = useRef<HTMLElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[][]>([]);
-  const [showBottomText, setShowBottomText] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showHeroText, setShowHeroText] = useState(false);
 
+  // Initialize word refs
   if (wordRefs.current.length !== animatedTextLines.length) {
-    wordRefs.current = animatedTextLines.map(line =>
-      new Array(line.split(' ').length).fill(null)
-    );
+    wordRefs.current = animatedTextLines.map((line) => Array(line.split(' ').length).fill(null));
   }
 
   useEffect(() => {
-    const handleTextAnimationScroll = () => {
-      if (!animatedTextSectionRef.current || wordRefs.current.flat().every(ref => !ref)) return;
-
-      const section = animatedTextSectionRef.current;
-      const { top: sectionTop, height: sectionHeight } = section.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-
-      let animationCompleteness = 0;
-      const animationZoneStartThreshold = viewportHeight * 0.8;
-      const animationZoneEndThreshold = viewportHeight * 0.1;
-
-      if (sectionTop < animationZoneStartThreshold && sectionTop > animationZoneEndThreshold - sectionHeight) {
-        animationCompleteness = (animationZoneStartThreshold - sectionTop) / (animationZoneStartThreshold - animationZoneEndThreshold);
-        animationCompleteness = Math.max(0, Math.min(1, animationCompleteness));
-      } else if (sectionTop <= animationZoneEndThreshold - sectionHeight) {
-        animationCompleteness = 1;
-      }
-
-      let totalWords = 0;
-      animatedTextLines.forEach(line => totalWords += line.split(' ').length);
-      const wordsToHighlight = Math.floor(animationCompleteness * totalWords);
-
-      let currentWordIndex = 0;
-      wordRefs.current.forEach((lineOfRefs) => {
-        lineOfRefs.forEach((wordRef: HTMLSpanElement | null) => {
-          if (wordRef) {
-            if (currentWordIndex < wordsToHighlight) {
-              wordRef.style.opacity = '1';
-              wordRef.style.color = '#FFFFFF';
-            } else {
-              wordRef.style.opacity = '0.3';
-              wordRef.style.color = '#A0A0A0';
-            }
-            currentWordIndex++;
-          }
-        });
-      });
-    };
-
-    const handleHeroTextFade = () => {
-      const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight;
-      setShowBottomText(scrollY > heroHeight * 0.25);
-    };
-
-    let throttleTimer = false;
-    const throttledTextAnimationScroll = () => {
-      if (!throttleTimer) {
-        throttleTimer = true;
-        requestAnimationFrame(() => {
-          handleTextAnimationScroll();
-          handleHeroTextFade();
-          throttleTimer = false;
-        });
-      }
-    };
-
-    const elements = document.querySelectorAll('.fade-section');
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    elements.forEach(el => observer.observe(el));
-
-    window.addEventListener('scroll', throttledTextAnimationScroll);
-    handleTextAnimationScroll();
-    handleHeroTextFade();
-
-    return () => {
-      window.removeEventListener('scroll', throttledTextAnimationScroll);
-      observer.disconnect();
-    };
+    setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!mounted) return;
+    const timer = setTimeout(() => setShowHeroText(true), 1000);
+    return () => clearTimeout(timer);
+  }, [mounted]);
+
+  useEffect(() => {
+    const handler = () => {
+      if (!sectionRef.current) return;
+      const { top } = sectionRef.current.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const progress = Math.min(1, Math.max(0, (vh * 0.75 - top) / (vh * 0.75)));
+
+      const totalWords = wordRefs.current.flat().length;
+      const revealUpto = Math.floor(progress * totalWords);
+
+      let idx = 0;
+      wordRefs.current.forEach((line) =>
+        line.forEach((span) => {
+          if (span) {
+            const on = idx < revealUpto;
+            span.style.opacity = on ? '1' : '.25';
+            span.style.color = on ? '#ffffff' : '#aaa';
+          }
+          idx++;
+        })
+      );
+    };
+
+    handler();
+    window.addEventListener('scroll', handler, { passive: true });
+    return () => window.removeEventListener('scroll', handler);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-<div className="about-page">
-      {/* Hero Video Section */}
+    <div className="about-page">
+      {/* Hero Section */}
       <section className="hero-section">
         <video ref={videoRef} autoPlay loop muted playsInline className="hero-video">
           <source src="/video/downtown.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
-        <div className="hero-overlay" />
         <div className="main-title-container">
           <h1 className="main-title">MUN QUANT SOCIETY</h1>
           <a
@@ -145,84 +104,80 @@ export default function AboutPage() {
             className="nav-link join-us hero-join-button"
             target="_blank"
             rel="noopener noreferrer"
+            style={{ display: 'inline-block', marginTop: '1rem', marginBottom: '0.5rem' }}
           >
             JOIN US
           </a>
           <p className="scroll-prompt">scroll down</p>
         </div>
-        <div className={`hero-bottom-text ${showBottomText ? 'visible' : ''}`}>
-          <h1>SHAPING FUTURE TALENT</h1>
+        <div className={`hero-bottom-text ${showHeroText ? 'visible' : ''}`}>
+          <h1>Shaping Future Talent</h1>
           <p>Quants | SDEs | Analysts</p>
         </div>
       </section>
 
-      {/* ✨ New Gradient Blending Section */}
-      <div className="hero-gradient-transition" />
+      {/* Animated Text */}
+      <section ref={sectionRef} className="animated-text-section">
+        <div className="animated-text-content">
+          {animatedTextLines.map((line, li) => (
+            <p key={li} className="animated-line">
+              {line.split(' ').map((word, wi, arr) => (
+                <React.Fragment key={wi}>
+                  <span
+                    ref={(el: HTMLSpanElement | null) => {
+                      wordRefs.current[li][wi] = el;
+                    }}
+                    className="animated-word"
+                  >
+                    {word}
+                  </span>
+                  {wi < arr.length - 1 && ' '}
+                </React.Fragment>
+              ))}
+            </p>
+          ))}
+        </div>
+      </section>
 
-      {/* Background Image Behind Content */}
-      <div className="about-page-background" />
-      <div className="about-page-overlay" />
+      {/* Sponsors */}
+      <section className="sponsors-section">
+        <h2>Our Sponsors</h2>
+        <div className="sponsors-container">
+          {sponsors.map((sponsor) => (
+            <a
+              key={sponsor.id}
+              className="sponsor-logo-wrapper"
+              href={sponsor.link}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div style={{ width: '100%', height: '60px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                <Image
+                  src={sponsor.logo}
+                  alt={sponsor.name}
+                  width={120}
+                  height={60}
+                  className="sponsors-image"
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
 
-      {/* Background Image Behind Content */}
-      <div className="about-page-background" />
-      <div className="about-page-overlay" />
-
-      <div className="about-page-content">
-        <section id="about-section" className="glass-section fade-section">
-          <div className="about-hero-content"></div>
-        </section>
-
-        <section className="animated-text-section fade-section glass-section" ref={animatedTextSectionRef}>
-          <div className="animated-text-content">
-            {animatedTextLines.map((line, lineIndex) => (
-              <p key={lineIndex} className="animated-line">
-                {line.split(' ').map((word, wordIndex, wordsArray) => (
-                  <React.Fragment key={wordIndex}>
-                    <span
-                      ref={(el: HTMLSpanElement | null) => {
-                        if (wordRefs.current[lineIndex]) {
-                          wordRefs.current[lineIndex][wordIndex] = el;
-                        }
-                      }}
-                      className="animated-word"
-                    >
-                      {word}
-                    </span>
-                    {wordIndex < wordsArray.length - 1 && ' '}
-                  </React.Fragment>
-                ))}
-              </p>
-            ))}
+      {/* Panels */}
+      {panels.map(({ title, txt, img }) => (
+        <section
+          key={title}
+          className="full-image-section"
+          style={{ backgroundImage: `url(${img})` }}
+        >
+          <div className="overlay-content">
+            <h2>{title}</h2>
+            <div className="panel-text">{txt}</div>
           </div>
         </section>
-
-        <section className="sponsors-section fade-section glass-section">
-          <h2>Our Sponsors</h2>
-          <div className="sponsors-container">
-            {sponsors.map(s => (
-              <div key={s.id} className="sponsor-logo-wrapper">
-                <a href={s.link} target="_blank" rel="noopener noreferrer">
-                  <Image src={s.logoUrl} alt={s.name} fill className="sponsors-image" />
-                </a>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {sections.map(({ title, content, bgImage }, index) => (
-          <section key={title} className="about-section fade-section glass-section">
-            <div className={`section-content ${index % 2 !== 0 ? 'reverse' : ''}`}>
-              <div className="section-image-wrapper">
-                <Image src={bgImage} alt={title} fill className="section-image" priority />
-              </div>
-              <div className="section-text-wrapper">
-                <h2>{title}</h2>
-                <div className="scroll-text">{content}</div>
-              </div>
-            </div>
-          </section>
-        ))}
-      </div>
+      ))}
     </div>
   );
 }
