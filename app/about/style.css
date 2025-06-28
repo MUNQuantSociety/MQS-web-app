@@ -260,7 +260,7 @@
 
 .marquee-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
   position: relative;
@@ -305,7 +305,7 @@
 
 .marquee-item {
   flex-shrink: 0;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .marquee-content {
