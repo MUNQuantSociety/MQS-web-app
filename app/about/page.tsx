@@ -31,7 +31,7 @@ const sponsors = [
 
 const advisors = [
   { logo: '/logo/blackrock-white.png', alt: 'BlackRock' },
-  { logo: '/logo/msft.jpg', alt: 'Microsoft' },
+  { logo: '/logo/microsoft_logo.png', alt: 'Microsoft' },
   { logo: '/logo/omers.png', alt: 'OMERS' },
   { logo: '/logo/otpp.png', alt: 'OTPP' },
   { logo: '/logo/soc_white_logo.png', alt: 'Société Générale' },
@@ -174,7 +174,7 @@ export default function AboutPage() {
 
       {/* Advisors */}
       <section className="marquee-section">
-        <h2>Our Advisors</h2>
+        <h2>Our Advisors Have Worked At</h2>
         <div className="marquee-container fadeout-horizontal">
           <div className="marquee-track">
             {/* Generate 4 copies of the advisors array for seamless loop */}
