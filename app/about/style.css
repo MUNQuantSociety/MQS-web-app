@@ -158,11 +158,15 @@
   background: #111;
   color: #fff;
   padding: 5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 5;
 }
 
 .animated-text-content {
   max-width: 700px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .animated-line {
@@ -174,6 +178,7 @@
 .animated-word {
   opacity: 0.25;
   transition: 0.35s;
+  display: inline-block;
 }
 
 /* ============================== */
