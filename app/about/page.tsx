@@ -8,7 +8,7 @@ const animatedTextLines = [
   'MQS is a student team at Memorial University',
   'aiming to provide a quality education in',
   'financial markets and algorithm development.',
-  '',
+  '\n',
   'We enable students to learn the',
   'fundamentals of quantitative analysis',
   'for real-world applications.',
