@@ -200,11 +200,11 @@ export default function AboutPage() {
       {/* Metabase Embed */}
       <section className="metabase-section">
         <div className="metabase-container">
-        <iframe
-          className="metabase-iframe"
-          src="http://143.244.165.136:3000/public/dashboard/f334fe26-4b29-4d98-a148-7784981a57c1#theme=night&bordered=false&titled=false&refresh=60"
-          frameBorder="0"
-          allowTransparency={true}
+        <iframe 
+            className="metabase-iframe"
+            src="http://143.244.165.136:3000/public/dashboard/f334fe26-4b29-4d98-a148-7784981a57c1#theme=night&bordered=false&titled=false&refresh=60"
+            frameBorder="0"
+            allowTransparency={true}
         ></iframe>
         </div>
       </section>
