@@ -43,18 +43,18 @@ export const dataInfraMember = [
     image: "/headshots/kamal.JPG",
   },
   {
-    name: "Alen Jacob",
+    name: "Simanta Ahmed",
     role: ROLES.ASSOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", 
+    linkedin: "https://www.linkedin.com/in/simanta-ahmed-855473250/", 
     // No image passed
   },
   {
-    name: "Promit Das",
+    name: "Saad Shaikh",
     role: ROLES.ASSOC,
-    linkedin: "https://www.linkedin.com/in/promitd/", 
+    linkedin: "https://www.linkedin.com/in/mohsaadshaikh/", 
   },
   {
-    name: "Utkarsh Upreti",
+    name: "Harshit Pawar",
     role: ROLES.ASSOC,
     linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/", 
   },
