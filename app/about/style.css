@@ -257,7 +257,7 @@
 .marquee-section {
   background: #111;
   color: #fff;
-  padding: 5rem 1.5rem;
+  padding: 1rem 1.5rem;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -429,7 +429,7 @@
   }
 
   .sponsors-section {
-    padding: 3rem 1rem;
+    padding: 0.5rem 1rem;
   }
 
   .sponsors-section h2 {
@@ -447,5 +447,41 @@
 
   .animated-text-section {
     padding: 3rem 1rem;
+  }
+}
+
+/* Metabase Embed Section */
+.metabase-section {
+  padding: 4rem 0;
+  background-color: #000; /* Or whatever background color matches your site */
+}
+
+.metabase-container {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.metabase-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .metabase-container {
+    padding-top: 75%; /* Adjust aspect ratio for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .metabase-container {
+    padding-top: 100%; /* Adjust aspect ratio for mobile */
   }
 }
