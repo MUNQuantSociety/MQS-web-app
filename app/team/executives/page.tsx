@@ -94,7 +94,7 @@ const executiveMember = [
     role: "Co-Director - Data and Infrastructure",
     linkedin: "https://www.linkedin.com/in/kamal-awad-ali/",
     bio: "I am a 4th-year Applied Math student with a diploma in Engineering. My primary interests lie in dynamical systems, data science, and physics-informed neural networks.",
-    image: "/headshots/kamal.JPG",
+    image: "/headshots/kamal.jpg",
   },
   {
     name: "Koushik Mote",
