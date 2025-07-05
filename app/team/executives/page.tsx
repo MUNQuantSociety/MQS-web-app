@@ -100,8 +100,13 @@ const executiveMember = [
     name: "Koushik Mote",
     role: "Co-Director - Data and Infrastructure",
     linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/",
+<<<<<<< Updated upstream
     bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I also enjoy chatting with people, playing pool, and watching thought provoking films.",
     image: "/headshots/koushik.jpg",
+=======
+    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I also enjoy playing pool and watching thought provoking films.",
+    image: "/headshots/koushik.JPG",
+>>>>>>> Stashed changes
   },
 ];
 export default function TeamsPage() {

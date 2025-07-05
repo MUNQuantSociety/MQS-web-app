@@ -13,14 +13,14 @@ export const websiteMember = [
     name: "Hameedah Salaam",
     role: ROLES.MD,
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/",
-    bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
+    bio: "My name is Hameedah, I am a fourth year CS student who is interested in User experience, research and design. In my free time I like to find new dad jokes. Did you know “dogs can’t operate MRI machines but catscan!",
     image: "/headshots/hameedah.JPG",
   },
   {
     name: "Ayesha Ziauddin",
     role: ROLES.MD,
     linkedin: "https://www.linkedin.com/in/ayesha-z/",
-    bio: "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
+    bio: "My name is Ayesha, I am a 3rd-year CS student at MUN. I am enthusiastic about web development and enjoy reading and sleeping in my downtime.",
     image: "/headshots/ayesha.jpg",
   },
   {

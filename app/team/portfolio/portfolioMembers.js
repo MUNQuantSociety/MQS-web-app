@@ -39,13 +39,13 @@ export const portfolioMember = [
     bio: "I have a background in neuroscience and data analytics, with research experience in agriculture, genetics, and computational biology. I am interested in behavioural finance and global markets.",
     image: "/headshots/nisarg.jpg",
   },
-  {
+  /*{
     name: "Baasil Sanu",
     role: ROLES.ASSOC,
     linkedin: "#",
     bio: "Short blurb of what the person wants to say goes here. Something brief and meaningful",
     // No image passed for Associates, even if present in data
-  },
+  },*/
   {
     name: "Fariha Mehnaz",
     role: ROLES.DIR, // Changed from Associate in original data based on image? Verify role.
