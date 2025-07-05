@@ -33,14 +33,14 @@ export const dataInfraMember = [
     role: ROLES.DIR_DATA_INFRA,
     linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/", 
     bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I enjoy socializing, playing pool, and watching thought provoking films.",
-    image: "/headshots/koushik.JPG",
+    image: "/headshots/koushik.jpg",
   },
   {
     name: "Kamal Ali",
     role: ROLES.DIR_DATA_INFRA,
     linkedin: "https://www.linkedin.com/in/kamal-awad-ali/",
     bio: "I am a 4th-year Applied Math student with a diploma in Engineering. My primary interests lie in dynamical systems, data science, and physics-informed neural networks.",
-    image: "/headshots/kamal.JPG",
+    image: "/headshots/kamal.jpg",
   },
   {
     name: "Alen Jacob",

@@ -18,7 +18,7 @@ export const websiteMember = [
   },
   {
     name: "Ayesha Ziauddin",
-    role: ROLES.DIR,
+    role: ROLES.MD,
     linkedin: "https://www.linkedin.com/in/ayesha-z/",
     bio: "Short blurb of what I want to say goes here. This is where I say something cool, witty, or vaguely profound. For now, it's just placeholder text to check for overflow.",
     image: "/headshots/ayesha.jpg",
@@ -50,5 +50,25 @@ export const websiteMember = [
     linkedin: "https://www.linkedin.com/in/mohammed-safwan-salman-24531b1b7/",
     bio: "Short blurb of what Hameedah wants to say goes here. Something brief and meaningful",
     // image: "/headshots/safwan.jpg",
+  },
+  {
+    name: "Fariha Mehnaz",
+    role: ROLES.ASSOC,
+    linkedin: "https://www.linkedin.com/in/mohammed-safwan-salman-24531b1b7/",
+  },
+  {
+    name: "Samar Ennacuer",
+    role: ROLES.ASSOC,
+    linkedin: "https://www.linkedin.com/in/mohammed-safwan-salman-24531b1b7/",
+  },
+  {
+    name: "Yash Kevin Singh",
+    role: ROLES.ASSOC,
+    linkedin: "https://www.linkedin.com/in/mohammed-safwan-salman-24531b1b7/",
+  },
+  {
+    name: "Mohammed Rajin Hasan",
+    role: ROLES.ASSOC,
+    linkedin: "https://www.linkedin.com/in/mohammed-safwan-salman-24531b1b7/",
   },
 ];

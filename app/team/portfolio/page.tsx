@@ -89,7 +89,7 @@ export default function PortfolioPage() {
     <>
       <div
         className="heroT"
-        style={{ "--hero-img": `url("/MQF photos/group.jpg")` } as React.CSSProperties}
+        style={{ "--hero-img": `url("/MQF photos/keegan_explaining.jpg")` } as React.CSSProperties}
       >
         <div className="heroText">Meet the Portfolio Teams.</div>
       </div>

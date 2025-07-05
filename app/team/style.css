@@ -18,6 +18,10 @@ p {
     /*Past events text*/
     font-size: clamp(0.6rem, 1.5vw, 1.5rem);
 }
-.heroText { 
-    font-size: clamp(2rem, 6vw, 8rem);
+
+
+.heroText {
+  font-size: clamp(2rem, 6vw, 8rem);
+  text-align: center;
 }
+
