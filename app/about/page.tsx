@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { initialContent } from '@/components/ui/toggleItems/toggleItemTypes';
+import Dashboard from '@/components/ui/dashboard/Dashboard';
 import Image from 'next/image';
 import './style.css';
 
@@ -197,15 +198,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Metabase Embed */}
-      <section className="metabase-section">
-        <div className="metabase-container">
-        <iframe 
-            className="metabase-iframe"
-            src="https://munquantsocietymetabase.online/public/dashboard/f334fe26-4b29-4d98-a148-7784981a57c1#theme=night&bordered=false&titled=false&refresh=60"
-            frameBorder={0}
-            allowtransparency="true"     ></iframe>
-        </div>
+
+      {/* Our Custom Dashboard */}
+      <section className="my-12">
+        <Dashboard />
       </section>
 
       {/* Panels */}
