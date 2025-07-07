@@ -204,7 +204,7 @@ export default function AboutPage() {
             className="metabase-iframe"
             src="https://munquantsocietymetabase.online/public/dashboard/f334fe26-4b29-4d98-a148-7784981a57c1#theme=night&bordered=false&titled=false&refresh=60"
             frameBorder={0}
-            allowtransparency="true"     ></iframe>
+            allowTransparency="true"     ></iframe>
         </div>
       </section>
 

@@ -52,6 +52,9 @@ export default function TeamsDropdown({ onCloseMenu }: TeamsDropdownProps) {
         <Link href="/team/dataInfra" className="dropdown-item" onClick={closeDropdown}>
           Data & Infrastructure
         </Link>
+        <Link href="/team/assetallocation" className="dropdown-item" onClick={closeDropdown}>
+          Asset Allocation
+        </Link>
         <Link href="/team/portfolio" className="dropdown-item" onClick={closeDropdown}>
           Portfolio
         </Link>

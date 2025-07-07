@@ -1,33 +1,19 @@
 export const ROLES = {
-  MD_ASSET_ALLOC: "Managing Director, Asset Allocation",
+ //MD_ASSET_ALLOC: "Managing Director, Asset Allocation",
   LEAD_QUANT_DEV: "Lead Quantitative Developer",
   DIR_DATA_INFRA: "Director, Data and Infrastructure",
-  DIR: "Director",
+  //DIR: "Director",
   ASSOC: "Associate",
 };
 
 export const DIRECTOR_ROLES = [
-  ROLES.MD_ASSET_ALLOC,
+  //ROLES.MD_ASSET_ALLOC,
   ROLES.DIR_DATA_INFRA,
-  ROLES.DIR,
+  //ROLES.DIR,
   ROLES.LEAD_QUANT_DEV,
 ];
 
 export const dataInfraMember = [
-  {
-    name: "Kelvin Fumo",
-    role: ROLES.MD_ASSET_ALLOC,
-    linkedin: "https://www.linkedin.com/in/kelvin-fumo-1b0a4a1b3/",
-    bio: "Kelvin is a 5th year Business and Computer Science student at Memorial University. He has experience as an Equity Analyst at the Fund and as a Data Analyst at North Atlantic. He also enjoys Basketball and Motor Racing. ",
-    image: "/headshots/kelvin.JPG",
-  },
-  {
-    name: "Mpundu Chikoya",
-    role: ROLES.MD_ASSET_ALLOC, // Treated as 'other member' below
-    linkedin: "https://www.linkedin.com/in/mpundu-chikoya-bb5aa2258/",
-    bio: "I am a 3rd year Applied Math and Economics major. I have interests in risk management and analysis. For fun, I like to bake and swim.",
-    image: "/headshots/mpundu.jpg", // Image exists but won't be passed to TeamMemberItem
-  },
   {
     name: "Koushik Mote",
     role: ROLES.DIR_DATA_INFRA,
