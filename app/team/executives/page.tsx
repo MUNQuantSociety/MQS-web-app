@@ -36,7 +36,7 @@ const executiveMember = [
     name: "Hameedah Salaam",
     role: "Lead Developer - Website Pod",
     linkedin: "https://www.linkedin.com/in/hameedah-salaam/ ",
-    bio: "My name is Hameedah, I am a fourth year CS student who is interested in User experience, research and design. In my free time I like to find new dad jokes. Did you know “dogs can’t operate MRI machines but catscan!”",
+    bio: "My name is Hameedah, I am a fourth year CS student interested in User experience, research and design. I also enjoy scrapbooking and learning",
     image: "/headshots/hameedah.JPG",
   },
   {
@@ -99,8 +99,15 @@ const executiveMember = [
     name: "Koushik Mote",
     role: "Co-Director - Data and Infrastructure",
     linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/ ",
-    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I also enjoy playing pool and watching thought provoking films.",
+    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and in life. I also enjoy playing pool and watching thought provoking films.",
     image: "/headshots/koushik.jpg",
+  },
+  {
+    name: "William Church",
+    role: "Director - External Relations",
+    linkedin: "https://www.linkedin.com/in/church-william/ ",
+    bio: "I am William, a fourth year Geography student with a passion for economic development, data analysis and visualization. At MQS, I focus on building connections with industry leaders to create opportunities for growth. ",
+    image: "/headshots/church.jpg",
   },
 ];
 
