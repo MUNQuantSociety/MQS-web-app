@@ -18,7 +18,7 @@ export const dataInfraMember = [
     name: "Koushik Mote",
     role: ROLES.DIR_DATA_INFRA,
     linkedin: "https://www.linkedin.com/in/koushik-mote-376980333/", 
-    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and occasionally in life. I enjoy socializing, playing pool, and watching thought provoking films.",
+    bio: "I am Koushik, a fourth-year Applied Maths and CS student. I am fascinated by differential equations and chaos—both in theory and in life. I also enjoy playing pool and watching thought provoking films.",
     image: "/headshots/koushik.jpg",
   },
   {
