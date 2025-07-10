@@ -1,6 +1,6 @@
 export const ROLES = {
   MD_A: "Managing Director, Active Portfolio",
-  MD_P: "Managing Director, Passvive Portfolio",
+  MD_P: "Managing Director, Passive Portfolio",
   ASSOC: "Associate",
   // Add other roles here if needed
 };
