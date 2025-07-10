@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { assetAllocationMembers, DIRECTOR_ROLES } from "./AAMembers";
 import "../style.css";
 
-// @ts-expect-error
+// @ts-expect-error: Component props are not strongly typed; handled via runtime checks
 function DirectorCard({ member }) {
   if (!member || !member.name || !member.role || !member.image || !member.linkedin) {
     console.warn("Missing data for DirectorCard:", member);
@@ -12,6 +12,7 @@ function DirectorCard({ member }) {
   return (
     <div className="teamCard">
       <div className="image">
+        {/* Consider using `next/image` for optimized loading */}
         <img src={member.image} alt={member.name} />
       </div>
       <div className="details">
@@ -34,7 +35,7 @@ function DirectorCard({ member }) {
   );
 }
 
-// @ts-expect-error
+// @ts-expect-error: Component props are not strongly typed; handled via runtime checks
 function TeamMemberItem({ member }) {
   if (!member || !member.name || !member.role || !member.linkedin) {
     console.warn("Missing data for TeamMemberItem:", member);
