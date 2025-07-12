@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import dynamic from 'next/dynamic'
 import { ApexOptions } from 'apexcharts'
 
@@ -20,21 +20,17 @@ type Metric = {
   close: number
 }
 
-export default function Dashboard() {
-  const [data, setData] = useState<Metric[]>([])
+interface DashboardProps {
+  initialData?: Metric[]
+}
 
-  // Poll every 5 seconds
-  useEffect(() => {
-    const fetchMetrics = async () => {
-      const res = await fetch('/api/metrics')
-      if (res.ok) setData(await res.json())
-    }
-    fetchMetrics()
-    const id = setInterval(fetchMetrics, 5000)
-    return () => clearInterval(id)
-  }, [])
+// Provide a default props object so that initialData is always defined
+export default function Dashboard(
+  props: DashboardProps = { initialData: [] }
+) {
+  const data: Metric[] = props.initialData ?? []
 
-  // Notional series for charts
+  // Series for Notional vs Timestamp
   const notionalSeries = [
     {
       name: 'Notional',
@@ -42,7 +38,7 @@ export default function Dashboard() {
     },
   ]
 
-  // Shared Apex options
+  // Shared chart settings
   const sharedOptions: ApexOptions = {
     chart: {
       id: 'notional-chart',
@@ -71,8 +67,10 @@ export default function Dashboard() {
     },
   }
 
-  // Latest data for KPI cards
-  const latest = data[data.length - 1] ?? { notional: 0, nav: 0, close: 0 }
+  // Latest values for KPI cards
+  const latest = data.length > 0
+    ? data[data.length - 1]
+    : { timestamp: new Date().toISOString(), notional: 0, nav: 0, open: 0, high: 0, low: 0, close: 0 }
   const initialCapital = 1_000_000
   const cards = [
     { title: 'ANALYTICS', value: 'Displays real-time fund metrics' },
@@ -88,7 +86,7 @@ export default function Dashboard() {
   ]
 
   return (
-    <div className="m-6 bg-black p-6 space-y-6 rounded-lg">
+    <div className="m-6 bg-[#293132] p-6 space-y-6 rounded-lg">
       {/* KPI Cards */}
       <div className="flex flex-col lg:flex-row gap-4">
         {cards.map(({ title, value }) => (
@@ -113,7 +111,7 @@ export default function Dashboard() {
         />
       </div>
 
-      {/* Two Smaller Charts: stack on small screens, side-by-side on large screens */}
+      {/* Two Smaller Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="bg-[#293132] rounded-lg border-2 border-white shadow w-full h-60 overflow-hidden">
           <ReactApexChart
