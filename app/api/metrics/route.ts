@@ -1,4 +1,5 @@
 // app/api/metrics/route.ts
+
 import { NextResponse } from 'next/server'
 import { Pool } from 'pg'
 
@@ -15,36 +16,34 @@ export async function GET() {
     const { rows } = await client.query<{
       timestamp: Date
       notional: number
-      unrealized_pnl: number
       realized_pnl: number
+      unrealized_pnl: number
     }>(`
       SELECT
-  timestamp,
-  notional,
-  realized_pnl,
-  unrealized_pnl
-FROM pnl_book
-WHERE notional != 0
-ORDER BY timestamp DESC
-LIMIT 1000
-
+        timestamp,
+        notional,
+        realized_pnl,
+        unrealized_pnl
+      FROM pnl_book
+      WHERE notional <> 0
+      ORDER BY timestamp DESC
+      LIMIT 1000
     `)
 
     client.release()
 
-    // Reverse to chronological order, and map to the shape Dashboard expects
+    // Reverse to chronological order and shape for the Dashboard
     const data = rows
-  .reverse()
-  .map(r => ({
-    timestamp: r.timestamp.toISOString(),
-    notional:   Number(r.notional),
-    nav:        Number(r.realized_pnl) + Number(r.unrealized_pnl),
-    open:       Number(r.notional),
-    high:       Number(r.notional),
-    low:        Number(r.notional),
-    close:      Number(r.notional),
-  }))
-
+      .reverse()
+      .map((r) => ({
+        timestamp: r.timestamp.toISOString(),
+        notional:   Number(r.notional),
+        nav:        Number(r.realized_pnl) + Number(r.unrealized_pnl),
+        open:       Number(r.notional),
+        high:       Number(r.notional),
+        low:        Number(r.notional),
+        close:      Number(r.notional),
+      }))
 
     return NextResponse.json(data)
   } catch (err) {

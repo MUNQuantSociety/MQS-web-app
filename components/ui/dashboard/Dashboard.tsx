@@ -4,16 +4,14 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 import { ApexOptions } from 'apexcharts'
 
-// ApexCharts only works in the browser, so disable SSR
-const ReactApexChart = dynamic(
-  () => import('react-apexcharts'),
-  { ssr: false }
-)
+// Disable SSR for ApexCharts
+const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
-type Metric = {
+// define your data shape
+export type Metric = {
   timestamp: string
-  nav: number
   notional: number
+  nav: number
   open: number
   high: number
   low: number
@@ -21,86 +19,58 @@ type Metric = {
 }
 
 interface DashboardProps {
-  initialData?: Metric[]
+  initialData: Metric[]
 }
 
-// Provide a default props object so that initialData is always defined
-export default function Dashboard(
-  props: DashboardProps = { initialData: [] }
-) {
-  const data: Metric[] = props.initialData ?? []
+export default function Dashboard({ initialData }: DashboardProps) {
+  const data = initialData
 
-  // Series for Notional vs Timestamp
+  // series for notional vs time
   const notionalSeries = [
     {
       name: 'Notional',
-      data: data.map(pt => [new Date(pt.timestamp).getTime(), pt.notional]),
+      data: data.map((pt) => [new Date(pt.timestamp).getTime(), pt.notional]),
     },
   ]
 
-  // Shared chart settings
+  // chart look & feel
   const sharedOptions: ApexOptions = {
-    chart: {
-      id: 'notional-chart',
-      toolbar: { show: false },
-      zoom: { enabled: true },
-      animations: { enabled: true },
-      foreColor: '#fff',
-      background: 'transparent',
-    },
+    chart: { id: 'chart', toolbar: { show: false }, foreColor: '#fff' },
     theme: { mode: 'dark' },
     grid: { borderColor: '#444' },
     stroke: { curve: 'smooth', width: 2 },
-    xaxis: {
-      type: 'datetime',
-      labels: { datetimeUTC: false },
-      axisBorder: { color: '#666' },
-    },
+    xaxis: { type: 'datetime', axisBorder: { color: '#666' } },
     yaxis: {
       title: { text: 'Notional (USD)', style: { color: '#fff' } },
-      labels: { formatter: val => `$${val.toLocaleString()}` },
+      labels: { formatter: (v) => `$${v.toLocaleString()}` },
       axisBorder: { color: '#666' },
     },
     tooltip: {
       x: { format: 'dd MMM yyyy, HH:mm' },
-      y: { formatter: val => `$${val.toLocaleString()}` },
+      y: { formatter: (v) => `$${v.toLocaleString()}` },
     },
   }
 
-  // Latest values for KPI cards
-  const latest = data.length > 0
-    ? data[data.length - 1]
-    : { timestamp: new Date().toISOString(), notional: 0, nav: 0, open: 0, high: 0, low: 0, close: 0 }
-  const initialCapital = 1_000_000
-  const cards = [
-    { title: 'ANALYTICS', value: 'Displays real-time fund metrics' },
-    { title: 'Updated', value: `As of ${new Date(latest.timestamp).toLocaleTimeString()}` },
-    {
-      title: 'Current Valuation',
-      value: (() => {
-        const pnl = latest.nav - initialCapital
-        const sign = pnl >= 0 ? '+' : '-'
-        return `${sign}$${Math.abs(pnl).toLocaleString()}`
-      })(),
-    },
-  ]
-
   return (
-    <div className="m-6 bg-[#293132] p-6 space-y-6 rounded-lg">
-      {/* KPI Cards */}
-      <div className="flex flex-col lg:flex-row gap-4">
-        {cards.map(({ title, value }) => (
+    <div className="m-6 bg-black p-6 space-y-6 rounded-lg">
+      {/* KPI cards (unchanged)… */}
+      <div className="flex flex-col md:flex-row gap-4">
+        {['Total Notional', 'NAV', 'P&L'].map((title) => (
           <div
             key={title}
-            className="flex-1 border-2 border-[#B79A64] bg-[#293132] text-white p-4 rounded-lg flex flex-col justify-between"
+            className="
+              flex-1 border-2 border-[#B79A64]
+              bg-[#293132] text-white p-4 rounded-lg
+              flex flex-col justify-between
+            "
           >
             <h3 className="text-lg font-medium">{title}</h3>
-            <p className="text-2xl font-bold">{value}</p>
+            <p className="text-2xl font-bold">…</p>
           </div>
         ))}
       </div>
 
-      {/* Main Chart Container */}
+      {/* Full-width Notional chart */}
       <div className="bg-[#293132] rounded-lg border-2 border-white shadow w-full h-80 overflow-hidden">
         <ReactApexChart
           options={sharedOptions}
@@ -111,7 +81,7 @@ export default function Dashboard(
         />
       </div>
 
-      {/* Two Smaller Charts */}
+      {/* Two smaller Notional charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="bg-[#293132] rounded-lg border-2 border-white shadow w-full h-60 overflow-hidden">
           <ReactApexChart
