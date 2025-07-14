@@ -18,11 +18,14 @@ export default async function AboutPage() {
     realized_pnl: number
     unrealized_pnl: number
   }>(`
-    SELECT timestamp, notional, realized_pnl, unrealized_pnl
-    FROM pnl_book
-    WHERE notional <> 0
-    ORDER BY timestamp DESC
-    LIMIT 1000
+    SELECT
+        timestamp,
+        notional,
+        realized_pnl,
+        unrealized_pnl
+      FROM pnl_book
+      WHERE notional <> 0
+     ORDER BY timestamp ASC
   `)
 
   const initialData: Metric[] = rows

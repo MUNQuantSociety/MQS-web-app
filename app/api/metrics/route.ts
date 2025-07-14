@@ -26,8 +26,7 @@ export async function GET() {
         unrealized_pnl
       FROM pnl_book
       WHERE notional <> 0
-      ORDER BY timestamp DESC
-      LIMIT 1000
+      ORDER BY timestamp ASC
     `)
 
     client.release()
