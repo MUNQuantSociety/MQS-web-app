@@ -14,6 +14,10 @@ const Resources = () => {
               Each team has dedicated folders containing project documentation, 
               research papers, code repositories, and meeting notes.
             </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mt-4">
+              New members should start by exploring the team drives. Each folder contains an onboarding document, past project examples, and useful resources.
+              Feel free to reach out to team leads if you have any questions!
+            </p>
            </div>
         </div>
 

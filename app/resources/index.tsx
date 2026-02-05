@@ -43,22 +43,22 @@ export const myResources = [
     },
     {
         id: 3,
-        title: "add",
-        description: "add",
+        title: "Portfolio",
+        description: "Manages live trading strategies and analyzes performance metrics for the society's investment portfolio.",
         image: "",
         href: "#",
         tags: [
             {
                 id: 1,
-                name: "add",
+                name: "Trading",
             },
             {
                 id: 2,
-                name: "add",
+                name: "Analytics",
             },
             {
                 id: 3,
-                name: "add",
+                name: "Performance",
             },
         ]
     },
