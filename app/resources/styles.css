@@ -148,3 +148,30 @@
     height: 160px;
   }
 }
+
+.upload-button {
+  margin-top: 14px;
+  margin-left: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(74, 246, 195, 0.4);
+  background: rgba(74, 246, 195, 0.08);
+  color: #4af6c3;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.upload-button:hover {
+  background: rgba(74, 246, 195, 0.18);
+  border-color: #4af6c3;
+}
+
+.selected-file-name {
+  margin-top: 10px;
+  margin-left: 12px;
+  display: inline-block;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #d1d5db;
+}

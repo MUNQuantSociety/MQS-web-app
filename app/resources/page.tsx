@@ -1,8 +1,32 @@
+'use client'
+
 import Image from "next/image"
+import {useRef, useState} from "react"
 import './styles.css'
 import { myResources } from './index'
 
 const Resources = () => {
+  const fileInputRef = useRef<HTMLInputElement>(null)
+  const [activeResourceId, setActiveResourceId] = useState<number | null>(null)
+  const [selectedFiles, setSelectedFiles] = useState<Record<number, string>>({})
+
+  const handleUploadClick = (resourceId: number) => {
+    setActiveResourceId(resourceId)
+    fileInputRef.current?.click()
+  } 
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+
+    if (file && activeResourceId !== null) {
+      setSelectedFiles((previous) => ({
+        ...previous,
+        [activeResourceId]: file.name,
+      }))
+    }
+    event.target.value = ''
+  }
+
   return (
     <div className="min-h-screen bg-black">
       <div className="container mx-auto px-6 py-12">
@@ -55,11 +79,30 @@ const Resources = () => {
                       className="ml-2 filter invert"
                     />
                   </a>
+
+                  <button
+                    type= "button"
+                    className="upload-button"
+                    onClick={() => handleUploadClick(resource.id)}
+                  >
+                    Upload File
+                  </button>
+
+                  {selectedFiles[resource.id] && (
+                    <p className="selected-file-name">{selectedFiles[resource.id]}</p>
+                  )}
                 </div>
               )}
             </div>
           ))}
         </div>
+
+        <input
+          ref={fileInputRef}
+          type="file"
+          className="hidden"
+          onChange={handleFileChange}
+        />
       </div>
     </div>
   )
