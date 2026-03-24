@@ -15,17 +15,35 @@ const Resources = () => {
     fileInputRef.current?.click()
   } 
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0]
+const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const file = event.target.files?.[0];
 
-    if (file && activeResourceId !== null) {
-      setSelectedFiles((previous) => ({
-        ...previous,
-        [activeResourceId]: file.name,
-      }))
+  if (file && activeResourceId !== null) {
+    setSelectedFiles((previous) => ({
+      ...previous,
+      [activeResourceId]: file.name,
+    }));
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/resources/upload/', {
+        method: 'POST',
+        body: formData,
+      });
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Upload failed');
+      }
+      const data = await response.json();
+      console.log('Upload successful, file URL:', data.url);
+    } catch (error) {
+      console.error('File upload error:', error);
     }
-    event.target.value = ''
   }
+  event.target.value = '';
+};
 
   return (
     <div className="min-h-screen bg-black">
@@ -74,7 +92,7 @@ const Resources = () => {
                     <Image 
                       src="/external-link.png" 
                       alt="External link" 
-                      width={16} 
+                      width={16}            
                       height={16} 
                       className="ml-2 filter invert"
                     />
