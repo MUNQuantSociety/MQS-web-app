@@ -4,7 +4,7 @@ import { HeroSection } from '@/sections/about/HeroSection';
 import { AnimatedTextSection } from '@/sections/about/AnimatedTextSection';
 import { SponsorsSection } from '@/sections/about/SponsorsSection';
 import { AdvisorsSection } from '@/sections/about/AdvisorsSection';
-import { MetabaseSection } from '@/sections/about/MetabaseSection';
+// import { MetabaseSection } from '@/sections/about/MetabaseSection';
 import { PanelsSection } from '@/sections/about/PanelSection';
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
       <AnimatedTextSection />
       <SponsorsSection />
       <AdvisorsSection />
-      <MetabaseSection />
+      {/* <MetabaseSection /> */}
       <PanelsSection />
     </div>
   );
