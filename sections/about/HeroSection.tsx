@@ -4,10 +4,27 @@ import { HERO_VIDEO_SRC, JOIN_FORM_URL } from '@/lib/aboutConsts';
 
 export function HeroSection() {
   const [showHeroText, setShowHeroText] = useState(false);
+  const [currentDateTime, setCurrentDateTime] = useState('');
 
   useEffect(() => {
     const timer = setTimeout(() => setShowHeroText(true), 1000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const formatNow = () =>
+      new Intl.DateTimeFormat('en-US', {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+      }).format(new Date());
+
+    setCurrentDateTime(formatNow());
+    const interval = setInterval(() => setCurrentDateTime(formatNow()), 60000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -18,6 +35,7 @@ export function HeroSection() {
       </video>
       <div className="main-title-container">
         <h1 className="main-title">MUN QUANT SOCIETY</h1>
+        <p className="hero-datetime">{currentDateTime}</p>
         <a
           href={JOIN_FORM_URL}
           className="nav-link join-us hero-join-button"

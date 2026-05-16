@@ -72,6 +72,22 @@
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
+.main-title-container .hero-datetime {
+  display: block;
+  width: fit-content;
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 1;
+  letter-spacing: 0.04em;
+  margin: 0.25rem auto 0.9rem;
+  padding: 0.3rem 0.65rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.75);
+}
+
 .main-title-container .scroll-prompt {
   font-size: 1.2rem;
   opacity: 0.8;
