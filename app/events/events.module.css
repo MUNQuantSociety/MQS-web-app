@@ -1,0 +1,83 @@
+/* Typography (scoped) */
+.eventsPage h1 {
+  font-size: clamp(1.5rem, 5vw, 4.5rem);
+}
+
+.eventsPage h2 {
+  font-size: clamp(1.4rem, 1.5vw, 2.5rem);
+}
+
+.eventsPage h3 {
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.eventsPage h4 {
+  font-size: clamp(1rem, 10vw, 9rem);
+}
+
+.eventsPage p {
+  font-size: clamp(0.7rem, 1.3vw, 1.5rem);
+}
+
+.eventsPage .heroText {
+  font-size: clamp(2rem, 6vw, 8rem);
+}
+
+/* Layout (global, but wrapped inside local class) */
+.eventsPage :global(.eventsGrid) {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  grid-auto-flow: dense;
+  background-color: #0a0a0ab9;
+  justify-content: center;
+}
+
+.eventsPage :global(.grid-item) {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, clip-path 0.4s ease;
+  padding: 2rem;
+}
+
+.eventsPage :global(.grid-item-content) {
+  position: relative;
+  z-index: 2;
+  padding: 5%;
+}
+
+.eventsPage :global(.grid-item.is-hovered::before) {
+  opacity: 1;
+}
+
+.eventsPage :global(.grid-item-image) {
+  z-index: -1;
+  clip-path: inherit;
+}
+
+.eventsPage :global(.primary-item.notch-right) {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 90% 50%, 100% 60%, 100% 100%, 0% 100%);
+}
+
+.eventsPage :global(.primary-item.notch-left) {
+  clip-path: polygon(0% 40%, 10% 50%, 0% 60%, 0% 100%, 100% 100%, 100% 0%, 0% 0%);
+}
+
+.eventsPage :global(.primary-item.notch-top) {
+  clip-path: polygon(0% 100%, 100% 100%, 100% 0%, 60% 0%, 50% 10%, 40% 0%, 0% 0%);
+}
+
+.eventsPage :global(.primary-item.notch-bottom) {
+  clip-path: polygon(100% 0%, 100% 100%, 60% 100%, 50% 90%, 40% 100%, 0% 100%, 0% 0%);
+}
+
+@media (max-width: 768px) {
+  .eventsPage :global(.eventsGrid) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

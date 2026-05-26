@@ -1,8 +1,7 @@
-//page.tsx
 "use client";
 
 import React, { useEffect, useMemo, useState } from "react";
-import "./styles.css";
+import styles from "./events.module.css";
 import Image from 'next/image';
 import { generateEventsLayout, simplePastEvents, GridItemData, ArrowDirection } from "./eventsData";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
@@ -30,13 +29,11 @@ function GridItem({ item, hoveredId, setHoveredId }: { item: GridItemData; hover
   if (isHovered) {
     classNames.push('is-hovered');
   }
+
   return (
     <div
       className={classNames.join(' ')}
-      style={{
-        gridRow: row,
-        gridColumn: col,
-      }}
+      style={{ gridRow: row, gridColumn: col }}
       onMouseEnter={() => setHoveredId(baseId)}
       onMouseLeave={() => setHoveredId(null)}
     >
@@ -49,10 +46,9 @@ function GridItem({ item, hoveredId, setHoveredId }: { item: GridItemData; hover
           className="grid-item-image"
         />
       )}
+
       {type === 'primary' ? (
-        <div className="grid-item-content">
-          {/*<h2>{event.title}</h2>*/}
-        </div>
+        <div className="grid-item-content"></div>
       ) : (
         <div className="grid-item-content details-content">
           <h1>{event.title}</h1>
@@ -62,9 +58,11 @@ function GridItem({ item, hoveredId, setHoveredId }: { item: GridItemData; hover
     </div>
   );
 }
+
 export default function EventsPage() {
   const isTwoColumn = useMediaQuery('(max-width: 768px)');
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+
   const eventsLayout = useMemo(() => {
     const layoutType = isTwoColumn ? '2-col' : '3-col';
     return generateEventsLayout(simplePastEvents, layoutType);
@@ -78,20 +76,27 @@ export default function EventsPage() {
   }, []);
 
   return (
-    <>
+    <div className={styles.eventsPage}>
       <div className="heroE">
-        <div className="heroText">What we do.
-        </div>            </div>
+        <div className={styles.heroText}>What we do.</div>
+      </div>
+
       <main className="mainE events-page" style={{ fontSize: "clamp(4rem, 6vw, 6rem)" }}>
         <section className="eventsGrid">
           {eventsLayout.map(item => (
-            <GridItem key={item.id} item={item} hoveredId={hoveredId} setHoveredId={setHoveredId} />
+            <GridItem
+              key={item.id}
+              item={item}
+              hoveredId={hoveredId}
+              setHoveredId={setHoveredId}
+            />
           ))}
         </section>
+
         <section className="upcomingSection">
-          <h2>We do so much more and we&apos;re just getting started! Join us today!</h2>
+          <h2>We do so much more and we’re just getting started! Join us today!</h2>
         </section>
       </main>
-    </>
+    </div>
   );
 }

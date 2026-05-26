@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import "./style.css";
+import styles from "./teams.module.css";
 import Image from "next/image";
 
 import { executives } from "./exec-descr";
@@ -29,7 +29,7 @@ export default function TeamsPage() {
   }, []);
 
   return (
-    <>
+    <div className={styles.teamsPage}>
       <div
         className="heroT"
         style={
@@ -38,7 +38,7 @@ export default function TeamsPage() {
           } as React.CSSProperties
         }
       >
-        <div className="heroText">Meet the Executives.</div>
+        <div className={styles.heroText}>Meet the Executives.</div>
       </div>
 
       <main className="mainT">
@@ -88,6 +88,6 @@ export default function TeamsPage() {
           </section>
         </div>
       </main>
-    </>
+    </div>
   );
 }

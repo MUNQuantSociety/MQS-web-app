@@ -1,5 +1,5 @@
 'use client';
-import './style.css';
+import styles from './about.module.css';
 import { HeroSection } from '@/sections/about/HeroSection';
 import { AnimatedTextSection } from '@/sections/about/AnimatedTextSection';
 import { SponsorsSection } from '@/sections/about/SponsorsSection';
@@ -9,7 +9,7 @@ import { PanelsSection } from '@/sections/about/PanelSection';
 
 export default function AboutPage() {
   return (
-    <div className="about-page">
+    <div className={styles.aboutPage}>
       <HeroSection />
       <AnimatedTextSection />
       <SponsorsSection />

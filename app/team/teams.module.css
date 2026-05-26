@@ -1,0 +1,24 @@
+.teamsPage h1 { 
+  font-size: clamp(3rem, 5vw, 4rem);
+}
+
+.teamsPage h2 { 
+  font-size: clamp(1.4rem, 1.5vw, 2.5rem);
+}
+
+.teamsPage h3 { 
+  font-size: clamp(1.5rem, 2.5vw, 3rem);
+}
+
+.teamsPage h4 { 
+  font-size: clamp(1rem, 10vw, 9rem);
+}
+
+.teamsPage p { 
+  font-size: clamp(0.6rem, 1.5vw, 1.5rem);
+}
+
+.teamsPage .heroText {
+  font-size: clamp(2rem, 6vw, 8rem);
+  text-align: center;
+}

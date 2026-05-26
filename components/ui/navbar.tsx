@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import ThemeToggle from './ThemeToggle';
+
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -74,6 +76,7 @@ export default function Navbar() {
           >
             JOIN US
           </a>
+          {/* 🌙 Theme Toggle */} <ThemeToggle />
         </nav>
       </div>
 
@@ -102,8 +105,13 @@ export default function Navbar() {
           >
             JOIN US
           </a>
+          {/* 🌙 Theme Toggle */}
+          <div className="mt-4">
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </header>
+    
   );
 }

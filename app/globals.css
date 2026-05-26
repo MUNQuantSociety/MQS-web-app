@@ -56,39 +56,51 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+/* ---------------- LIGHT THEME ---------------- */ 
+:root { --radius: 0.625rem; 
+/* Base */ --background: #F7F9FC;
+--foreground: #1A2A3A; 
+--card: #EDF1F7; 
+--card-foreground: #1A2A3A; 
+--popover: #E3E9F2; 
+--popover-foreground: #1A2A3A; 
+/* Brand */ 
+--primary: #0B2383; 
+--primary-foreground: #F7F9FC; 
+--secondary: #082E62; 
+--secondary-foreground: #F7F9FC; 
+/* Text */ 
+--text-primary: #1A2A3A; 
+--text-secondary: #4A5A6A; 
+--text-muted: #7A8A9A; 
+/* Accent */ 
+--accent: #2DA8A8; 
+--accent-foreground: #F7F9FC; 
+/* Utility */ 
+--success: #3BAF6C; 
+--warning: #E6A23C; 
+--error: #C0392B; 
+/* UI */ 
+--muted: #E3E9F2; 
+--muted-foreground: #7A8A9A; 
+--border: #C7D0DD; 
+--input: #EDF1F7; 
+--ring: #90D4C5; 
+/* Charts */ 
+--chart-1: #2DA8A8; 
+--chart-2: #3BAF6C; 
+--chart-3: #6C4CCF; 
+--chart-4: #E6A23C; 
+--chart-5: #C0392B; 
+/* Sidebar */ 
+--sidebar: #F7F9FC; 
+--sidebar-foreground: #1A2A3A; 
+--sidebar-primary: #0B2383; 
+--sidebar-primary-foreground: #F7F9FC; 
+--sidebar-accent: #2DA8A8; 
+--sidebar-accent-foreground: #F7F9FC; 
+--sidebar-border: #C7D0DD; 
+--sidebar-ring: #90D4C5; 
 }
 
 .dark {
@@ -182,8 +194,8 @@ body {
   margin: 0;
   padding-top: 60px;
   /*font-family: 'Oswald', sans-serif;*/
-  color: #90D4C5;
-  background-color: #1a1a1a;
+  color: var(--foreground);
+  background-color: var(--background);
 }
 
 header {
@@ -192,7 +204,7 @@ header {
   left: 0;
   width: 100%;
   z-index: 1000; 
-  background: linear-gradient(to bottom, #141414d6); 
+  background: linear-gradient(to bottom, var(--background) 0%, var(--background) 80%);
   backdrop-filter: blur(10px);
 }
 
@@ -244,7 +256,7 @@ header {
   
 }
 .nav-link {
-  color: white;
+  color: var(--foreground);
   text-decoration: none;
   padding: 8px 15px;
   position: relative;
@@ -646,7 +658,7 @@ header {
 .teamCard {
   position: relative;
   aspect-ratio: 1 / 1;
-  background-color: #0b0a0a;
+  background-color: var(--card);
   overflow: hidden;
   border-radius: 6px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
@@ -732,7 +744,7 @@ header {
 }
 .other-member-item {
     position: relative;
-    background: #1e1e1eb3;
+    background: var(--card);
     padding: 2rem;
     border-radius: 5px;
     text-align: center;
